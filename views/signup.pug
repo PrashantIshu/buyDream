@@ -1,0 +1,15 @@
+extends base
+
+block content
+    form.form-signup
+        h2 SignUp to register to Secrets.io
+        label(for="name-field") Name: 
+        input#name-field(type="text" name="name" placeholder="enter your name", autocomplete="off", required, )
+        label(for="email-field") Email Address: 
+        input#email-field(type="email" name="email" placeholder="enter your email", required)
+        label(for="pass-field") Password: 
+        input#pass-field(type="password" name="password" placeholder="enter password", required, minlength='8')
+        label(for="passConfirm-field") Confirm Password: 
+        input#passConfirm-field(type="password" name="confirm-password" placeholder="re-enter password", required)
+        button.sigin-btn Sign up
+    //- p.mt-5.mb-3.text-muted &copy; Prashant Shekhar

@@ -1,0 +1,134 @@
+extends base
+
+block content
+    if myProperties
+        #my-properties-img
+            h2#topic-one Heading
+            ion-icon.menu-icon(class="ion-navicon-round", onClick="openMenu()", name="menu")
+            section#nav
+                ul.qwerty
+                    h1#topic Heading
+                    li.left-list: .dropdown
+                            button.navBtn(class='dropbtn') Sort By
+                            .dropdown-content-1
+                                a(href="/min-to-max-price") Min-Max Price
+                                a(href="/max-to-min-price") Max-Min Price
+                                a(href="/min-to-max-rating") Min-Max Rating
+                                a(href="/max-to-min-rating") Max-Min Rating
+                    li.left-list: button.navBtn(onClick="showPosition('nearMe')") Buildings Near me
+                    li.left-list: .dropdown
+                            button.filter.navBtn(class='dropbtn') Filter
+                            .dropdown-content-2
+                                p Buildings Within Distance(in meters)
+                                p.zero 0
+                                input#distance-range(type="range", min="0", max="10000", value="0")
+                                p.thousand 10000
+                                <p class="value">Value: <span id="demo"></span></p>
+                                button(onClick="showPosition('buildingWithin')") Show
+                    li.left-list: a.sell.navlink(href="/sellBuilding") Sell Property 
+            
+                    if user 
+                        li.user-home: a.navlink(class="signup", href="/me")= user.name
+                        img.img-home(src=`/img/users/${user.photo}`)
+                        li.logout-home: button.navBtn#logout(class="login") Log Out
+    else
+        #bg-home-img
+            img(src="https://images.pexels.com/photos/2041003/pexels-photo-2041003.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260", alt="bg_img")
+        h2#topic-one Heading
+        ion-icon.menu-icon(class="ion-navicon-round", onClick="openMenu()", name="menu")
+        section#nav
+            ul.qwerty
+                h1#topic Heading
+                li.left-list: .dropdown
+                        button.navBtn(class='dropbtn') Sort By
+                        .dropdown-content-1
+                            a(href="/min-to-max-price") Min-Max Price
+                            a(href="/max-to-min-price") Max-Min Price
+                            a(href="/min-to-max-rating") Min-Max Rating
+                            a(href="/max-to-min-rating") Max-Min Rating
+                li.left-list: button.navBtn(onClick="showPosition('nearMe')") Buildings Near me
+                li.left-list: .dropdown
+                        button.filter.navBtn(class='dropbtn') Filter
+                        .dropdown-content-2
+                            p Buildings Within Distance(in meters)
+                            p.zero 0
+                            input#distance-range(type="range", min="0", max="10000", value="0")
+                            p.thousand 10000
+                            <p class="value">Value: <span id="demo"></span></p>
+                            button(onClick="showPosition('buildingWithin')") Show
+                li.left-list: a.sell.navlink(href="/sellBuilding") Sell Property 
+            
+                if user 
+                    li.user-home: a.navlink(class="signup", href="/me")= user.name
+                    img.img-home(src=`/img/users/${user.photo}`)
+                    li.logout-home: button.navBtn#logout(class="login") Log Out
+                else
+                    li.left-list.signup-home: a.navlink(class="signup", href="/signup") Sign Up
+                    li.left-list.login-home: a.navlink(class="login", href="/login") Log In
+        #overview-slogan
+            h1#one-liner.cssanimation.sequence.fadeInBottom “Don’t wait to buy real estate. Buy real estate and wait.” -Will Rogers
+        #search-box-section
+            form#search-box
+                //- i.fas.fa-map-marker-alt
+                input#search-field(type="text", name="string", placeholder="   Enter address, locality or city", autocomplete="off")
+                button(onClick="searchBtn()") Search
+    
+    //- ion-icon#cross-icon(onClick="closeMenu()", name="close")
+                
+            
+    h2#apartments(class="animate__animated animate__bounce an-1") Apartments Flats        
+    <div id="right-button" style="visibility: hidden;" onClick="rightClick()"><i class="overview-left-btn fas fa-chevron-left"></i></div>
+    section#body                    
+        form#wishlist-container
+            #overview-container.grid-container
+                input#totalBuildings(value=`${buildings.length}`, style="display: none;")
+                each building in buildings
+                    div.card
+                        //- img(src="https://property.magicbricks.com/mb-microsite/uttamnagarfloors-aggarwalrealestates-delhi/images/gallery/g1.jpg", class="card-img-top", alt="house_1")
+                        //- .inr-icon
+                        .card-img
+                            img(src=`/img/buildings/${building.imageCover}` class="card-img-top" alt="house_1")
+                        .text
+                            .fas.fa-rupee-sign.fa-sm
+                            h2.card-title= `${building.price} Cr`
+                        
+                            p.onwards Avg Price
+                            h3= `${building.name}`
+                            //- br
+                            if(building.builder)
+                                p.by= `by ${building.builder.name}`
+                            else 
+                                p.by Null
+                            .fas.fa-map-marker-alt.fa-sm 
+                            p.area= building.address
+                            //- hr
+                            //- each flatType in building.propertiesAvailable
+                            p.text-muted=`Flats Available: ${building.propertiesAvailable} BHK` 
+                            p.averageRating= `Avg Rating: ${building.ratingsAverage}`
+                            i.fa.fa-star-o
+                            p.ratingQuantity= `Total ratings: ${building.ratingsQuantity}`
+                            hr.line-break
+                            if overview 
+                                if admin
+                                    button.btn.wishlist-btn(onClick=`deleteBuilding('${building._id}')`) Delete
+                                    a.detail-btn(href=`/houses/${building.slug}`) Details
+                                    a.updateBtnLink(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
+                                    a.updateLinkBtn(href=`/updateBuilding/${building.slug}`) Update
+                                else
+                                    i.far.fa-bookmark
+                                    button.btn.wishlist-btn(onClick=`addWishlist('${building.name}')`) Save 
+                                    a.detail-btn(href=`/houses/${building.slug}`) Details
+                            if myProperties 
+                                if agentOrOwner
+                                    button.btn.wishlist-btn(onClick=`deleteBuilding('${building._id}')`) Delete
+                                    a.detail-btn(href=`/houses/${building.slug}`) Details
+                                    a.updateBtnLink(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
+                                    a.updateLinkBtn(href=`/updateBuilding/${building.slug}`) Update
+                                else
+                                    i.far.fa-bookmark
+                                    button.btn.wishlist-btn(onClick=`addWishlist('${building.name}')`) Save
+                                    a.detail-btn(href=`/houses/${building.slug}`) Details
+                            input.buildId(type="text", class=`${building.name}`, value=`${building._id}`) 
+                        //- if admin 
+                        //-     a(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
+    <div id="left-button" onClick="leftClick()"><i class="fa fa-chevron-right overview-right-btn"></i></div>                   

@@ -1,0 +1,102 @@
+.fuck {
+    border: 1px solid yellow;
+    position: relative;
+    height: 435px;
+    overflow: auto;
+    margin-bottom: 5rem;
+}
+
+
+.column {
+    border: 1px solid black;
+    width: 70%;
+    height: 435px;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    margin: 0 auto;
+}
+
+.column img {
+    height: 216px;
+    width: 320px;
+    overflow: hidden;
+    border: 1px solid blue;
+
+    float: left;
+    position: relative;
+    left: 40px;
+    top: 60px;
+}
+
+.a {
+    /* position: absolute;
+    left: 0;
+    top: 0; */
+    visibility: visible;
+}
+
+.column .texts {
+    margin-left: 320px;
+}
+
+.column .texts .fa {
+    margin-left: 100px;
+}
+
+.column .texts h5 {
+    margin-left: 7.5px;
+    margin-top: 50px;
+    display: inline-block;
+    width: inherit;
+    font-size: 25px;
+}
+
+.column .texts h6 {
+    display: inline-block;
+    width: inherit;
+    margin-left: 40px;
+    font-size: 20px;
+}
+
+.column .texts p {
+    margin-left: 230px;
+    width: inherit;
+    display: inline-block;
+}
+
+.about {
+    margin-top: 40px;
+}
+
+.bal {
+    margin-top: -40px;
+    position: relative;
+    left: 170px;
+ }
+
+.usp {
+    margin-top: -8px;
+}
+
+.left-btn, .right-btn {
+    height: 40px;
+    text-align: center;
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid grey;
+    float: right;
+    margin-right: 70px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.left-btn {
+    position: relative;
+    right: 50px;
+}
+
+.left-btn:hover, .right-btn:hover {
+    background-color: #DAE0E2;
+} 

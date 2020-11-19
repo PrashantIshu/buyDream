@@ -1,0 +1,72 @@
+[
+    {
+      "_id": "5c8a34ed14eb5c17645c9108",
+      "review": "Cras mollis nisi parturient mi nec aliquet suspendisse sagittis eros condimentum scelerisque taciti mattis praesent feugiat eu nascetur a tincidunt",
+      "rating": 5,
+      "user": "5c8a1dfa2f8fb814b56fa181",
+      "building": "5c8a1d5b0190b214360dc057"
+    },
+    {
+      "_id": "5c8a355b14eb5c17645c9109",
+      "review": "Tempus curabitur faucibus auctor bibendum duis gravida tincidunt litora himenaeos facilisis vivamus vehicula potenti semper fusce suspendisse sagittis!",
+      "rating": 4,
+      "user": "5c8a1dfa2f8fb814b56fa181",
+      "building": "5c8a1dfa2f8fb814b56fa181"
+    },
+    {
+      "_id": "5c8a359914eb5c17645c910a",
+      "review": "Convallis turpis porttitor sapien ad urna efficitur dui vivamus in praesent nulla hac non potenti!",
+      "rating": 5,
+      "user": "5c8a1dfa2f8fb814b56fa181",
+      "building": "5c8a1e1a2f8fb814b56fa182"
+    },
+    {
+      "_id": "5c8a35b614eb5c17645c910b",
+      "review": "Habitasse scelerisque class quam primis convallis integer eros congue nulla proin nam faucibus parturient.",
+      "rating": 4,
+      "user": "5c8a1dfa2f8fb814b56fa181",
+      "building": "5c8a1ec62f8fb814b56fa183"
+    },
+    {
+      "_id": "5c8a364c14eb5c17645c910c",
+      "review": "Cras consequat fames faucibus ac aliquam dolor a euismod porttitor rhoncus venenatis himenaeos montes tristique pretium libero nisi!",
+      "rating": 5,
+      "user": "5c8a1e1a2f8fb814b56fa182",
+      "building": "5c8a1f292f8fb814b56fa184"
+    },
+    {
+      "_id": "5c8a368c14eb5c17645c910d",
+      "review": "Laoreet justo volutpat per etiam donec at augue penatibus eu facilisis lorem phasellus ipsum tristique urna quam platea.",
+      "rating": 5,
+      "user": "5c8a1e1a2f8fb814b56fa182",
+      "building": "5c8a1f292f8fb814b56fa184"
+    },
+    {
+      "_id": "5c8a36a014eb5c17645c910e",
+      "review": "Senectus lectus eleifend ex lobortis cras nam cursus accumsan tellus lacus faucibus himenaeos posuere!",
+      "rating": 5,
+      "user": "5c8a1e1a2f8fb814b56fa182",
+      "building": "5c8a1d5b0190b214360dc057"
+    },
+    {
+      "_id": "5c8a36b714eb5c17645c910f",
+      "review": "Pulvinar taciti etiam aenean lacinia natoque interdum fringilla suspendisse nam sapien urna!",
+      "rating": 4,
+      "user": "5c8a1e1a2f8fb814b56fa182",
+      "building": "5c8a1f4e2f8fb814b56fa185"
+    },
+    {
+      "_id": "5c8a379a14eb5c17645c9110",
+      "review": "Pretium vel inceptos fringilla sit dui fusce varius gravida platea morbi semper erat elit porttitor potenti!",
+      "rating": 5,
+      "user": "5c8a24402f8fb814b56fa190",
+      "building": "5c8a201e2f8fb814b56fa186"
+    },
+    {
+      "_id": "5c8a37b114eb5c17645c9111",
+      "review": "Ex a bibendum quis volutpat consequat euismod vulputate parturient laoreet diam sagittis amet at blandit.",
+      "rating": 4,
+      "user": "5c8a24402f8fb814b56fa190",
+      "building": "5c8a1d5b0190b214360dc057"
+    }
+]

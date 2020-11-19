@@ -1,0 +1,82 @@
+[
+    {
+        "type": "Sports",
+        "name": "Gymnasium",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f1070429f", "5f203227ae7ff13f107042a4", "5f203227ae7ff13f107042ae", "5f203227ae7ff13f107042b3", "5f203227ae7ff13f107042b8"] 
+    },
+    {
+        "type": "Sports",
+        "name": "Aerobics Room",
+        "building":  ["5f203226ae7ff13f10704295", "5f203226ae7ff13f10704295", "5f203227ae7ff13f1070429f"]
+    },
+    {
+        "type": "Sports",
+        "name": "Jogging Track",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f107042a4", "5f203227ae7ff13f107042a9", "5f203227ae7ff13f107042ae", "5f203227ae7ff13f107042b3"] 
+    },
+    {
+        "type": "Sports",
+        "name": "Badminton Court",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f107042b3", "5f203227ae7ff13f107042bd"] 
+    },
+    {
+        "type": "Sports",
+        "name": "Kid's Play Area",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f107042bd"]
+    },
+    {
+        "type": "Leisure",
+        "name": "Lift",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f1070429f", "5f203227ae7ff13f107042b3"]
+    },
+    {
+        "type": "Leisure",
+        "name": "Car Parking",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f107042a9"]
+    },
+    {
+        "type": "Leisure",
+        "name": "Power Backup",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f107042ae", "5f203227ae7ff13f107042b3"]
+    },
+    {
+        "type": "Leisure",
+        "name": "Laundary Service",
+        "building": ["5f203226ae7ff13f10704295", "5f203226ae7ff13f10704295"]
+    },
+    {
+        "type": "Security",
+        "name": "CCTV",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f107042ae"]
+    },
+    {
+        "type": "Security",
+        "name": "24x7 Security",
+        "building": ["5f203227ae7ff13f107042b3", "5f203226ae7ff13f10704295"]
+    },
+    {
+        "type": "Security",
+        "name": "Security Gaurd",
+        "building": ["5f203227ae7ff13f107042a4", "5f203226ae7ff13f10704295", "5f203227ae7ff13f1070429f"]
+    },
+    {
+        "type": "Security",
+        "name": "Eartquake Resistant",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f1070429f"]
+    },
+    {
+        "type": "Environment",
+        "name": "Park",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f107042a9", "5f203227ae7ff13f107042b3"]
+    },
+    {
+        "type": "Environment",
+        "name": "Garden",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f107042ae"]
+    },
+    {
+        "type": "Others",
+        "name": "Check Others",
+        "building": ["5f203226ae7ff13f10704295", "5f203227ae7ff13f107042ae"]
+    }
+]

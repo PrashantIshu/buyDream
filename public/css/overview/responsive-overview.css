@@ -1,0 +1,734 @@
+/* Big tablet to 1200px */
+
+@media only screen and (max-width: 1000px) {
+    #one-liner {
+        width: 45rem;
+        font-size: 1.7rem;
+        margin: 0 auto;
+        margin-top: 17%;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Small phones to small tablets: from 481px to 767px */
+@media only screen and (max-width: 910px) {
+    #one-liner {
+        width: 75%;
+        margin-top: 18%;
+    }
+
+    .search-list {
+        width: 100%;
+    }
+
+    #search-field {
+        width: 90%;
+    }
+}
+
+/* Small phones: from 0 to 480px */
+
+@media only screen and (max-width: 760px) {
+    #nav {
+        width: 30%;
+    }
+    #one-liner {
+        /* width: 32rem; */
+        width: 75%;
+        font-size: 1.5rem;
+        margin: 0 auto;
+        margin-top: 23%;
+        margin-bottom: 1.5rem;
+    }
+    #body {
+        max-width: 93%;
+        overflow-y: scroll;
+    }
+    .grid-container {
+        /* border: 2px solid red; */
+        /* width: 100px; */
+        display: column;
+        flex-direction: column-reverse;
+        justify-content: space-around;
+    }
+    /* #overview-container {
+        width: 200px;
+        overflow: hidden;
+    } */
+    .card-img {
+        height: 100%;
+        width: 100%;
+        /* display: inline-block; */
+    }
+    .card {
+        /* border: 2px solid blue; */
+        /* width: 300px; */
+        background-color: white;
+        margin-top: 1.5rem;
+        margin-left: 1.5rem;
+        overflow: hidden;
+        height: 15rem;
+        width: 15%;
+        box-shadow: 0 3px 7px 0 grey;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+        /* border-radius: 7px; */
+    }
+
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card .fa-rupee-sign {
+        margin-left: 0.625rem;
+        font-size: 1.2rem;
+    }
+
+    .card h2 {
+        display: inline-block;
+        margin: 0 5px;
+        font-family: 'Nunito', sans-serif;
+        /* margin-left: 5px; */
+    }
+
+    .card .onwards {
+        display: inline-block;
+        margin-bottom: 0;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+    } 
+
+    .card h3 {
+        margin-left: 0.625rem;
+        margin-bottom: 0;
+        margin-top: 3%;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .card .by {
+        margin-top: 0;
+        margin-left: 0.625rem;
+        /* font-size: 0.9rem; */
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 300;
+        font-size: 13px;
+    }
+
+    .fa-map-marker-alt {
+        margin-left: 0.625rem;
+        display: inline-block;
+        color: grey;
+        font-size: 0.5rem;
+        position: relative;
+        top: 1.75%;
+    }
+
+    .card .area {
+        /* margin-top: 6%; */
+        margin-left: 1.5rem;
+        margin-top: -0.935rem;
+        font-size: 15px;
+        height: 2rem;
+        font-weight: 600;
+        line-height: 1.2rem;
+        font-family: 'Nunito', sans-serif;
+        /* display: inline-block; */
+    }
+
+    .card .text-muted {
+        margin-top: -1.1rem;
+        margin-left: 0.625rem;
+        margin-bottom: 0;
+        font-weight: 500;
+        font-size: 14px;
+        font-family: 'Nunito', sans-serif;
+        display: inline-block;
+    }
+
+    .card .averageRating {
+        margin-top: -1.1rem;
+        margin-left: 2rem;
+        font-size: 14px;
+        display: inline-block;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .card hr {
+        width: 100%;
+        background-color: darkgrey;
+    }
+
+    .fa-star-o {
+        color: grey;
+        font-size: 0.8rem;
+        margin-left: 1px;
+        position: relative;
+        bottom: 1.3px;
+    }
+
+    .card .ratingQuantity {
+        display: none;
+    }
+    .overview-right-btn, .overview-left-btn {
+        display: none;
+        visibility: hidden;
+    }
+    .updateBtnLink {
+        display: none;
+    }
+    .updateLinkBtn {
+        display: inline-block;
+        margin-left: 2rem;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    #one-liner {
+        width: 80%;
+        margin-top: 25%;
+    }
+    .overview-left-btn {
+        font-size: 3rem;
+        color: black;
+        float: left;
+        position: relative;
+        z-index: 1;
+        top: 19rem;
+        /* left: 1rem; */
+    }
+}
+
+@media only screen and (max-width: 740px) { 
+.card {
+    height: 15rem;
+    width: 14.75%;
+    display: grid;
+    grid-template-columns: 40% 55%;
+    grid-gap: 5%;
+}
+}
+
+@media only screen and (max-width: 720px) { 
+    .card {
+        height: 14.75rem;
+        width: 14.5%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .updateLinkBtn {
+        margin-left: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 700px) { 
+    .card {
+        height: 15rem;
+        width: 14%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .updateLinkBtn {
+        margin-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 680px) { 
+    .card {
+        height: 13.5rem;
+        width: 13.5%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .card .fa-rupee-sign {
+        margin-left: 0.625rem;
+        font-size: 1rem;
+    }
+
+    .card h2 {
+        font-size: 1.25rem;
+    }
+
+    .card .onwards {
+        font-size: 12px;
+    } 
+
+    .card h3 {
+        margin-bottom: 0;
+        margin-top: 3%;
+        font-size: 1.1rem;
+    }
+
+    .card .by {
+        margin-top: 0;
+        font-size: 12px;
+    }
+
+    .fa-map-marker-alt {
+        font-size: 0.35rem;
+        position: relative;
+        /* top: 50%; */
+    }
+
+    .card .area {
+        /* margin-top: 6%; */
+        margin-left: 1.5rem;
+        margin-top: -0.935rem;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.2rem;
+        font-family: 'Nunito', sans-serif;
+        /* display: inline-block; */
+    }
+
+    .card .text-muted {
+        /* margin-top: -5rem; */
+        font-weight: 400;
+        font-size: 13px;
+        position: relative;
+        bottom: 0.5rem;
+    }
+
+    .card .averageRating {
+        /* margin-top: -5rem; */
+        margin-left: 1.75rem;
+        font-size: 13px;
+        position: relative;
+        bottom: 0.5rem;
+    }
+
+    .fa-star-o {
+        color: grey;
+        font-size: 0.675rem;
+        margin-left: 1px;
+        position: relative;
+        bottom: 0.5rem;
+    }
+
+    .card hr {
+        margin-top: -1rem;
+    }
+
+    .card .wishlist-btn {
+        width: 5rem;
+        height: 2rem;
+        border-radius: 20px;
+        margin-right: 0.5rem;
+        padding-left: 1.25rem;
+        margin-left: 1rem;
+    }
+       
+    .fa-bookmark {
+        position: relative;
+        left: 2.5rem;
+        top: 0.05rem;
+        font-size: 0.75rem;
+    }
+    
+    
+    .card .detail-btn {
+        padding: 0.5rem 1.25rem;
+        position: relative;
+        /* top: 0.1rem; */
+        margin-left: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 660px) { 
+    .card {
+        height: 13.5rem;
+        width: 13.25%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 650px) { 
+    .card {
+        height: 13.5rem;
+        width: 13%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 640px) { 
+    .card {
+        height: 13rem;
+        width: 12.75%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .card .averageRating {
+        /* margin-top: -5rem; */
+        margin-left: 1.5rem;
+        font-size: 13px;
+        position: relative;
+        bottom: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 630px) { 
+    .card {
+        height: 13rem;
+        width: 12.5%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .card .averageRating {
+        display: none;
+    }
+    .card .text-muted {
+        display: none;
+    }
+    .fa-star-o {
+        display: none;
+        visibility: hidden;
+    }
+
+    .card .wishlist-btn {
+        width: 5rem;
+        height: 2rem;
+        border-radius: 20px;
+        /* margin-right: 0.75rem; */
+        padding-left: 1.25rem;
+        margin-left: 1rem;
+    }
+       
+    .fa-bookmark {
+        position: relative;
+        left: 2.5rem;
+        top: 0.05rem;
+        font-size: 0.75rem;
+    }
+    
+    
+    .card .detail-btn {
+        padding: 0.5rem 1.25rem;
+        position: relative;
+        /* top: 0.1rem; */
+        margin-left: 0.8rem;
+    }
+    
+}
+
+@media only screen and (max-width: 620px) { 
+    .card {
+        height: 12rem;
+        width: 12.25%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 610px) { 
+    .card {
+        height: 11rem;
+        width: 12%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .card .fa-rupee-sign {
+        margin-left: 0.625rem;
+        font-size: 0.85rem;
+    }
+
+    .card h2 {
+        font-size: 1.05rem;
+    }
+
+    .card .onwards {
+        font-size: 10px;
+    } 
+
+    .card h3 {
+        margin-bottom: 0;
+        margin-top: 3%;
+        font-size: 1.05rem;
+    }
+
+    .card .by {
+        margin-top: 0;
+        font-size: 11px;
+    }
+
+    .fa-map-marker-alt {
+        font-size: 0.35rem;
+        position: relative;
+        /* top: 50%; */
+    }
+
+    .card .area {
+        /* margin-top: 6%; */
+        margin-left: 1.5rem;
+        margin-top: -0.935rem;
+        font-size: 12.5px;
+        font-weight: 500;
+        line-height: 1.2rem;
+        font-family: 'Nunito', sans-serif;
+        /* display: inline-block; */
+    }
+
+    .card hr {
+        margin-top: -1.65rem;
+    }
+}
+
+@media only screen and (max-width: 600px) { 
+    .card {
+        height: 11rem;
+        width: 11.75%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .updateLinkBtn {
+        margin-left: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 590px) { 
+    .card {
+        height: 11rem;
+        width: 11.5%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+
+@media only screen and (max-width: 580px) {
+    #search-box-section {
+        width: 60%;
+        margin: 0 auto;
+    }
+    
+    #search-box-section button {
+        font-size: 12px;
+    }
+
+    .card {
+        height: 10rem;
+        width: 11.25%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .card .area {
+        margin-top: -0.935rem;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .card hr {
+        margin-top: -2rem;
+        /* display: none; */
+    }
+}
+
+@media only screen and (max-width: 570px) { 
+    .card {
+        height: 10rem;
+        width: 11%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .card hr {
+        margin-top: -2.35rem;
+        /* display: none; */
+    }
+    .card .area {
+        margin-top: -0.935rem;
+        font-size: 11px;
+        font-weight: 400;
+    }
+    .updateLinkBtn {
+        margin-right: 0.1rem;
+    }
+    .card .wishlist-btn {
+        margin-left: -0.5rem;
+    }
+    .fa-bookmark {
+        left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 560px) { 
+    .card {
+        height: 10rem;
+        width: 10.75%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 550px) { 
+    .card {
+        height: 10rem;
+        width: 10.5%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 540px) { 
+    .card {
+        height: 9rem;
+        width: 10.25%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .card .area {
+        display: none;
+    }
+    .card .fa-map-marker-alt {
+        display: none;
+    }
+    .card hr {
+        display: none;
+    }
+    .card .wishlist-btn {
+        width: 4.5rem;
+        height: 2rem;
+        margin-right: 0.35rem;
+        padding-left: 1.25rem;
+        margin-left: 0;
+        position: relative;
+        top: 0.25rem;
+    }
+       
+    .fa-bookmark {
+        position: relative;
+        left: 1rem;
+        font-size: 0.75rem;
+    }
+    
+    
+    .card .detail-btn {
+        padding: 0.35rem 1.05rem;
+        position: relative;
+        top: 0.3rem;
+        margin-left: 0;
+    }
+    
+}
+
+@media only screen and (max-width: 530px) { 
+    .card {
+        width: 10%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 520px) { 
+    .card {
+        width: 9.75%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    /* .card .wishlist-btn {
+        margin-right: 0;
+        padding-left: 1.25rem;
+        margin-left: -1rem;
+    } */
+     /*  
+    .fa-bookmark {
+        position: relative;
+        left: 0.7rem;
+        font-size: 0.75rem;
+    }
+    .card .detail-btn {
+        padding: 0.5rem 1.25rem;
+        position: relative;
+        margin-left: 0.8rem;
+    } */
+    .updateLinkBtn  {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 510px) { 
+    .card {
+        width: 9.5%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 500px) { 
+    .card {
+        width: 9.25%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+    .updateLinkBtn  {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 490px) { 
+    .card {
+        width: 9%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 480px) { 
+    .card {
+        width: 8.75%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 470px) { 
+    .card {
+        width: 8.5%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 460px) { 
+    .card {
+        width: 8.25%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}
+
+@media only screen and (max-width: 450px) { 
+    .card {
+        width: 8%;
+        display: grid;
+        grid-template-columns: 40% 55%;
+        grid-gap: 5%;
+    }
+}

@@ -1,0 +1,55 @@
+extends base
+
+block content
+    section#house-update-settings
+        section#profile
+            ul#sidebar-div
+                li 
+                    i(class="fas fa-home")
+                    a(href="/") Home
+                li 
+                    i(class="fas fa-cog")
+                    a(href="/my-properties") My Properties
+                li
+                    i.q(class="fas fa-building")
+                    a(href="#") My Bookings
+                li 
+                    i.q(class="fas fa-heart")
+                    a(href="/my-wishlists") My Wishlists
+                li
+                    i.q(class="fas fa-star")
+                    a(href="/my-reviews") My Reviews
+
+        form#update-house
+            #house-details
+                h2 House Details
+
+                input#building(type="text", value=`${house.building}` style="display: none")
+                input#building-name(type="text", value=`${slug}` style="display: none")
+
+                label#label-price(for="price") Price
+                input#price(type="number" value=`${house.price}`)
+
+                label#label-flat-type(for="flat-type") Flat Type
+                input#flat-type(type="text" value=`${house.flatType}`)
+
+                label#label-sqft-areas(for="sqft-area") sqft Area
+                input#sqft-areas(type="number" value=`${house.sqftArea}`)
+
+                label#label-bathrooms(for="bathrooms") Bathrooms
+                input#bathrooms(type="number" value=`${house.bathrooms}`)
+
+                label#label-balconies(for="belconies") Balconies
+                input#balconies(type="number" value=`${house.balconies}`)
+
+                label#label-status(for="status") Status
+                input#status(type="text" value=`${house.status}`)
+
+                label#label-usp(for="usb") USP
+                input#usp(type="text" value=`${house.usp}`) 
+
+                input#house-blueprint-img(type="text" value=`${house.image}` style="display: none;")
+                input#house-print(type="file" accept="image/*" value="Choose photo")
+                label(for="house-blue-print") Choose photo
+                
+                button.post-house(onClick=`updateHouse('${house._id}')`) Update House

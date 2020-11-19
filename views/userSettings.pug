@@ -1,0 +1,52 @@
+extends base
+
+block content
+    #account-container
+        section#profile
+            ul#sidebar-div
+                li 
+                    i(class="fas fa-home")
+                    a(href="/") Home
+                li 
+                    i(class="fas fa-cog")
+                    a(href="/my-properties") My Properties
+                li
+                    i.q(class="fas fa-building")
+                    a(href="#") My Bookings
+                li 
+                    i.q(class="fas fa-heart")
+                    a(href="/my-wishlists") Saved Apartments
+                li
+                    i.q(class="fas fa-star")
+                    a(href="/my-reviews") My Reviews
+
+        section#user-settings.form-user-settings
+            form#update-form.user-form-fields
+                h2 Your Account Settings
+
+                label(for="name") Name
+                input#name(type="text" value=`${user.name}`)
+                label(for="email") Email Address
+                input#email(type="email" value=`${user.email}`)
+
+                .user-img-div
+                    .user-settings-img
+                        img(src=`/img/users/${user.photo}` alt="User-Photo" id="user-photo")
+                    input#photo(type="file" accept="image/*" value="Choose new photo")
+                    .choose-photo-label
+                        label.photo-label(for="photo") Choose new photo
+
+                button#update-user Save Settings
+            hr        
+            form#password-form.user-form-fields
+                h2 Password Change
+
+                label(for="current-password") Current Password
+                input#current-password(type="password")
+                label(for="new-password") Password
+                input#new-password(type="password")
+                label(for="confirm-password") Confirm Password
+                input#confirm-password(type="password")
+            
+                button#update-password Save Password
+        

@@ -1,0 +1,59 @@
+doctype html
+html
+    block head
+      head
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet', href='/css/navbar/style-navbar.css')
+        link(rel='stylesheet', href='/css/navbar/responsive-navbar.css')
+        link(rel='stylesheet', href='/css/overview/style-overview.css')
+        link(rel='stylesheet', href='/css/overview/responsive-overview.css')
+        link(rel='stylesheet', href='/css/building/style-building.css')
+        link(rel='stylesheet', href='/css/building/responsive-building.css')
+        link(rel='stylesheet', href='/css/user-settings/user-settings.css')
+        link(rel='stylesheet', href='/css/user-settings/responsive-user-settings.css')
+        link(rel='stylesheet', href='/css/loginAndSignup/loginSignup.css')
+        link(rel='stylesheet', href='/css/loginAndSignup/responsive.css')
+        link(rel='stylesheet', href='/css/Updates/updateBuilding.css')
+        link(rel='stylesheet', href='/css/aboutDeveloper/aboutMe.css')
+        link(rel='stylesheet', href='/css/footer/footer.css')
+        link(rel='shortcut icon', type='image/png', href='/img/favicon.ico')
+        //- script(src= 'https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js')
+        //- link(href= 'https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel= 'stylesheet')
+      
+        //- fontsawesome-link
+        script(src="https://kit.fontawesome.com/894870cb8b.js" crossorigin="anonymous")
+      
+        //- goggle-fonts-link
+        link(href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet")
+        
+        title buyDream | #{title}
+      
+    body  
+      header
+        include _header
+      block content
+        
+      footer
+        include _footer
+
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js')
+      script(src="/Js/mapbox.js")
+      script(src='/js/test.js')
+      script(src="/js/login.js")
+      script(src="/js/signup.js")
+      script(src="/js/postBuilding.js")
+      script(src="/js/postHouse.js")
+      script(src="/js/postAmeneties.js")
+      script(src="/js/updateUser.js")
+      script(src="/js/postWishLists.js")
+      script(src="/js/buildingsNearMe.js")
+      script(src="/js/postReviews.js")
+      script(src="/js/update.js")
+      script(src="/js/builder.js")
+      script(src="/responsive-js/overviewResponsiveNav.js")
+      script(src="/responsive-js/buildingResponsive.js")
+      script(src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js")
+      script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+      script(src="http://code.jquery.com/ui/1.9.2/jquery-ui.js")

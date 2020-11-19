@@ -1,0 +1,19 @@
+.footer {
+    background-color: rgb(248, 244, 244);
+    color: grey;
+    height: 3rem;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 70% 20%;
+    margin-top: 2rem;
+    width: 98%;
+    padding-left: 1.5rem;
+}
+
+.footer ul li {
+    display: inline-block;
+}
+
+.footer .contact_footer {
+    margin-left: 2rem;
+}

@@ -1,0 +1,95 @@
+/* .cover-photo {
+    display: grid;
+    grid-template-columns: 2% 98%;
+} */
+
+#property-update-settings, #house-update-settings {
+    /* background-color: yellow; */
+    width: 75%;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+#house-update-settings {
+    width: 60%;
+    height: 35rem;
+    margin-top: 2%;
+}
+
+#property-update-settings #sidebar-div, #house-update-settings #sidebar-div {
+    margin-top: 25%;
+}
+
+.cover-photo, .building-photo {
+    display: grid;
+    grid-template-columns: 5% 95%;
+    cursor: pointer;
+}
+
+.cover-photo input, .building-photo input {
+    opacity: 0;
+}
+.cover-photo label, .building-photo label {
+        cursor: pointer;
+        border-bottom: 1px solid red;
+        transition: all 0.2s;
+        transition-timing-function: ease-in;
+}
+
+.cover-photo label:hover, .building-photo label:hover {
+        background-color: #55c57a;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.building-photo {
+    display: inline-block;
+    width: 25%;
+    margin-left: 5%;
+}
+
+#update-property button {
+    width: 120px;
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+#house-update-settings label {
+    display: inline-block;
+}
+
+#house-update-settings input {
+    display: inline-block;
+    width: 20%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#house-update-settings #label-flat-type {
+    margin-left: 8%;
+}
+
+#house-update-settings #sqft-areas {
+    margin-left: 4%;
+}
+
+#house-update-settings #label-bathrooms {
+    margin-left: 8%;
+}
+
+#house-update-settings #bathrooms {
+    margin-left: 3%;
+}
+
+#house-update-settings #label-usp, #house-update-settings #label-status {
+    display: block;
+}
+
+#house-update-settings #usp, #house-update-settings #status {
+    display: block;
+    width: 75%;
+}

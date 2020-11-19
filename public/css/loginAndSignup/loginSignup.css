@@ -1,0 +1,269 @@
+.form-login h2, .form-signup h2, #post-property h2, #post-house-ameneties h2, #update-property h2, #update-house h2 {
+    width: fit-content;
+    display: block;
+    /* overflow: hidden; */
+    padding-top: 5%;
+    margin-left: 3.3%;
+    color: #7dd56f;
+}
+
+.form-login, .form-signup, #post-property, #post-house-ameneties {
+    /* #f1f2f6 */
+    background-color: #ffff;
+    /* border: 1px solid black; */
+    height: 19rem;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 10%;
+    border-radius: 7.5px;
+    box-shadow: 5px 5px 25px grey;
+}
+  
+.form-login label, .form-signup label, #post-property label, #post-house-ameneties label, #update-property label, #update-house label {
+    width: fit-content;
+    display: block;
+    font-size: 1rem;
+    margin-top: 5%;
+    margin-bottom: 2.1%;
+    margin-left: 3.3%;
+}
+  
+.form-login input, .form-signup input, #post-property input, #post-house-ameneties input, #update-property input, #update-house input {
+    display: block;
+    margin-left: 3.3%;
+    width: 85%;
+    height: 2.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f2f6;
+    padding-left: 2%;
+    color: grey;
+}
+  
+.form-login button, .form-signup button, #post-property button, #post-house-ameneties button, #update-property button, #update-house button {
+    display: block;
+    width: 85px;
+    height: 2.1875em;
+    margin-top: 1.5em;
+    margin-left: 3.3%;
+    border: 1px solid lightgreen;
+    border-radius: 20px;
+    background-color: #7dd56f;
+    color: white;
+    cursor: pointer;
+}
+  
+.form-login button button:hover, .form-signup button:hover, #post-property button:hover, #post-house-ameneties button:hover, #update-property button:hover, #update-house button:hover {
+    background-color: #55c57a;
+}
+  
+/* .form-login button p, .form-signup p {
+    display: block;
+    position: relative;
+    top: 7.5rem;
+    left: 45%;
+    width: 10rem;
+    font-size: 15px;
+} */
+    
+ /* button:focus {
+    outline: none;
+  }
+   */
+.form-signup {
+    margin-top: 2.5rem;
+    height: 32rem;
+}
+  
+.form-signup h2, #post-property h2 {
+    display: block;
+    width: inherit;
+}
+
+#post-property {
+    height: 88rem;
+    display: grid;
+    /* flex-direction: row; */
+    grid-template-columns: 45% 50%;
+    grid-gap: 5%;
+    width:70%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    /* justify-content: space-around; */
+}
+
+#post-property h2 {
+    padding-top: 0;
+}
+
+
+/* #post-property h {
+    display: inline-block;
+} */
+
+#post-property #owner-label, #post-property #agent-label, #post-property #builder-label, #post-property #admin-label, #post-property #sale-label, #post-property #rent-label {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0.6rem;
+    position: relative;
+    bottom: 0.7rem;
+}
+
+.property-type {
+    display: block;
+}
+
+#post-property #owner, #post-property #agent, #post-property #admin, #post-property #builder, #post-property #sale, #post-property #rent, #post-property #for, #post-property #property-type-label {
+    display: inline-block;
+    width: fit-content;
+}
+
+#post-property button {
+    width: 120px;
+}
+
+#post-property select {
+    margin-left: 3.3%;
+}
+
+#post-property #for {
+    position: relative;
+    bottom: 0.75rem;
+}
+
+#post-property input:focus {
+    outline: none;
+    color: grey;
+    border-bottom: 3px solid #7dd56f;
+}
+
+/* #locationAdvantageOne
+#locationAdvantageTwo 
+#locationAdvantageThree 
+#locationAdvantageFour 
+#locationAdvantageFive {
+    margin-top: 5rem;
+} */
+
+#personal-details #i-am{
+    display: inline-block;
+    position: relative;
+    bottom: 0.7rem;
+}
+
+#details {
+    margin-top: -20px;
+}
+
+#post-house-ameneties {
+    margin-top: 2%;
+    height: 35rem;
+}
+
+#house-print {
+    margin-top: 4%;
+}
+
+#post-house-ameneties input:focus {
+    outline: none;
+    color: grey;
+    border-bottom: 3px solid #7dd56f;
+}
+
+#house-details #price-label,
+#house-details #flat-type-label,
+#house-details #sqft-area-label,
+#house-details #bathrooms-label,
+#house-details #balconies-label {
+    display: inline-block;
+    margin-left: 7.5%;
+}
+
+#house-details #price {
+    margin-left: 9%;
+}
+
+#house-details #sqft-area {
+    margin-left: 4%;
+}
+
+#house-details #flat-type {
+    margin-left: 4.5%;
+}
+
+#house-details #price,
+#house-details #flat-type,
+#house-details #sqft-area,
+#house-details #bathrooms,
+#house-details #balconies {
+    /* background-color: yellow; */
+    display: inline-block;
+    width: 20%;
+}
+
+input:focus {
+    outline: none;
+    color: grey;
+    border-bottom: 3px solid #7dd56f;
+}
+
+#house #price, #house #flat-type , #house #sqft-areas, #house #bathrooms, #house #balconies {
+    width: 15%;
+    display: inline-block;
+}
+
+#house #label-price, #house #label-flat-type, #house #label-sqft-areas, #house #label-bathrooms, #house #label-balconies {
+    width: fit-content;
+    display: inline-block;
+}
+
+#house label {
+    margin-left: 7%;
+}
+
+#house #price {
+    margin-left: 10.5%;
+}
+
+#house #sqft-areas {
+    margin-left: 4.5%;
+}
+
+#house #label-flat-type {
+    margin-left: 9.5%;
+}
+
+#builderStats {
+    /* margin-left: 3.5%;
+    width: 25%; */
+    display: flex;
+    flex-direction: row;
+    /* grid-gap: 5%; */
+}
+
+
+
+#textContentBuilder {
+    display: block;
+    margin-left: 3.3%;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f2f6;
+    padding-left: 2%;
+    color: grey;
+}
+
+#textContentBuilder:focus {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid#7dd56f;
+}
+/* #house-details #labelProjectsCompleted{
+    word-wrap: nowrap;
+} */
+/* #experience, #totalProjects, #projectsCompleted {
+    background-color: yellow;
+    width: 2rem;
+} */

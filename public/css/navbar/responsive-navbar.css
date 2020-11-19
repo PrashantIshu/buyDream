@@ -1,0 +1,168 @@
+/* Big tablet to 1200px */
+@media only screen and (max-width: 1300px) {
+    #nav {
+        display: "block";
+        position: relative;
+    }
+    .dropdown-content-1, .dropdown-content-2 {
+        position: absolute;
+        z-index: 1;
+    }
+
+    #cross-icon {
+        display: none;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+}
+
+/* Small tablet to big tablet: from 768px to 1023px */
+@media only screen and (max-width: 1250px) {
+    .signup-home {
+        margin-left: 22.5rem;
+    }
+    
+    .user-home {
+        margin-left: 17.5rem;
+        margin-right: 0.3rem;
+    }
+}
+
+@media only screen and (max-width: 1209px) {
+    .signup-home {
+        margin-left: 20rem;
+    }
+    
+    .user-home {
+        margin-left: 15rem;
+        margin-right: 0.3rem;
+    }
+}
+
+@media only screen and (max-width: 1170px) {
+    .signup-home {
+        margin-left: 18rem;
+    }
+    
+    .user-home {
+        margin-left: 13rem;
+        margin-right: 0.3rem;
+    }
+
+    .qwerty .left-list {
+        margin-right: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1120px) {
+    .qwerty .left-list {
+        margin-right: 1.5rem;
+    }
+}
+
+/* Small phones to small tablets: from 481px to 767px */
+@media only screen and (max-width: 910px) {
+    .menu-icon {
+        display: inline-block;
+    }
+
+    #nav {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        top: 4rem;
+        right: 1rem;
+        width: 20%;
+        float: right;
+    }
+    #nav .qwerty {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .qwerty li {
+        padding-top: 1rem;
+    }
+
+    .user-home {
+        margin-left: 6rem;
+        display: inline-block;
+        width: 2rem;
+        position: relative;
+        top: 1.5rem;
+    }
+
+    .img-home {
+        display: inline-block;
+        margin-top: -1rem;
+        margin-left: 2rem;
+    }
+
+    .dropdown:hover .dropdown-content-1, .dropdown:hover .dropdown-content-2 {
+        display: block;
+    }
+
+    .dropdown-content-1, .dropdown-content-2 {
+        width: 100%;
+        position: initial;
+    }
+
+    #topic-one {
+        display: inline-block;
+        padding-left: 2.5rem;
+    }
+
+    .qwerty h1 {
+        display: none;
+    }
+
+    #one-liner {
+        width: 45rem;
+        font-size: 1.7rem;
+        margin: 0 auto;
+        margin-top: 3.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Small phones: from 0 to 480px */
+@media only screen and (max-width: 850px) {
+    #nav {
+        width: 25%;
+    }
+    #one-liner {
+        width: 40rem;
+        font-size: 1.5rem;
+        margin: 0 auto;
+        margin-top: 3.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    #nav {
+        width: 30%;
+    }
+    #one-liner {
+        width: 32rem;
+        font-size: 1.5rem;
+        margin: 0 auto;
+        margin-top: 3.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    #nav {
+        width: 40%;
+    }
+    #one-liner {
+        width: 28rem;
+        font-size: 1.35rem;
+        margin: 0 auto;
+        margin-top: 4.5rem;
+        margin-bottom: 1.5rem;
+    }
+}

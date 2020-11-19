@@ -1,0 +1,137 @@
+extends base
+
+block content
+
+    form#post-property
+        section#left-details 
+            section#personal-details
+                h2 Personel Details
+
+                label#i-am I am
+                input#userId(type='text', value=`${currentUserId}`, style="display: none")
+                //- input#owner(type="radio" value="owner" name="role")
+                //- label#owner-label(for="owner") Owner
+                input#agent(type="radio" value="agent" name="role")
+                label#agent-label(for="agent") Agent
+                input#builder(type="radio" value="builder" name="role")
+                label#builder-label(for="builder") Builder
+                //- input#admin(type="radio" value="admin" name="role")
+                //- label#admin-label(for="admin") Admin
+                #details      
+                    label(for="name") Name
+                    input#nameAgent(type="text", autocomplete="off")
+                    label(for="mobile") Phone Number
+                    input#mobileAgent(type="tel")
+                    label(for="email", autoComplete="off") Email
+                    input#emailAgent(type="text")
+
+                //- form#post-house-ameneties
+            section#house
+                h2 House Details
+
+                input#building(type="text", value=`${buildingId}` style="display: none")
+                input#building-name(type="text", value=`${buildingName}` style="display: none")
+        
+                label#label-price(for="price") Price
+                input#price(type="number")
+
+                label#label-flat-type(for="flat-type") Flat Type
+                input#flat-type(type="text")
+
+                label#label-sqft-areas(for="sqft-area") sqft Area
+                input#sqft-areas(type="number")
+
+                label#label-bathrooms(for="bathrooms") Bathrooms
+                input#bathrooms(type="number")
+
+                label#label-balconies(for="belconies") Balconies
+                input#balconies(type="number")
+
+                label#label-status(for="status") Status
+                input#status(type="text")
+
+                label#label-usp(for="usb") USP
+                input#usp(type="text") 
+
+                input#house-blueprint(type="file" accept="image/*" value="Choose photo")
+                label(for="house-blue-print") Choose photo
+                //- button.post-house Post House
+            section#builder-details
+                h2 Builder Details
+                label#labelNameBuilder(for="nameBuilder") Name
+                input#nameBuilder(type="text")
+                label#labelEmailBuilder(for="emailBuilder") Email
+                input#emailBuilder(type="email")
+                label#labelPhoneBuilder(for="emailBuilder") Phone Number
+                input#phoneBuilder(type="tel")
+                #builderStats
+                    #statOne
+                        label#labelExperience(for="experience") Experience
+                        input#experience(type="number")
+                    #statTwo
+                        label#labelTotalProjects(for="totalProjects") Total Projects
+                        input#totalProjects(type="number")
+                    #statThree
+                        label#labelProjectsCompleted(for="projectsCompleted") Projects Completed
+                        input#projectsCompleted(type="number")
+                    #statFour
+                        label#labeloperatingIn(for="operatingIn") Operating In
+                        input#operatingIn(type="text")
+                label#labelTextContentBuilder(for="textContentBuilder") About Builder
+                textarea#textContentBuilder(cols="60", rows="10")
+
+
+        section#property-details
+            h2 Property Details
+            
+            //- label#for(for="") For
+            //- input#sale(type="radio")
+            //- label#sale-label(for="sale") Sale
+            //- input#rent(type="radio")
+            //- label#rent-label(for="rent") Rent
+            
+            //- .property-type
+            //-     label#property-type-label(for="property-type") Property Type
+            //-     select(name="")
+            //-         option(value="Apartment") Apartment
+            //-         option(value="Residential House") Residential House
+
+            label(for="property-name") Name
+            input#property-name(type="text")
+
+            label(for="description") Description
+            input#property-description(type="text") 
+
+            label(for="summary") Summay
+            input#property-summary(type="text")
+
+            label Location Advantages
+            //- label#pointOne(for="locationAdvantageOne") 1. 
+            input#locationAdvantageOne(type="text", placeholder="( 1 )")
+            //- label#pointTwo(for="locationAdvantageOne") 2. 
+            input#locationAdvantageTwo(type="text", placeholder="( 2 )")
+            //- label#pointThree(for="locationAdvantageOne") 3. 
+            input#locationAdvantageThree(type="text", placeholder="( 3 )")
+            //- label#pointFour(for="locationAdvantageOne") 4. 
+            input#locationAdvantageFour(type="text", placeholder="( 4 )")
+            //- label#pointFive(for="locationAdvantageOne") 5. 
+            input#locationAdvantageFive(type="text", placeholder="( 5 )")
+
+            label(for="address") Address
+            input#address(type="text", required)
+
+            input(name="buildingName", type="number")
+
+            input#cover-photo(type="file" accept="image/*" value="Choose cover photo")
+            label(for="cover-photo") Choose cover photo
+
+            input#building-1-photo(type="file" accept="image/*" value="Choose photo")
+            label(for="photo") Choose photo
+
+            input#building-2-photo(type="file" accept="image/*" value="Choose photo")
+            label(for="photo") Choose photo
+
+            input#building-3-photo(type="file" accept="image/*" value="Choose photo")
+            label(for="photo") Choose photo
+        
+            button.post Post Property

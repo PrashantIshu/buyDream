@@ -1,0 +1,46 @@
+extends base
+
+block content
+    #aboutMeBody
+        //- .night
+        //-     - for (i = 0; i < 20; i++)
+        //-         .shooting_star
+        #aboutMePara
+            p Hi! My name is Prashant Shekhar. I am a Full Stack Web Developer and this website is all my solo work. I hope this website was usefull for you.
+        #innerImgBox
+            img(src="/img/me.jpg" alt="developer_pic")
+        //- h1 Prashant Shekhar
+    #about
+        h4 About
+        #aboutIcons
+            #firstIconItem
+                #firstIcon
+                    <ion-icon class="ioniconabout" name="desktop-outline"></ion-icon>
+                h6 Responsive
+                p My layouts will work on any device, big or small.
+            #secondIconItem
+                #secondIcon
+                    <ion-icon class="ioniconabout" name="bulb-outline"></ion-icon>
+                h6 Intuitive
+                p Strong preference for easy to use, intuitive UX/UI.
+            #thirdIconItem
+                #thirdIcon
+                    <ion-icon class="ioniconabout" name="rocket-outline"></ion-icon>
+                h6 Dynamic
+                p Websites don't have to be static, I love making pages come to life.
+    #contact
+        h4 Contact
+        form#contactMeForm 
+            p Have a Question or want to send message?
+            input#contactName(type="text" placeholder="Name")
+            input#contactEmail(type="text" placeholder="Enter Email")
+            textarea#contactMessage(cols="30", rows="10" placeholder="Enter Your Message")
+            button Submit
+            #contactLinks
+                //- #firstLink
+                a(href="https://www.facebook.com/profile.php?id=100008818082695"  target="_blank")
+                    <ion-icon name="logo-facebook"></ion-icon>    
+                a(href="https://www.instagram.com/_prashant_shekhar/?hl=en"  target="_blank") 
+                    <ion-icon name="logo-instagram"></ion-icon> 
+                a(href="https://github.com/PrashantIshu"  target="_blank") 
+                    <ion-icon name="logo-github"></ion-icon> 

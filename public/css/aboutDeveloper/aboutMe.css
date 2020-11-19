@@ -1,0 +1,442 @@
+#aboutMeBody {
+    background-color: #252934;
+    margin: 0;
+    height: 39rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /* body { */
+        /* background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        font-family: 'Anton', sans-serif;
+        justify-content: center;
+        align-items: center; */
+   /* } */
+    
+    
+}
+
+#aboutMeBody #aboutMePara {
+    text-align: center;
+}
+
+#aboutMeBody #aboutMePara p {
+    margin: 0;
+    width: fit-content;
+    margin: 0 auto;
+    color:#fff;
+    font-size: 2rem;
+    font-weight: lighter;
+    position: relative;
+    top: 25%;
+    font-family: "Nunito", sans-serif;
+    line-height: 2;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#aboutMeBody #innerImgBox {
+    /* border: 3px solid red; */
+    background-color: white;
+    width: 70%;
+    position: relative;
+    z-index: 999;
+    height: 70%;
+    /* float: right; */
+    top: 12%;
+    margin: 0 auto;
+    /* right: 5%; */
+}
+
+#aboutMeBody #innerImgBox img {
+    width: 90%;
+    position: relative;
+    left:5%;
+    top: 4%;
+    z-index: 9999;
+    box-shadow: 1rem 1.5rem 10rem black;
+}
+
+#about {
+    height: 20rem;
+    margin-top: 3.5rem;
+}
+#about h4 {
+    width: fit-content;
+    font-size: 2rem;
+    font-family: 'Nunito', sans-serif;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#aboutIcons {
+    width: 80%;
+    margin:  auto;
+    display: grid;
+    grid-template-columns: 20% 20% 20%;
+    grid-gap: 20%;
+}
+
+#about #firstIcon, #about #secondIcon, #about #thirdIcon {
+    /* border: 2px solid yellow;; */
+    width: 65%;
+    height: 6rem;
+    background-color: #b9a5b3;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    color: black;
+    margin: 0 auto;
+}
+
+#about .ioniconabout {
+    font-size: 2.7rem;
+    /* margin-left: 32%; */
+    margin-top: 17.5%;
+    color: white;
+    /* border: 1px solid red; */
+}
+
+#firstIconItem, #secondIconItem, #thirdIconItem {
+    text-align: center;
+}
+
+#firstIconItem h6, #secondIconItem h6, #thirdIconItem h6 {
+    font-size: 1.35rem;
+    font-family: 'Nunito', sans-serif;
+    margin-top: 10%;
+    margin-bottom: 0;
+}
+
+#firstIconItem p, #secondIconItem p, #thirdIconItem p {
+    margin-top: 5%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: light;
+}
+
+/* ////////////// Contact ////////////////// */
+#contact {
+    background-color: #252934;
+}
+
+#contact h4 {
+    width: fit-content;
+    margin: 0 auto;
+    color: white;
+    font-size: 2rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+#contact p {
+    color: #04c2c9;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    
+}
+
+#contactMeForm {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#contactMeForm input {
+    display: block;
+    background-color: #1e242c;
+    border: none;
+    width: 100%;
+    height: 2rem;
+    padding: 10px 15px;
+    margin-bottom: 0.2rem;
+}
+
+#contactMeForm textarea {
+    display: block;
+    background-color: #1e242c;
+    border: none;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1.15rem;
+}
+
+#contactMeForm textarea:focus, #contactMeForm input:focus {
+    outline: none;
+    border-bottom: 2px solid #7dd56f;
+}
+
+#contactMeForm button {
+    border: none;
+    background-color: inherit;
+    color: white;
+    border: 2px solid #fff;
+    width: 20%;
+    font-size: 1rem;
+    height: 2.5rem;
+}
+
+#contactLinks {
+    width: 50%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 20% 20% 20%;
+    grid-gap: 15%;
+}
+
+#contactLinks a {
+    width: 100%;
+    font-size: 2rem;
+    background-color: #161a20;
+    color: white;
+    text-align: center;
+    padding: 10px 10px 5px 10px;
+    transition: all 0.2ss;
+}
+
+/* .fade, .fadeAgent { animation-name: fadeInBottom } */
+@keyframes contactFadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+        z-index: 0;
+    }
+    to { opacity: 1; }
+}
+
+#contactMeForm button:hover, #contactLinks a:hover  {
+    background-color: #04c2c9;
+    border-color: #04c2c9;
+}
+
+
+
+/* .night {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: rotateZ(45deg);
+} */
+
+
+
+/* .shooting_star {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 2px;
+    background: linear-gradient(-45deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px rgba(105, 155, 255, 1));
+    animation: tail 3000ms ease-in-out infinite, shooting 3000ms ease-in-out infinite;
+}
+.shooting_star::before, .shooting_star::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 0;
+    height: 2px;
+    background: linear-gradient(-45deg, rgba(0, 0, 255, 0), rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+    transform: translateX(50%) rotateZ(45deg);
+    border-radius: 100%;
+    animation: shining 3000ms ease-in-out infinite;
+}
+.shooting_star::after {
+    transform: translateX(50%) rotateZ(-45deg);
+}
+.shooting_star:nth-child(1) {
+    top: calc(50% - -28px);
+    left: calc(50% - 147px);
+    animation-delay: 7289ms;
+}
+.shooting_star:nth-child(1)::before, .shooting_star::after:nth-child(1), .shooting_star:nth-child(1)::after {
+    animation-delay: 7289ms;
+}
+.shooting_star:nth-child(2) {
+    top: calc(50% - 151px);
+    left: calc(50% - 17px);
+    animation-delay: 7736ms;
+}
+.shooting_star:nth-child(2)::before, .shooting_star::after:nth-child(2), .shooting_star:nth-child(2)::after {
+    animation-delay: 7736ms;
+}
+.shooting_star:nth-child(3) {
+    top: calc(50% - 30px);
+    left: calc(50% - 64px);
+    animation-delay: 4295ms;
+}
+.shooting_star:nth-child(3)::before, .shooting_star::after:nth-child(3), .shooting_star:nth-child(3)::after {
+    animation-delay: 4295ms;
+}
+.shooting_star:nth-child(4) {
+    top: calc(50% - -76px);
+    left: calc(50% - 200px);
+    animation-delay: 8629ms;
+}
+.shooting_star:nth-child(4)::before, .shooting_star::after:nth-child(4), .shooting_star:nth-child(4)::after {
+    animation-delay: 8629ms;
+}
+.shooting_star:nth-child(5) {
+    top: calc(50% - 122px);
+    left: calc(50% - 76px);
+    animation-delay: 2836ms;
+}
+.shooting_star:nth-child(5)::before, .shooting_star::after:nth-child(5), .shooting_star:nth-child(5)::after {
+    animation-delay: 2836ms;
+}
+.shooting_star:nth-child(6) {
+    top: calc(50% - -47px);
+    left: calc(50% - 6px);
+    animation-delay: 2959ms;
+}
+.shooting_star:nth-child(6)::before, .shooting_star::after:nth-child(6), .shooting_star:nth-child(6)::after {
+    animation-delay: 2959ms;
+}
+.shooting_star:nth-child(7) {
+    top: calc(50% - 123px);
+    left: calc(50% - 69px);
+    animation-delay: 7173ms;
+}
+.shooting_star:nth-child(7)::before, .shooting_star::after:nth-child(7), .shooting_star:nth-child(7)::after {
+    animation-delay: 7173ms;
+}
+.shooting_star:nth-child(8) {
+    top: calc(50% - -14px);
+    left: calc(50% - 95px);
+    animation-delay: 162ms;
+}
+.shooting_star:nth-child(8)::before, .shooting_star::after:nth-child(8), .shooting_star:nth-child(8)::after {
+    animation-delay: 162ms;
+}
+.shooting_star:nth-child(9) {
+    top: calc(50% - -99px);
+    left: calc(50% - 209px);
+    animation-delay: 4799ms;
+}
+.shooting_star:nth-child(9)::before, .shooting_star::after:nth-child(9), .shooting_star:nth-child(9)::after {
+    animation-delay: 4799ms;
+}
+.shooting_star:nth-child(10) {
+    top: calc(50% - 129px);
+    left: calc(50% - 47px);
+    animation-delay: 6202ms;
+}
+.shooting_star:nth-child(10)::before, .shooting_star::after:nth-child(10), .shooting_star:nth-child(10)::after {
+    animation-delay: 6202ms;
+}
+.shooting_star:nth-child(11) {
+    top: calc(50% - 55px);
+    left: calc(50% - 296px);
+    animation-delay: 3072ms;
+}
+.shooting_star:nth-child(11)::before, .shooting_star::after:nth-child(11), .shooting_star:nth-child(11)::after {
+    animation-delay: 3072ms;
+}
+.shooting_star:nth-child(12) {
+    top: calc(50% - 47px);
+    left: calc(50% - 165px);
+    animation-delay: 2643ms;
+}
+.shooting_star:nth-child(12)::before, .shooting_star::after:nth-child(12), .shooting_star:nth-child(12)::after {
+    animation-delay: 2643ms;
+}
+.shooting_star:nth-child(13) {
+    top: calc(50% - 108px);
+    left: calc(50% - 158px);
+    animation-delay: 4077ms;
+}
+.shooting_star:nth-child(13)::before, .shooting_star::after:nth-child(13), .shooting_star:nth-child(13)::after {
+    animation-delay: 4077ms;
+}
+.shooting_star:nth-child(14) {
+    top: calc(50% - 114px);
+    left: calc(50% - 238px);
+    animation-delay: 3505ms;
+}
+.shooting_star:nth-child(14)::before, .shooting_star::after:nth-child(14), .shooting_star:nth-child(14)::after {
+    animation-delay: 3505ms;
+}
+.shooting_star:nth-child(15) {
+    top: calc(50% - -119px);
+    left: calc(50% - 68px);
+    animation-delay: 8304ms;
+}
+.shooting_star:nth-child(15)::before, .shooting_star::after:nth-child(15), .shooting_star:nth-child(15)::after {
+    animation-delay: 8304ms;
+}
+.shooting_star:nth-child(16) {
+    top: calc(50% - 97px);
+    left: calc(50% - 262px);
+    animation-delay: 4390ms;
+}
+.shooting_star:nth-child(16)::before, .shooting_star::after:nth-child(16), .shooting_star:nth-child(16)::after {
+    animation-delay: 4390ms;
+}
+.shooting_star:nth-child(17) {
+    top: calc(50% - -60px);
+    left: calc(50% - 15px);
+    animation-delay: 8190ms;
+}
+.shooting_star:nth-child(17)::before, .shooting_star::after:nth-child(17), .shooting_star:nth-child(17)::after {
+    animation-delay: 8190ms;
+}
+.shooting_star:nth-child(18) {
+    top: calc(50% - -132px);
+    left: calc(50% - 278px);
+    animation-delay: 8217ms;
+}
+.shooting_star:nth-child(18)::before, .shooting_star::after:nth-child(18), .shooting_star:nth-child(18)::after {
+    animation-delay: 8217ms;
+}
+.shooting_star:nth-child(19) {
+    top: calc(50% - -101px);
+    left: calc(50% - 161px);
+    animation-delay: 8207ms;
+}
+.shooting_star:nth-child(19)::before, .shooting_star::after:nth-child(19), .shooting_star:nth-child(19)::after {
+    animation-delay: 8207ms;
+}
+.shooting_star:nth-child(20) {
+    top: calc(50% - 95px);
+    left: calc(50% - 175px);
+    animation-delay: 8189ms;
+}
+.shooting_star:nth-child(20)::before, .shooting_star::after:nth-child(20), .shooting_star:nth-child(20)::after {
+    animation-delay: 8189ms;
+}
+@keyframes tail {
+    0% {
+        width: 0;
+   }
+    30% {
+        width: 100px;
+   }
+    100% {
+        width: 0;
+   }
+}
+@keyframes shining {
+    0% {
+        width: 0;
+   }
+    50% {
+        width: 30px;
+   }
+    100% {
+        width: 0;
+   }
+}
+@keyframes shooting {
+    0% {
+        transform: translateX(0);
+   }
+    100% {
+        transform: translateX(300px);
+   }
+}
+@keyframes sky {
+    0% {
+        transform: rotate(45deg);
+   }
+    100% {
+        transform: rotate(405deg);
+   }
+} */

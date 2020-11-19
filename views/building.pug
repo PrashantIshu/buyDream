@@ -1,0 +1,316 @@
+extends base
+//- include _reviewCard
+
+block append head
+    script(src= 'https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js')
+    link(href= 'https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel= 'stylesheet')
+
+block prepend head
+    link(rel="stylesheet", href="https://www.w3schools.com/w3css/4/w3.css")
+
+block content
+    section#nav-container
+        ul#navbar.qwert
+            li: a(href="/") All Buildings
+            li: a(href="#properties-available") Properties Available
+            li.one-word: a(href="#ameneties") Ameneties
+            li.one-word: a(href="#location") Location
+            li.one-word: a(href="#photos") Photos
+            li.one-word: a(href="#review-section") Reviews
+            li.one-word: a(href="#builder-section") Builder
+            
+            if user 
+                li.user-name: a(class="signup", href="/me")= user.name
+                img.user-img.building-page-img(src=`/img/users/${user.photo}`)
+                li: button#logout(class="login") Log Out
+            else
+                li.one-word.one-word-signup(style="float:right"): a(class="signup", href="/signup") Sign Up
+                li.one-word(style="float:right"): a(class="login", href="/login") Log In
+
+    section#house-photo
+        .topImg-div
+            img.img-top(src=`/img/buildings/${building[0].imageCover}`, alt="house_1_2")
+
+    section#properties-available
+        h3 PROPERTIES AVAILABLE
+        .flatsBtnDiv
+            each house in building
+                each flatType in house.propertiesAvailable
+                    input(type="button" onClick=`showBtn('${flatType}')` class=`flatsBtn flatTypeBtn${flatType}` value=`${flatType} BHK`)
+        
+
+        .main
+        - var nameClas= ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
+            #myBtnContainer
+                each house,index in houses
+                    input(type="button" class=`flatType ${house.flatType}` onClick=`showHouse('${nameClas[index]}')` value=`${house.sqftArea} sqft`)
+                    //- input(type="button" class=`flatType ${house.flatType}` onClick=`showHouse('${nameClas[index]}')` value=`${house.sqftArea} sqft`)
+
+        - var houseNumber= ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
+        form#remove-house.fuck
+            each house,index in houses
+                .column(class=`${nameClas[index]}`)
+                    .inner-column
+                        img(src=`/img/houses/${house.image}` alt="house_1")
+                        .texts
+                            i.fa.fa-inr.fa-bg(aria-hidden="true")
+                            h5= `${house.price} Cr`
+                            h6= `${house.flatType} BHK Flat | ${house.sqftArea} sqft`
+                            p.bath= `Bathrooms: ${house.bathrooms}`
+                            p.bal= `Balconies: ${house.balconies}`
+                            p.status= `Status: ${house.status}`
+                            p.usp= `USP: ${house.usp}`
+                            button.contactBuilderBtn(type="button" onClick="mailbox()") Contact Builder
+                            button.contactAgentBtn(type="button" onClick="mailboxAgent()") Contact Agent
+                            - if (admin || agentOrOwnerExists)
+                                .deleteUpdateBtn
+                                    button.deleteHouseLink.btn.right-btn(onClick=`deleteHouse('${house._id}')` class=`${house._id}`) Delete House
+                                    a.updateHouseLink(href=`/updateHouse/${house._id}`) Update House
+                    - x = x+1;
+
+        if admin || agentOrOwnerExists
+            p.new-house-1 To add new house
+            a#post-house(href=`/houses/${buildingName}/postHouseAndAmen`) Click
+            p.new-house-2 Here
+                    //- i(class="fas fa-plus", style="margin-left: 50%; margin-bottom: 100px")
+        //- if agentOrOwnerExists
+        //-     p.new-house-1 To add new house
+        //-     a#post-house(href=`/houses/${buildingName}/postHouseAndAmen`) Click
+        //-     p.new-house-2 Here
+
+            //- button#removeHouse Remove
+            //- fa fa-times
+
+    
+    #amen-box
+        <div id="right-button-amenety" style="visibility: hidden;" onClick="rightClickAmenety()"><i class="fas fa-chevron-left amenety-left-btn"></i></div>
+        h3 AMENETIES
+        section#ameneties
+
+            if length
+                form#ameneties-container
+                    input#id(type='text', value=`${id}`, style="display: none")
+                    each type,index in ameneties
+                        //- if type
+                        ul.content
+                            label#amenety-type= ameneties[index]._id
+                            each name in ameneties[index].names
+                                li.amen-list-item
+                                    input#update-amenety(onClick=`updateAmenety('${name}')` class=`${name}` type="text" value=`${name}`) 
+                                    if admin || agentOrOwnerExists
+                                        button#remove-amenety(onClick=`removeAmenety('${name}')` class="fas fa-minus-circle" aria-hidden="true")
+                                //- i(class="fas fa-minus-circle")
+                            if admin || agentOrOwnerExists
+                                input#amenetyKaNaam(class=`${ameneties[index]._id}` type='text'  placeholder="Enter new amenety" autocomplete="off")
+                                button#submitAmenety(onClick=`postAmenety('${ameneties[index]._id}')` class="fa fa-arrow-up" aria-hidden="true")
+                            //- if agentOrOwnerExists
+                            //-     input#amenetyKaNaam(class=`${ameneties[index]._id}` type='text'  placeholder="Enter new amenety" autocomplete="off")
+                            //-     button#submitAmenety(onClick=`postAmenety('${ameneties[index]._id}')` class="fa fa-arrow-up" aria-hidden="true")
+                        //- else
+                    each ameneti in remainingAmeneties
+                        ul.content
+                            label#amenety-type= `${ameneti}`
+                            if admin || agentOrOwnerExists
+                                input#amenetyKaNaam(class=`${ameneti}` type='text'  placeholder="Enter new amenety" autocomplete="off")
+                                button#submitAmenety(onClick=`postAmenety('${ameneti}')` class="fa fa-arrow-up" aria-hidden="true")
+                            //- if agentOrOwnerExists
+                            //-     input#amenetyKaNaam(class=`${ameneti}` type='text'  placeholder="Enter new amenety" autocomplete="off")
+                            //-     button#submitAmenety(onClick=`postAmenety('${ameneti}')` class="fa fa-arrow-up" aria-hidden="true")
+                //- i#next.fas.fa-caret-right
+                //- i#prev.fas.fa-caret-left
+            else
+                form#ameneties-container
+                    input#id(type='text', value=`${id}`, style="display: none")
+                    each a in amen
+                        ul.content
+                            label#amenety-type= a
+                            if admin || agentOrOwnerExists
+                                input#amenetyKaNaam(class=`${a}` type='text' placeholder="Enter new amenety" autocomplete="off")
+                                button#submitAmenety(onClick=`postAmenety('${a}')` class="fa fa-arrow-up" aria-hidden="true") 
+                            //- if agentOrOwnerExists
+                            //-     input#amenetyKaNaam(class=`${a}` type='text' placeholder="Enter new amenety" autocomplete="off")
+                            //-     button#submitAmenety(onClick=`postAmenety('${a}')` class="fa fa-arrow-up" aria-hidden="true")
+                //- i#next.fas.fa-caret-right
+                //- i#prev.fas.fa-caret-left
+        <div id="left-button-amenety" onClick="leftClickAmenety()"><i class="fa fa-chevron-right amenety-right-btn"></i></div>
+
+    section.section-map#location
+        .map-container
+            each item in building
+                //- p= item.coordinates 
+                #map(data-locations=`${JSON.stringify(item.coordinates)}`)
+        .location-advantage-container
+            h3 Location Advantages
+            each advantage in building[0].locationAdvantages
+                p= `${advantage}`
+
+    section.section-pictures#photos
+        each img, i in building[0].images
+            .picture-box
+                img.picture-box__img(src=`/img/buildings/${img}`, alt=`The Park Camper Tour ${i + 1}`, class=`picture-box__img--${i + 1}`)
+
+    - let starNumber = 5
+    section#review-section
+        if !admin && !agentOrOwnerExists
+                .post-stats-review
+                    .overall-stats
+                        h3= reviewBuilding.ratingsAverage
+                        .one-staring
+                            svg.reviews__star.single_star
+                                use(xlink:href='/img/icons.svg#icon-star')
+                        //- h4= reviewBuilding.ratingsQuantity
+                    .review_stats
+                        each star in ratingStars 
+                            .starNumber
+                                p= starNumber
+                            svg.reviews_star.five-stars
+                                use(xlink:href='/img/icons.svg#icon-star')
+                            .container
+                                .skills(style=`width: ${star}%; background-color: #4CAF50;`)= `${star}%`
+                            - starNumber = starNumber - 1
+                    form#reviewContainer
+                        textarea#review(name="review-text", type="text", cols="25", rows="5", placeholder="Write your review here")
+                        .reviews_rating
+                            each star in [1, 2, 3, 4, 5]
+                                svg.reviews_star.your-rate(onClick=`countStars('${star}')`)
+                                    use(xlink:href='/img/icons.svg#icon-star')
+                        input#rating(type="number", min="0", max="5", style="display: none;")
+                        button#reviewBtn Post Review
+        .reviews
+            each review in reviews
+                .review-container
+                    .user-review
+                        img.user-avatar(src=`/img/users/${review.user.photo}`)
+                        h6.user-name-review= review.user.name
+                    p= review.review
+                    .reviews__rating
+                        each star in [1, 2, 3, 4, 5]
+                            svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
+                                use(xlink:href='/img/icons.svg#icon-star')
+
+    form#builder-section
+        if builder
+            if admin || agentOrOwnerExists
+                h2 About Builder 
+                #builderStatUpdate
+                    #namingUpdate
+                        #ek
+                            label(for="nameBuilderBuildingAdmin") Name
+                            input#nameBuilderBuildingAdmin(type="text" value=`${builder.name}`)
+                        #do
+                            label(for="emailBuilderBuildingAdmin") Email
+                            input#emailBuilderBuildingAdmin(value=`${builder.contactEmail}`)
+                        #tin
+                            label(for="phoneBuilderBuildingAdmin") Phone
+                            input#phoneBuilderBuildingAdmin(value=`${builder.phone}`)
+                        #chaar
+                            img#builder-photo(src=`/img/builders/${builder.logo}`, alt="builder_img")   
+                    #StatUpdate
+                        #paanch
+                            label(for="totalProjectsBuildingAdmin") Total Projects
+                            input#totalProjectsBuildingAdmin(value=`${builder.totalProjects}`)
+                        #chae
+                            label(for="projectsCompletedBuildingAdmin") Projects Completed
+                            input#projectsCompletedBuildingAdmin(value=`${builder.projectsCompleted}`)
+                        #saat
+                            label(for="operatingInBuildingAdmin") Operating In
+                            input#operatingInBuildingAdmin(value=`${builder.operatingIn}`)
+                        #aath
+                            label(for="experienceBuildingAdmin") Years of Experience
+                            input#experienceBuildingAdmin(value=`${builder.experience}`)
+                    //- #secondStat
+                        
+                    //- #thirdStat
+                        
+                    //- #fourthStat
+                        
+                label(for="textContentBuilderBuildingAdmin") About Developer
+                input#textContentBuilderBuildingAdmin.aboutBuilderPara(value=`${builder.about}`)
+                .choose
+                    input#logo-builder(type="file" accept="image/*")
+                    .choose-photo-label
+                        label.photo-label(for="logo-builder") Choose new photo
+                button.builderDeleteBtn(onClick=`removeBuilder('${builder.name}')`) Remove Builder
+                button.builderUpdateBtn(onClick=`updateBuilder('${builder._id}')`) Update Builder
+            else
+                h2 About Builder
+                #head
+                    #naming
+                        h4= builder.name
+                        h6= `Years of Experience: ${builder.experience}`
+                    #builderImg
+                        img(src="https://img.staticmb.com/mbimages/photo_dir/developer/original_images/80019/1599816155382-clogo.jpg", alt="builder_img")    
+                #builderStat
+                    #firstStat
+                        p= `Total Projects: ${builder.totalProjects}`
+                    #secondStat
+                        p= `Projects Completed: ${builder.projectsCompleted}`
+                    #thirdStat
+                        p= `Operating In: ${builder.operatingIn}`
+                p.aboutBuilderPara= `${builderAbout} ....`
+                p.readMore(onClick="closeAboutBuilderBox()") Read More
+                button(onClick=`removeBuilder('${builder.name}')`) Remove Builder
+        else
+            if admin || agentOrOwnerExists
+                h2 About Builder
+                #builderFields
+                    #fieldNameBuilder
+                        //- label#labelNameBuilderBuilding(for="nameBuilderBuilding") Name
+                        input#nameBuilderBuilding(type="text" placeholder="Name")
+                    #fieldEmailBuilder
+                        //- label#labelEmailBuilderBuilding(for="emailBuilderBuilding") Email
+                        input#emailBuilderBuilding(type="email" placeholder="Email")
+                    #fieldPhoneBuilder
+                        //- label#labelPhoneBuilderBuilding(for="phoneBuilderBuilding") Phone Number
+                        input#phoneBuilderBuilding(type="tel" placeholder="Phone Number")
+                    #statOneBuilding
+                        //- label#labelExperienceBuilding(for="experience") Experience
+                        input#experienceBuilding(type="number" placeholder="Experience")
+                    #statTwoBuilding
+                        //- label#labelTotalProjectsBuilding(for="totalProjects") Total Projects
+                        input#totalProjectsBuilding(type="number" placeholder="Total Projects")
+                    #statThreeBuilding
+                        //- label#labelProjectsCompletedBuilding(for="projectsCompleted") Projects Completed
+                        input#projectsCompletedBuilding(type="number" placeholder="Projects Completed")
+                    #statFourBuilding
+                        //- label#labeloperatingInBuilding(for="operatingIn") Operating In
+                        input#operatingInBuilding(type="text" placeholder="Operating In")
+                    label#labelTextContentBuilderBuilding(for="textContentBuilder") About Builder
+                    textarea#textContentBuilderBuilding(cols="60", rows="10", placeholder="About Developer")
+                    button#addBuilderBtn(onClick=`addBuilderBuilding()`) Add Builder
+            else
+                h2 OOPS! Builder Details is Missing
+
+    ion-icon.mailContainer.fade#closeMail(onClick="closeMailBox()" name="close")
+    ion-icon.mailContainerAgent.fadeAgent#closeMailAgent(onClick="closeMailBoxAgent()" name="close")
+    if builder
+        form#mailbox.mailContainer.fade
+            h3 Please Enter Your Details
+            //- label(for="nameMail", autoComplete="off") Your Name
+            input#nameMail(type="text" placeholder="Your Name")
+            //- label(for="emailMail") Email Id
+            input#emailMail(type="email" placeholder="Email Id")
+            //- label(for="phoneMail") Phone Number
+            input#phoneMail(type="tel" placeholder="Phone Number")
+            button(onClick=`sendMailBuilderBtn('${builder._id}')`) Contact Builder
+    //- if agent
+    form#mailboxAgent.mailContainerAgent.fadeAgent
+        h3 Please Enter Your Details
+        //- label(for="nameMail", autoComplete="off") Your Name
+        input#nameAgentMail(type="text" placeholder="Your Name")
+        //- label(for="emailMail") Email Id
+        input#emailAgentMail(type="email" placeholder="Email Id")
+        //- label(for="phoneMail") Phone Number
+        input#phoneAgentMail(type="tel" placeholder="Phone Number")
+        button(onClick=`sendMailAgentBtn('${agent}')`) Contact Agent
+    
+    #rightSideAboutBuilder.fadeRight
+        #transparentContent
+            h2 transparent
+        #contentSide
+            #closeBuilder
+                ion-icon#closeAboutBuilder(onClick="closeAboutBuilderBox()" name="close")
+            h2 About Developer
+            //- - var about = builder.
+            if builder
+                p.aboutBuilderParagraph= builder.about

@@ -1,0 +1,326 @@
+@media only screen and (max-width: 1000px) {
+    .column {
+        width: 95%;
+    }
+
+    .column .texts {
+        margin-left: -1rem;
+        margin-top: 1rem;
+        width: 60%;
+    }
+
+    .column img {
+        margin-left: 0.5rem;
+    }
+}
+@media only screen and (max-width: 960px) {
+    #ameneties-container {
+        width: 160%;
+    }
+
+    .amenety-right-btn {
+        right: 3rem;
+    }
+    
+    .amenety-left-btn {
+        left: 3rem;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    #ameneties-container {
+        width: 175%;
+    }
+
+    .amenety-right-btn {
+        right: 2.5rem;
+    }
+    
+    .amenety-left-btn {
+        left: 2.5rem;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .contactBuilderBtn, .contactAgentBtn {
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 910px) {
+    /* .fuck {
+        height: 30.5rem;
+    }
+    .column {
+        height: 30rem;
+    } */
+
+    /* .inner-column { */
+        /* width: 100%;
+        display: flex; */
+        /* flex-direction: column; */
+    /* } */
+
+    /* .column img {
+        width: 55%;
+        height: 12rem;
+        overflow: hidden;
+        border-bottom: 1px solid blue;
+        border-right: 0;
+        object-fit: cover;
+        margin: 0 auto;
+        margin-top: 1rem;
+    } */
+
+    #ameneties {
+        width: 80%;
+    }
+
+    #ameneties-container {
+        /* display: flex; */
+        /* grid-template-columns: 22.5% 22.5% 22.5% 22.5% 22.5%; */
+        /* flex-direction: row; */
+        /* grid-gap: 2.5%; */
+        /* overflow: hidden; */
+        /* scroll-behavior: smooth; */
+        width: 190%;
+        /* margin: 0 auto; */
+        /* margin-top: 5px; */
+        /* justify-content: space-around; */
+    }
+
+    .amenety-right-btn {
+        right: 1.5rem;
+        bottom: 11rem
+    }
+}
+
+@media only screen and (max-width: 860px) { 
+    .column .texts {
+        height: 100%;
+    }
+    .deleteUpdateBtn {
+        display: grid;
+        width: 90%;
+        grid-template-columns: 40% 40%;
+        grid-gap: 15%;
+    }
+    .deleteHouseLink {
+        width: fit-content;
+    }
+    
+    .updateHouseLink {
+        width: fit-content;
+    } 
+
+    .contactBuilderBtn {
+        width: 9rem;
+        margin-right: 2rem;
+    }
+    .contactAgentBtn {
+        width: 9rem;
+    }
+    .section-pictures {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 790px) {
+    .column {
+        border-width: 10px;
+    }
+    .usp {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .section-map {
+        position: relative;
+        height: 50rem;
+        /* margin-top: calc(0px - var(--section-rotate)); */
+        /* margin-bottom: 5rem; */
+        display: grid;
+        grid-template-rows: 50% 50%;
+        /* flex-direction: column; */
+        border: 1px solid black;
+        margin: 0;
+        width: 100%;
+    }
+
+    #map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: initial;
+        /* bottom: 0; */
+        width: 100%;
+        height: 50%;
+    }
+
+    .location-advantage-container {
+        /* padding-top: 50%; */
+        position: absolute;
+        top: initial;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* bottom: 0; */
+        width: 100%;
+        height: 50%;
+        /* border: 2px solid yellow; */
+    }
+
+    .amenety-right-btn {
+        right: 1.5rem;
+        bottom: 11.75rem
+    }
+    
+    .amenety-left-btn {
+        left: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .usp, .status {
+        font-size: 14px;
+    }
+    .contactBuilderBtn {
+        margin-right: 1rem;
+        font-size: 13px;
+    }
+    .contactAgentBtn {
+        margin-right: 1rem;
+        font-size: 13px;
+    }
+    .deleteUpdateBtn {
+        font-size: 13px;
+    }
+    .bath {
+        margin-right: 20%;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .contactBuilderBtn {
+        margin-right: 0.25rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .contactAgentBtn{
+        height: 2.375rem;
+        margin-left: -0.1rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    /* .inner-column {
+        display: column;
+        width: 100%;
+        grid-template-columns: 10% 90%;
+    } */
+    .column {
+        height: 23rem;
+    }
+    /* .contactAgentBtn{
+        margin-left: 0
+    } */
+    .column img {
+        margin-top: 2.5rem;
+        height: 15rem;
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 690px) {
+    .deleteUpdateBtn {
+        width: 100%;
+        grid-gap: 5%;
+        grid-template-columns: 45% 45%;
+    }
+    /* .contactAgentBtn{
+        margin-top: 0.2rem;
+    } */
+}
+
+@media only screen and (max-width: 650px) {
+    .post-stats-review {
+        /* border: 1px solid yellow; */
+        /* height: 15rem;
+        width: 40rem;
+        display: grid;
+        grid-template-columns: 10% 50% 40%;
+        column-gap: 1rem;
+        overflow: hidden;
+        margin: 0 auto; */
+        /* padding-right:  */
+        /* margin-bottom: -5rem; */
+        width: 30rem;
+        overflow: hidden;
+    }
+
+    .reviews_rating {
+        height: 1.5rem;
+        width: 100%;
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        font-style: italic;
+        font-weight: 400;
+        margin-top: auto;
+        display: flex;
+    }
+
+    .amenety-right-btn {
+        right: 0.5rem;
+        bottom: 12rem;
+    }
+    
+    .amenety-left-btn {
+        left: 0.5rem;
+    }
+    .bath {
+        margin-right: 10%;
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+    #ameneties-container {
+        width: 220%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #ameneties-container {
+        /* display: flex; */
+        /* grid-template-columns: 22.5% 22.5% 22.5% 22.5% 22.5%; */
+        /* flex-direction: row; */
+        /* grid-gap: 2.5%; */
+        /* overflow: hidden; */
+        /* scroll-behavior: smooth; */
+        width: 250%;
+        /* margin: 0 auto; */
+        /* margin-top: 5px; */
+        /* justify-content: space-around; */
+    }
+    .amenety-right-btn {
+        right: 0.5rem;
+        bottom: 11.6rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .usp, .status, .bath, .bal {
+        font-size: 13px;
+        margin-top: -0.15rem;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .contactAgentBtn {
+        margin-top: 0.25rem;
+        margin-left: 0.1rem;
+    }
+}
