@@ -1,7 +1,8 @@
 
 /////////////////////// JS for Houses ////////////////////////////////
+
 function showHouse(name) {
-// alert(name);
+alert(name);
 
     var elements = document.getElementsByClassName("column");
     for (var i = 0; i < elements.length; i++) {

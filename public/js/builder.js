@@ -72,7 +72,15 @@ function updateBuilder(id) {
         formBuilder.append('projectsCompleted', document.getElementById('projectsCompletedBuildingAdmin').value);
         formBuilder.append('operatingIn', document.getElementById('operatingInBuildingAdmin').value);
         formBuilder.append('about', document.getElementById('textContentBuilderBuildingAdmin').value);
-        formBuilder.append('logo', document.getElementById('logo-builder').files[0]);
+        var logoPhoto;
+        if(document.getElementById('logo-builder').files[0]) {
+            logoPhoto = document.getElementById('logo-builder').files[0];
+            alert(logoPhoto);
+        } else {
+            logoPhoto = document.getElementById('builder-photo-logo').value;
+            alert(logoPhoto);
+        }
+        formBuilder.append('logo', logoPhoto);
 
         alert(id);
         alert(buildingId);

@@ -80,3 +80,37 @@ function closeAboutBuilderBox () {
   builderContent.css("grid-template-columns", "40% 60%");
   // document.getElementById('closeMailAgent').style.display = "none";
 }
+
+/////////////////////// JS for Houses ////////////////////////////////
+function showHouse(name) {
+  var elements = document.getElementsByClassName("column");
+  for (var i = 0; i < elements.length; i++) {
+    // elements[i].setAttribute("style", "position: relative; visibility: hidden;");
+    elements[i].style.display = "none";
+  }
+          
+  var element = document.getElementsByClassName(name);
+    // element[0].setAttribute("style", "position: absolute; visibility: visible; left:194px; top: 0;");
+    element[0].style.display = "block";
+    // element[0].style.position="absolute";         
+}
+
+function showBtn(x) {
+  // console.log(y[0]);
+  // alert(elements[0].value);
+
+  var elements = document.getElementsByClassName(`flatTypeBtn${x}`);
+  // console.log(elements);
+
+  var totalFlatTypes = document.getElementsByClassName("flatType");
+  for (var i = 0; i < totalFlatTypes.length; i++) {
+      totalFlatTypes[i].setAttribute("style", "display: none;");
+  }
+
+  var sqftBtnElements = document.getElementsByClassName(`${x}`);
+  // console.log(sqftBtnElements);
+  for (var i = 0; i < sqftBtnElements.length; i++) {
+      sqftBtnElements[i].setAttribute("style", "visibility: visible;");
+  }
+
+}

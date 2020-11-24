@@ -319,9 +319,16 @@ input:focus {
     object-fit: cover;
     width: 100%;
     height: 25rem;
+    transition: all 0.2s;
     /* height: 15rem; */
 }
-/* .picture-box__img--1 {
+.picture-box__img:hover {
+    position: relative;
+    z-index: 99;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+    /* .picture-box__img--1 {
     padding-top: 15%;
 }
 .picture-box__img--2 {
@@ -927,8 +934,10 @@ input:focus {
 
 /* ///////////// ADD BUILDER ///////////// */
 #builder-section #builderFields {
+    width: 90%;
     display: grid;
-    grid-template-columns: 27% 27% 27% 27%;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: 5%;
 }
 
 #builder-section input {
@@ -990,6 +999,9 @@ input:focus {
     margin-left: 2rem;
 }
 
+#builderImg img {
+    width: 60%;
+}
 /* #builder-section #builder-photo {
     width: 60%;
 } */
@@ -1033,6 +1045,10 @@ input:focus {
     display: inline-block;
 }
 
+.aboutBuilderParagraph {
+    display: inline-block;
+}
+
 .readMore {
     color: rgb(201, 43, 201);
     cursor: pointer;
@@ -1065,6 +1081,18 @@ input:focus {
 
 #builder-section .builderDeleteBtn, #builder-section .builderUpdateBtn {
     display: inline-block;
+    width: 200%;
+    height: 2.5rem;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    /* margin-right: 2rem; */
+}
+
+#builder-section .builderDeleteBtn:hover, #builder-section .builderUpdateBtn:hover {
+    transform: translateY(-5px);
+    border-bottom: 2px solid #7dd56f;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 
 #builder-section .aboutBuilderPara {
@@ -1089,17 +1117,27 @@ input:focus {
 } */
 #builder-section #namingUpdate, #builder-section #StatUpdate {
     /* border: 1px solid red; */
+    /* width: 100%; */
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    overflow: hidden;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-gap: 5%;
+    /* overflow: hidden; */
 }
 
 #builder-section #namingUpdate label {
-    margin-left: 2%; 
+    display: block;
+    /* margin-left: 2%;  */
 }
 
 #builder-section #namingUpdate input {
-    margin-left: 2.5%; 
+    display: block;
+    margin-top: 1%; 
+    font-size: 12px;
+    padding-left: 3%;
+}
+
+#builder-section #StatUpdate input {
+    font-size: 12px;
 }
 
 #builderStatUpdate #builder-photo {
@@ -1108,11 +1146,32 @@ input:focus {
 }
 
 #builder-section .choose {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 2% 60%;
-    width: 40%;
+    width: 30%; */
+    margin-top: -27%;
 }
 
 .choose #logo-builder {
     opacity: 0;
 }
+
+#builderStatUpdate {
+    margin-bottom: 2.5%;
+    /* border: 1px solid blue; */
+}
+
+.bottomThree {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 30% 10% 10%;
+    grid-gap: 15%;
+}
+
+.photo-label {
+    padding: 5%;
+}
+
+/* .builderDeleteBtn, .builderUpdateBtn {
+    width: 70%;
+} */

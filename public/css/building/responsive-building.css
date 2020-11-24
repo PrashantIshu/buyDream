@@ -1,3 +1,11 @@
+@media only screen and (max-width: 1100px) {
+    #builder-section {
+        width: 85%;
+    }
+}
+
+
+
 @media only screen and (max-width: 1000px) {
     .column {
         width: 95%;
@@ -48,50 +56,36 @@
 }
 
 @media only screen and (max-width: 910px) {
-    /* .fuck {
-        height: 30.5rem;
-    }
-    .column {
-        height: 30rem;
-    } */
-
-    /* .inner-column { */
-        /* width: 100%;
-        display: flex; */
-        /* flex-direction: column; */
-    /* } */
-
-    /* .column img {
-        width: 55%;
-        height: 12rem;
-        overflow: hidden;
-        border-bottom: 1px solid blue;
-        border-right: 0;
-        object-fit: cover;
-        margin: 0 auto;
-        margin-top: 1rem;
-    } */
-
     #ameneties {
         width: 80%;
     }
 
     #ameneties-container {
-        /* display: flex; */
-        /* grid-template-columns: 22.5% 22.5% 22.5% 22.5% 22.5%; */
-        /* flex-direction: row; */
-        /* grid-gap: 2.5%; */
-        /* overflow: hidden; */
-        /* scroll-behavior: smooth; */
         width: 190%;
-        /* margin: 0 auto; */
-        /* margin-top: 5px; */
-        /* justify-content: space-around; */
     }
 
     .amenety-right-btn {
         right: 1.5rem;
         bottom: 11rem
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    #builder-section {
+        width: 90%;
+    }
+    #builder-section h2, #head, #builder-section #builderStat  {
+        margin-left: -5%;
+    }
+    #builder-section #builderFields {
+        margin-left: -5%;
+        grid-template-columns: 50% 50%;
+    }
+    #textContentBuilderBuilding {
+        width: 150%;
+    }
+    #builder-section #addBuilderBtn {
+        margin-left: 60%;
     }
 }
 
@@ -123,6 +117,49 @@
     .section-pictures {
         flex-direction: column;
     }
+
+    #builderStatUpdate {
+        display: grid;
+        grid-template-columns: 45% 45%;
+    }
+    #builder-section #namingUpdate, #builder-section #StatUpdate {
+        display: flex;
+        flex-direction: column;
+    }
+    #builderStatUpdate {
+        margin-bottom: 0;
+    }
+    #builder-section #StatUpdate input { 
+        display: block;
+    }
+    #builder-section #StatUpdate label { 
+        display: block;
+        margin-top: -0.5rem;
+    }
+    #builderStatUpdate #builder-photo {
+        width: 45%;
+        margin-left: 0;
+    }
+    #builder-section #namingUpdate input {
+        margin-bottom: 1.5rem;
+    }
+    #builder-section .builderDeleteBtn, #builder-section .builderUpdateBtn {
+        width: 7rem;
+    }
+    #builder-section .builderDeleteBtn {
+        position: relative;
+        right: 2rem;
+    }
+    #builder-section .choose {
+        position: relative;
+        bottom: 2.5rem;
+        width: fit-content;
+    }
+    #builderImg img {
+        width: 7rem;
+        position: relative;
+        right: 5rem;
+    }
 }
 
 @media only screen and (max-width: 790px) {
@@ -138,11 +175,8 @@
     .section-map {
         position: relative;
         height: 50rem;
-        /* margin-top: calc(0px - var(--section-rotate)); */
-        /* margin-bottom: 5rem; */
         display: grid;
         grid-template-rows: 50% 50%;
-        /* flex-direction: column; */
         border: 1px solid black;
         margin: 0;
         width: 100%;
@@ -154,22 +188,18 @@
         left: 0;
         right: 0;
         bottom: initial;
-        /* bottom: 0; */
         width: 100%;
         height: 50%;
     }
 
     .location-advantage-container {
-        /* padding-top: 50%; */
         position: absolute;
         top: initial;
         left: 0;
         right: 0;
         bottom: 0;
-        /* bottom: 0; */
         width: 100%;
         height: 50%;
-        /* border: 2px solid yellow; */
     }
 
     .amenety-right-btn {
@@ -216,17 +246,9 @@
 }
 
 @media only screen and (max-width: 700px) {
-    /* .inner-column {
-        display: column;
-        width: 100%;
-        grid-template-columns: 10% 90%;
-    } */
     .column {
         height: 23rem;
     }
-    /* .contactAgentBtn{
-        margin-left: 0
-    } */
     .column img {
         margin-top: 2.5rem;
         height: 15rem;
@@ -240,23 +262,10 @@
         grid-gap: 5%;
         grid-template-columns: 45% 45%;
     }
-    /* .contactAgentBtn{
-        margin-top: 0.2rem;
-    } */
 }
 
 @media only screen and (max-width: 650px) {
     .post-stats-review {
-        /* border: 1px solid yellow; */
-        /* height: 15rem;
-        width: 40rem;
-        display: grid;
-        grid-template-columns: 10% 50% 40%;
-        column-gap: 1rem;
-        overflow: hidden;
-        margin: 0 auto; */
-        /* padding-right:  */
-        /* margin-bottom: -5rem; */
         width: 30rem;
         overflow: hidden;
     }
@@ -294,16 +303,7 @@
 
 @media only screen and (max-width: 600px) {
     #ameneties-container {
-        /* display: flex; */
-        /* grid-template-columns: 22.5% 22.5% 22.5% 22.5% 22.5%; */
-        /* flex-direction: row; */
-        /* grid-gap: 2.5%; */
-        /* overflow: hidden; */
-        /* scroll-behavior: smooth; */
         width: 250%;
-        /* margin: 0 auto; */
-        /* margin-top: 5px; */
-        /* justify-content: space-around; */
     }
     .amenety-right-btn {
         right: 0.5rem;
@@ -316,11 +316,18 @@
         font-size: 13px;
         margin-top: -0.15rem;
     }
+    #builder-section #builderStat {
+        font-size: 14px;
+    }
 }
 
 @media only screen and (max-width: 560px) {
     .contactAgentBtn {
         margin-top: 0.25rem;
         margin-left: 0.1rem;
+    }
+    #builder-section #builderStat {
+        flex-direction: column;
+        margin-left: 0;
     }
 }

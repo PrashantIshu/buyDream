@@ -204,7 +204,8 @@ block content
                             label(for="phoneBuilderBuildingAdmin") Phone
                             input#phoneBuilderBuildingAdmin(value=`${builder.phone}`)
                         #chaar
-                            img#builder-photo(src=`/img/builders/${builder.logo}`, alt="builder_img")   
+                            img#builder-photo(src=`/img/builders/${builder.logo}`, alt="builder_img")
+                            input#builder-photo-logo(value=`${builder.logo}` style="display: none")   
                     #StatUpdate
                         #paanch
                             label(for="totalProjectsBuildingAdmin") Total Projects
@@ -224,14 +225,15 @@ block content
                         
                     //- #fourthStat
                         
-                label(for="textContentBuilderBuildingAdmin") About Developer
+                label#textContentBuilderBuildingAdminLabel(for="textContentBuilderBuildingAdmin") About Developer
                 input#textContentBuilderBuildingAdmin.aboutBuilderPara(value=`${builder.about}`)
-                .choose
-                    input#logo-builder(type="file" accept="image/*")
-                    .choose-photo-label
-                        label.photo-label(for="logo-builder") Choose new photo
-                button.builderDeleteBtn(onClick=`removeBuilder('${builder.name}')`) Remove Builder
-                button.builderUpdateBtn(onClick=`updateBuilder('${builder._id}')`) Update Builder
+                .bottomThree
+                    .choose
+                        input#logo-builder(type="file" accept="image/*")
+                        .choose-photo-label
+                            label.photo-label(for="logo-builder") Choose new photo
+                    button.builderDeleteBtn(onClick=`removeBuilder('${builder.name}')`) Remove Builder
+                    button.builderUpdateBtn(onClick=`updateBuilder('${builder._id}')`) Update Builder
             else
                 h2 About Builder
                 #head
@@ -239,7 +241,7 @@ block content
                         h4= builder.name
                         h6= `Years of Experience: ${builder.experience}`
                     #builderImg
-                        img(src="https://img.staticmb.com/mbimages/photo_dir/developer/original_images/80019/1599816155382-clogo.jpg", alt="builder_img")    
+                        img(src=`/img/builders/${builder.logo}`, alt="builder_img")    
                 #builderStat
                     #firstStat
                         p= `Total Projects: ${builder.totalProjects}`
@@ -247,9 +249,9 @@ block content
                         p= `Projects Completed: ${builder.projectsCompleted}`
                     #thirdStat
                         p= `Operating In: ${builder.operatingIn}`
-                p.aboutBuilderPara= `${builderAbout} ....`
+                p.aboutBuilderParagraph= `${builderAbout} ....`
                 p.readMore(onClick="closeAboutBuilderBox()") Read More
-                button(onClick=`removeBuilder('${builder.name}')`) Remove Builder
+                //- button(onClick=`removeBuilder('${builder.name}')`) Remove Builder
         else
             if admin || agentOrOwnerExists
                 h2 About Builder
