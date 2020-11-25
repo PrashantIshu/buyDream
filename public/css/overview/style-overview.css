@@ -246,7 +246,7 @@ body {
 }
 .card .wishlist-btn {
     /* margin-top: 0.7rem; */
-    background-color: rgb(105, 100, 100);
+    background-color: #d8232a;
     color: whitesmoke;
     width: 6rem;
     text-align: center;
@@ -339,3 +339,19 @@ body {
 /* .an-1 {
     opacity: 0;
 } */
+
+/* ////////////// Overview Apartments Animation On Scroll ///////////////// */
+.animateScrollApt {
+    animation-duration: 0.5s;
+    position: relative;
+}
+
+.animateAptFadeInBottom { animation-name: fadeInBottomOverviewApts }
+@keyframes fadeInBottomOverviewApts {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+        z-index: 0;
+    }
+    to { opacity: 1; z-index: 1 }
+}

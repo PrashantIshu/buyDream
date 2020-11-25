@@ -19,6 +19,10 @@
     box-shadow: 5px 5px 25px grey;
 }
   
+.form-login {
+    width: 30rem;
+}
+
 .form-login label, .form-signup label, #post-property label, #post-house-ameneties label, #update-property label, #update-house label {
     width: fit-content;
     display: block;
@@ -121,7 +125,18 @@
 }
 
 #post-property button {
-    width: 120px;
+    width: 140px;
+    height: 2.5rem;
+    text-align: center;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+
+#post-property button:hover {
+    transform: translateY(-4px);
+    border-bottom: 2px solid #7dd56f;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 
 #post-property select {
@@ -267,3 +282,15 @@ input:focus {
     background-color: yellow;
     width: 2rem;
 } */
+
+#post-property #usp {
+    margin-bottom: 1rem;
+}
+
+#post-property #label-status, #post-property #label-usp, #post-property #house-blueprint-label {
+    margin-left: 1rem;
+}
+
+#post-property #property-description {
+    height: 8rem;
+}

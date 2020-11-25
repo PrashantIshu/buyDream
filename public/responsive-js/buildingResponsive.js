@@ -1,5 +1,6 @@
 /////////////////////// JS for Sticky Navbar ////////////////////////////////
-window.onscroll = function() {
+if(document.getElementById('nav-container')) {
+  window.onscroll = function() {
     // alert("hello");
     const getNav = document.getElementById('nav-container');
     const getNavUL = document.getElementById('navbar');
@@ -13,6 +14,48 @@ window.onscroll = function() {
         // getNav.classList.add('nav-container');
         // getNavUL.classList.remove('scrollSticky');
     }
+
+    if(window.pageYOffset > 160) {
+      var housesColumn = document.getElementsByClassName('column');
+      for(var i = 0; i < housesColumn.length; i++) {
+        housesColumn[i].classList.add('animateScrollHouse');
+        housesColumn[i].classList.add('animateHouseFadeInBottom');
+      }
+    }
+
+    if(window.pageYOffset > 1100) {
+      var mapColumn = document.getElementsByClassName('map-container');
+      for(var i = 0; i < mapColumn.length; i++) {
+        mapColumn[i].classList.add('animateScrollMap');
+        mapColumn[i].classList.add('animateMapFadeInLeft');
+      }
+  
+      var locationAdvColumn = document.getElementsByClassName('location-advantage-container');
+      for(var i = 0; i < locationAdvColumn.length; i++) {
+        locationAdvColumn[i].classList.add('animateScrollMap');
+        locationAdvColumn[i].classList.add('animateMapFadeInRight');
+      }
+    }
+
+    var img_2 = document.getElementsByClassName('picture-box__img--1');
+    if(window.pageYOffset > 1500) {
+      var img_1 = document.getElementsByClassName('picture-box');
+      img_1[0].classList.add('animateScrollMap');
+      img_1[0].classList.add('animateMapFadeInLeft');
+      img_1[1].classList.add('animateScrollImg');
+      img_1[1].classList.add('animateImgFadeInBottom');
+      img_1[2].classList.add('animateScrollMap');
+      img_1[2].classList.add('animateMapFadeInRight');
+    }
+
+    if(window.pageYOffset > 2000) {
+      var reviewColumns = document.getElementsByClassName('reviews');
+      for(var i = 0; i < reviewColumns.length; i++) {
+        reviewColumns[i].classList.add('animateScrollApt');
+        reviewColumns[i].classList.add('animateAptFadeInBottom');
+      }
+    }
+  }
 }
 
 /////////////////// JS for Amenety //////////////////////
@@ -114,3 +157,57 @@ function showBtn(x) {
   }
 
 }
+
+//////////////////// Overview Animation On Scroll //////////////////////
+var overviewApartments = document.getElementById('apartments');
+if(overviewApartments) {
+  // alert("Overview");
+  window.onscroll = function() {
+    if(window.pageYOffset > 160) {
+      // console.log(window.pageYOffset, overviewApartments.offsetTop);
+      // alert(window.pageYOffset);
+      // alert(overviewApartments.offsetTop);
+      var cards = document.getElementsByClassName('card');
+      for(var i = 0; i < cards.length; i++) {
+        cards[i].classList.add('animateScrollApt');
+        cards[i].classList.add('animateAptFadeInBottom');
+        // console.log(cards[i]);
+      }
+    }
+  }
+}
+
+//////////////////// Houses Animation On Scroll //////////////////////
+// var animateHouse = document.getElementById('remove-house');
+// if(animateHouse) {
+  // window.onscroll = function() {
+  //   if(window.pageYOffset > 160) {
+  //     var housesColumn = document.getElementsByClassName('column');
+  //     for(var i = 0; i < housesColumn.length; i++) {
+  //       housesColumn[i].classList.add('animateScrollHouse');
+  //       housesColumn[i].classList.add('animateHouseFadeInBottom');
+  //     }
+  //   }
+  // }
+// }
+
+//////////////////// Location Animation On Scroll //////////////////////
+// var animateLocation = document.getElementById('location');
+// if(animateLocation) {
+//   window.onscroll = function() {
+    // if(window.pageYOffset > 1100) {
+    //   var mapColumn = document.getElementsByClassName('map-container');
+    //   for(var i = 0; i < mapColumn.length; i++) {
+    //     mapColumn[i].classList.add('animateScrollMap');
+    //     mapColumn[i].classList.add('animateMapFadeInLeft');
+    //   }
+
+    //   var locationAdvColumn = document.getElementsByClassName('location-advantage-container');
+    //   for(var i = 0; i < locationAdvColumn.length; i++) {
+    //     locationAdvColumn[i].classList.add('animateScrollMap');
+    //     locationAdvColumn[i].classList.add('animateMapFadeInRight');
+    //   }
+    // }
+  // }
+// }
+

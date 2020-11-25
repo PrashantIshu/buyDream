@@ -35,12 +35,6 @@ const buildingsSchema = new mongoose.Schema({
     description: {
         type: String,
         trim: true,
-        required: [true, "A building must have its description"]
-    },
-    summary: {
-        type: String,
-        trim: true,
-        required: [true, 'A tour must have a summary']
     },
     buildingNumber: Number,
     images: [String],

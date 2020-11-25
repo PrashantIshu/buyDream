@@ -327,10 +327,15 @@ exports.signup = catchAsync(async(req, res, next) => {
 
 exports.sellBuilding = catchAsync(async(req, res, next) => {
     const currentUserId = res.locals.user._id;
+    let admin = false;
+    if(res.locals.user) {
+        admin = adminExistsOrNot(res.locals.user);
+    }
 
     res.render('postBuilding', {
         title: 'Sell Your Property',
-        currentUserId
+        currentUserId,
+        admin
     });
 });
 

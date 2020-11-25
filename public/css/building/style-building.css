@@ -813,6 +813,7 @@ input:focus {
     left: 40%;
     box-shadow: 1rem 3rem 10rem grey;
     animation-duration: 1s;
+    /* position: relative; */
 }
 
 .fade, .fadeAgent { animation-name: fadeInBottom }
@@ -820,7 +821,7 @@ input:focus {
     from {
         opacity: 0;
         transform: translateY(500%);
-        z-index: 0;
+        /* z-index: 0; */
     }
     to { opacity: 1; }
 }
@@ -1175,3 +1176,49 @@ input:focus {
 /* .builderDeleteBtn, .builderUpdateBtn {
     width: 70%;
 } */
+
+/* ////////////////// Animate Houses On Scroll /////////////// */
+.animateScrollHouse {
+    animation-duration: 2s;
+}
+
+.animateHouseFadeInBottom { animation-name: fadeInBottomOverviewHouses }
+@keyframes fadeInBottomOverviewHouses {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ////////////////// Animate Location On Scroll /////////////// */
+.animateScrollMap {
+    animation-duration: 1s;
+}
+
+.animateMapFadeInLeft { animation-name: fadeInLeftMap }
+@keyframes fadeInLeftMap {
+    from { opacity: 0;
+        transform: translateX(-100%);
+    }
+    to { opacity: 1; }
+}
+
+.animateMapFadeInRight { animation-name: fadeInRightLocationAdv }
+@keyframes fadeInRightLocationAdv {
+    from { opacity: 0;
+        transform: translateX(100%);
+    }
+    to { opacity: 1; }
+}
+
+.animateScrollImg {
+    animation-duration: 1s;
+    position: relative;
+}
+.animateImgFadeInBottom { animation-name: fadeInBottomImg }
+@keyframes fadeInBottomImg {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+        z-index: 0;
+    }
+    to { opacity: 1; }
+}
