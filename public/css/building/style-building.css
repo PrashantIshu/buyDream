@@ -104,9 +104,9 @@ body {
 }
   
   #house-photo img {
-    height: 40rem;
+    height: 39rem;
     width: 100%;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 /* ////////////////// Houses Css //////////////////// */
@@ -159,7 +159,7 @@ input:focus {
 #myBtnContainer {
     display: flex;
     flex-direction: row;
-    width: fit-content;
+    width: 45rem;
     overflow: auto;
     white-space: nowrap;
     margin-left: 12.5%; 
@@ -325,7 +325,7 @@ input:focus {
 .picture-box__img:hover {
     position: relative;
     z-index: 99;
-    transform: scale(1.2);
+    transform: scale(1.05);
     cursor: pointer;
 }
     /* .picture-box__img--1 {

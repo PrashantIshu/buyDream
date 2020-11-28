@@ -82,7 +82,7 @@ block content
         form#wishlist-container
             #overview-container.grid-container
                 input#totalBuildings(value=`${buildings.length}`, style="display: none;")
-                each building in buildings
+                each building, index in buildings
                     div.card
                         //- img(src="https://property.magicbricks.com/mb-microsite/uttamnagarfloors-aggarwalrealestates-delhi/images/gallery/g1.jpg", class="card-img-top", alt="house_1")
                         //- .inr-icon
@@ -90,7 +90,7 @@ block content
                             img(src=`/img/buildings/${building.imageCover}` class="card-img-top" alt="house_1")
                         .text
                             .fas.fa-rupee-sign.fa-sm
-                            h2.card-title= `${building.price} Cr`
+                            h2.card-title= `${avgPrice[index]} ${units[index]}`
                         
                             p.onwards Avg Price
                             h3= `${building.name}`

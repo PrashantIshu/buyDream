@@ -211,3 +211,9 @@ if(overviewApartments) {
   // }
 // }
 
+///////////////// Posting House ///////////////////
+if(document.getElementById('post-house')) {
+  document.getElementById('post-house').onclick = function() {
+    document.getElementById('post-house').innerText = "Posting . . ."
+  }
+}

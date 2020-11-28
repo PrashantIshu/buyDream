@@ -55,6 +55,21 @@ const buildingsSchema = new mongoose.Schema({
             type: String
         }
     ],
+    allPrices: [
+        {
+            type: Number
+        }
+    ],
+    lakhPrices: [
+        {
+            type: Number
+        }
+    ],
+    crorePrices: [
+        {
+            type: Number
+        }
+    ],
     slug: String,
     agentOrOwner: [
         {

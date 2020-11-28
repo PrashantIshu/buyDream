@@ -26,9 +26,11 @@ if(postHouseForm) {
     postHouseForm.addEventListener('submit', async event=> {
         event.preventDefault();
         alert("Hello from Prashant");
+        const priceUnit = document.querySelector("input[name=priceUnit]:checked").value;
         const formHouse = new FormData();
         formHouse.append('flatType', document.getElementById('flat-type').value);
         formHouse.append('price', document.getElementById('price').value);
+        formHouse.append('priceUnit', priceUnit);
         formHouse.append('sqftArea', document.getElementById('sqft-area').value);
         formHouse.append('bathrooms', document.getElementById('bathrooms').value);
         formHouse.append('balconies', document.getElementById('balconies').value);

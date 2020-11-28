@@ -95,11 +95,12 @@ function updateHouse(id) {
         if(!image) {
             image = document.getElementById('house-blueprint-img').value;
         }
-
+        const priceUnitUpdate = document.querySelector("input[name=priceUnitUpdate]:checked").value;
         console.log(image);
         const formHouse = new FormData();
         formHouse.append('flatType', document.getElementById('flat-type').value);
         formHouse.append('price', document.getElementById('price').value);
+        formHouse.append('priceUnit', priceUnitUpdate);
         formHouse.append('sqftArea', document.getElementById('sqft-areas').value);
         formHouse.append('bathrooms', document.getElementById('bathrooms').value);
         formHouse.append('balconies', document.getElementById('balconies').value);

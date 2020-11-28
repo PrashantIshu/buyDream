@@ -10,6 +10,14 @@ const housesSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'A house must have a price']
     },
+    priceUnit: {
+        type: String,
+        enum: ['Cr', 'Lakh'],
+        default: 'Lakh'
+    },
+    priceSameUnit: {
+        type: Number
+    },
     sqftArea: {
         type: Number,
         required: [true, 'A house must have a area description in sqft']
@@ -52,18 +60,21 @@ housesSchema.statics.calBuildingStats = async function(buildingId) {
                 numHouses: { $sum: 1 },
                 minPrice: { $min: '$price' },
                 maxPrice: { $max: '$price' },
-                avgPrice: { $avg: '$price' },
-                propertiesSqft: { $push: '$sqftArea' }               
+                propertiesSqft: { $push: '$sqftArea' },
+                housePrices: { $push: '$priceSameUnit' }                
             }
         }
     ]);
-    // console.log(stats);
+    // console.log(stats);  
         await stats.forEach( async el => {
             const building = await Building.findByIdAndUpdate(el._id, {
-                price: el.avgPrice,
-                sqftAreasAvailable: el.propertiesSqft
+                sqftAreasAvailable: el.propertiesSqft,
+                allPrices: el.housePrices
             }, {new: true});  
-        });    
+        });   
+        // const checkBuilding = await Building.findById(buildingId);
+        // console.log(checkBuilding);
+        // console.log("done");
 };
 
 housesSchema.statics.calBuildingFlatTypeStats = async function(buildingId) {
@@ -76,6 +87,9 @@ housesSchema.statics.calBuildingFlatTypeStats = async function(buildingId) {
             $group: {
                 _id : '$flatType',          
             }
+        },
+        {
+            $sort: { _id: 1 }
         }
     ]);
     var properties = [];
@@ -90,14 +104,33 @@ housesSchema.statics.calBuildingFlatTypeStats = async function(buildingId) {
         }, {new: true});   
 };
 
+housesSchema.pre('save', async function(next) {
+    this.priceSameUnit = this.price;
+    if(this.priceUnit === "Lakh") {
+        this.priceSameUnit = this.price/100;
+    }
+    next();
+});
+
 housesSchema.post('save', async function() {
+    // console.log(this);
     await this.constructor.calBuildingStats(this.building);
     await this.constructor.calBuildingFlatTypeStats(this.building);
 });
 
+housesSchema.pre('findOneAndUpdate', async function(next) {
+    const docToUpdatePre = await this.model.findOne(this.getQuery());
+    this._update.priceSameUnit = this._update.price;
+    if( this._update.priceUnit === "Lakh") {
+        this._update.priceSameUnit =  this._update.price/100;
+    }
+    // console.log(this._update.priceSameUnit);
+
+    next();
+});
+
 housesSchema.post('findOneAndUpdate', async function() {
     const docToUpdate = await this.model.findOne(this.getQuery());
-    // console.log(docToUpdate);
     await docToUpdate.constructor.calBuildingStats(docToUpdate.building);
     await docToUpdate.constructor.calBuildingFlatTypeStats(docToUpdate.building);
 }); // The document that `findOneAndUpdate()` will modify

@@ -42,19 +42,19 @@ block content
         .main
         - var nameClas= ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
             #myBtnContainer
-                each house,index in houses
+                each house,index in sortedHouses
                     input(type="button" class=`flatType ${house.flatType}` onClick=`showHouse('${nameClas[index]}')` value=`${house.sqftArea} sqft`)
                     //- input(type="button" class=`flatType ${house.flatType}` onClick=`showHouse('${nameClas[index]}')` value=`${house.sqftArea} sqft`)
 
         - var houseNumber= ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
         form#remove-house.fuck
-            each house,index in houses
+            each house,index in sortedHouses
                 .column(class=`${nameClas[index]}`)
                     .inner-column
                         img(src=`/img/houses/${house.image}` alt="house_1")
                         .texts
                             i.fa.fa-inr.fa-bg(aria-hidden="true")
-                            h5= `${house.price} Cr`
+                            h5= `${house.price} ${house.priceUnit}`
                             h6= `${house.flatType} BHK Flat | ${house.sqftArea} sqft`
                             p.bath= `Bathrooms: ${house.bathrooms}`
                             p.bal= `Balconies: ${house.balconies}`

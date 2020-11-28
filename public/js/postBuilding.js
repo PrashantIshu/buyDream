@@ -148,19 +148,18 @@ if(postBuildingForm) {
         const formProperty = new FormData();
         formProperty.append('name', document.getElementById('property-name').value);
         formProperty.append('description', document.getElementById('property-description').value);
-        formProperty.append('summary', document.getElementById('property-summary').value);
         formProperty.append('agentOrOwner', document.getElementById('userId').value);
         formProperty.append('address', document.getElementById('address').value);
         formProperty.append('imageCover', document.getElementById('cover-photo').files[0]);
         formProperty.append('images', document.getElementById('building-1-photo').files[0]);
         formProperty.append('images', document.getElementById('building-2-photo').files[0]);
         formProperty.append('images', document.getElementById('building-3-photo').files[0]);
-        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageOne').files[0]);
-        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageTwo').files[0]);
-        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageThree').files[0]);
-        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageFour').files[0]);
-        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageFive').files[0]);
-        // alert(role);
+        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageOne').value);
+        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageTwo').value);
+        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageThree').value);
+        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageFour').value);
+        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageFive').value);
+        // alert(document.getElementById('locationAdvantageOne').value);
         
         const formHouse = new FormData();
         formHouse.append('flatType', document.getElementById('flat-type').value);

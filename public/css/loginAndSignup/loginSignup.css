@@ -56,7 +56,13 @@
     color: white;
     cursor: pointer;
 }
-  
+
+#post-house-ameneties button {
+    width: 130px;
+    height: 2.15rem;
+    font-size: 13px;
+}
+
 .form-login button button:hover, .form-signup button:hover, #post-property button:hover, #post-house-ameneties button:hover, #update-property button:hover, #update-house button:hover {
     background-color: #55c57a;
 }
@@ -105,7 +111,14 @@
     display: inline-block;
 } */
 
-#post-property #owner-label, #post-property #agent-label, #post-property #builder-label, #post-property #admin-label, #post-property #sale-label, #post-property #rent-label {
+#post-property #owner-label,
+#post-property #agent-label,
+#post-property #builder-label,
+#post-property #admin-label,
+#post-property #sale-label,
+#post-property #rent-label,
+#post-house-ameneties #cr-label,
+#post-house-ameneties #lakh-label {
     display: inline-block;
     margin-top: 0;
     margin-bottom: 0;
@@ -119,9 +132,46 @@
     display: block;
 }
 
-#post-property #owner, #post-property #agent, #post-property #admin, #post-property #builder, #post-property #sale, #post-property #rent, #post-property #for, #post-property #property-type-label {
+#post-property #owner,
+#post-property #agent,
+#post-property #admin,
+#post-property #builder,
+#post-property #sale,
+#post-property #rent,
+#post-property #for,
+#post-property #property-type-label,
+#post-house-ameneties #cr,
+#post-house-ameneties #lakh,
+#house-details #crUpdate,
+#house-details #lakhUpdate {
     display: inline-block;
     width: fit-content;
+}
+
+#post-house-ameneties #unit, #house-details #unitUpdate {
+    display: inline-block;
+    width: 40%;
+    margin-left: 5%;
+    position: relative;
+    top: 1.15rem;
+}
+
+#post-house-ameneties #firstUnit,
+#post-house-ameneties #secondUnit,
+#house-details #firstUnitUpdate,
+#house-details #secondUnitUpdate {
+    display: inline-block;
+}
+
+#post-house-ameneties #cr-label,
+#post-house-ameneties #lakh-label,
+#post-house-ameneties #lakh,
+#post-house-ameneties #cr,
+#house-details #crUpdate,
+#house-details #lakhUpdate,
+#house-details #cr-label-update,
+#house-details #lakh-label-update {
+    font-size: 11px;
 }
 
 #post-property button {
@@ -133,7 +183,7 @@
 }
 
 
-#post-property button:hover {
+#post-property button:hover, #post-house-ameneties button:hover {
     transform: translateY(-4px);
     border-bottom: 2px solid #7dd56f;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);

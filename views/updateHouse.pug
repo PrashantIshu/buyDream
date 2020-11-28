@@ -30,6 +30,14 @@ block content
                 label#label-price(for="price") Price
                 input#price(type="number" value=`${house.price}`)
 
+                #unitUpdate
+                    #firstUnitUpdate
+                        input#crUpdate(type="radio" value="Cr" name="priceUnitUpdate")
+                        label#cr-label-update(for="cr") Crore
+                    #secondUnitUpdate
+                        input#lakhUpdate(type="radio" value="Lakh" name="priceUnitUpdate")
+                        label#lakh-label-update(for="lakh") Lakh
+
                 label#label-flat-type(for="flat-type") Flat Type
                 input#flat-type(type="text" value=`${house.flatType}`)
 

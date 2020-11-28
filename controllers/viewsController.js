@@ -37,7 +37,28 @@ const agentOrOwnerExistsOrNot = (user, building) => {
 exports.getOverview = catchAsync( async(req, res) => {
     // 1) Get Building data from thecollection
     const buildings = await Building.find();
-    
+    // console.log(buildings);
+
+    let sum;
+    let avgPrice = [];
+    let units = [];
+    buildings.forEach( element => {
+        sum = 0;
+        element.allPrices.forEach( el => {
+            sum = sum + el
+        });
+        sum = sum / element.allPrices.length;
+        sum = sum.toFixed(2);
+        unit = "Cr";
+        if(sum < 0) {
+            sum = sum * 100;
+            unit = "Lakh";
+        }
+        avgPrice.push(sum);
+        units.push(unit);
+    });
+    // console.log(avgPrice);
+    // console.log(units);
     //////// Restrict User /////////
     const building = await Building.find({slug: req.params.slug});
 
@@ -64,7 +85,7 @@ exports.getOverview = catchAsync( async(req, res) => {
 
     res.render('overview', {
         title: 'All Buildings',
-        buildings,
+        buildings, avgPrice, units,
         admin,
         myProperties,
         myWishlists,
@@ -183,10 +204,26 @@ exports.getHouses = catchAsync( async(req, res) => {
     const houses = await House.find({building: building[0]._id});
     
     let ghar = [];
+    let gharSqftArea = [];
+    let sortedHouses = [];
+    let avgPrice = 0;
     houses.forEach( el => {
-        ghar.push(el._id);
+        gharSqftArea.push(el.sqftArea);
     });
+    gharSqftArea.sort(function(a, b) {return a-b});
+    // console.log(gharSqftArea);
+
+    gharSqftArea.forEach( element => {
+        houses.forEach( el => {
+            if(el.sqftArea === element) {
+                ghar.push(el._id);
+                sortedHouses.push(el);
+            }
+        });
+    });
+    
     // console.log(ghar);
+    // console.log(sortedHouses);
 
     const firstFlatType = building[0].propertiesAvailable[0];
 
@@ -296,7 +333,7 @@ exports.getHouses = catchAsync( async(req, res) => {
         title: 'Houses',
         building,
         buildingName,
-        houses,
+        houses, sortedHouses,
         firstFlatType,
         ameneties,
         length: ameneties.length,
