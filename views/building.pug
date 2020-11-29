@@ -30,6 +30,26 @@ block content
     section#house-photo
         .topImg-div
             img.img-top(src=`/img/buildings/${building[0].imageCover}`, alt="house_1_2")
+        .topHead-div
+            h2.imgName= `${building[0].name}`
+            p.imgAddr= `${building[0].address}`
+            .imgBHKPrice
+                h6.imgBHK= `${building[0].propertiesAvailable} BHK Flats`
+                .imgHeadPrice
+                    //- .imgIconPrice.fas.fa-rupee-sign.fa-sm
+                    .imgIconPrice Rs
+                    h6.imgPrice= `${building[0].price} ${building[0].priceUnit}`
+                    p.imgAvg AvgPrice
+            h6.imgSqft= `${building[0].sqftAreasAvailable[0]} - ${building[0].sqftAreasAvailable[building[0].sqftAreasAvailable.length-1]} sqft`
+        .topKnowMore-div
+            form#mailboxAgentOnImg
+                h3 I Want To Know More
+                input#nameAgentMailOnImg(type="text" placeholder="Your Name")
+                input#emailAgentMailOnImg(type="email" placeholder="Email Id")
+                input#phoneAgentMailOnImg(type="tel" placeholder="Phone Number")
+                button(onClick=`sendMailKnowMoreBtn('${agent}')`) Contact Now
+
+
 
     section#properties-available
         h3 PROPERTIES AVAILABLE

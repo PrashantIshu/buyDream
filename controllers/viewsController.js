@@ -42,7 +42,7 @@ exports.getOverview = catchAsync( async(req, res) => {
     let sum;
     let avgPrice = [];
     let units = [];
-    buildings.forEach( element => {
+    buildings.forEach( async element => {
         sum = 0;
         element.allPrices.forEach( el => {
             sum = sum + el
@@ -50,15 +50,19 @@ exports.getOverview = catchAsync( async(req, res) => {
         sum = sum / element.allPrices.length;
         sum = sum.toFixed(2);
         unit = "Cr";
-        if(sum < 0) {
+        if(sum < 1) {
             sum = sum * 100;
             unit = "Lakh";
         }
         avgPrice.push(sum);
         units.push(unit);
+        await Building.findByIdAndUpdate(element._id, { price: sum, priceUnit: unit }, {new: true, runValidators: true});
     });
+
+    
     // console.log(avgPrice);
     // console.log(units);
+
     //////// Restrict User /////////
     const building = await Building.find({slug: req.params.slug});
 

@@ -24,14 +24,14 @@
     text-decoration-line: none;
     color: black;
     font-size: 16px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
   
 #nav-container ul li .login{
     background-color: white;
     color: black;
     font-size: 16px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 #nav-container .user-name {
@@ -40,7 +40,7 @@
     text-align: right;
     margin-right: 0.7%;
     font-size: 16px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 #nav-container .user-img {
@@ -57,7 +57,7 @@
 #nav-container #logout {
     border: none;
     font-size: 16px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
   
 #nav-container .one-word-signup {
@@ -109,6 +109,61 @@ body {
     object-fit: fill;
 }
 
+/* ////////////////// Text on Building Photo /////////////////// */
+.topHead-div {
+    margin: 5%;
+    position: absolute;
+    top: 25%;
+    color: rgb(218, 214, 214);
+}
+
+.topHead-div .imgName {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.topHead-div .imgAddr {
+    margin-top: -1rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.topHead-div .imgBHKPrice {
+    width: fit-content;
+}
+
+.topHead-div .imgBHKPrice .imgBHK {
+    display: inline-block;
+}
+
+.topHead-div .imgBHKPrice .imgHeadPrice,
+.topHead-div .imgBHKPrice .imgIconPrice,
+.topHead-div .imgBHKPrice .imgPrice,
+.topHead-div .imgBHKPrice .imgAvg { 
+    display: inline-block;
+}
+
+.topHead-div .imgBHKPrice .imgBHK,
+.topHead-div .imgBHKPrice .imgIconPrice,
+.topHead-div .imgBHKPrice .imgPrice,
+.topHead-div .imgSqft {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.topHead-div .imgBHKPrice .imgAvg {
+    margin-left: 5px;
+}
+
+.topHead-div .imgSqft {
+    margin-top: -0.5rem;
+    font-size: 1.75rem;
+}
+
+.topHead-div .imgBHKPrice .imgHeadPrice {
+    margin-left: 2rem;
+    
+}
 /* ////////////////// Houses Css //////////////////// */
 input:focus {
     outline: none;
@@ -120,7 +175,7 @@ input:focus {
     overflow: hidden;
     margin: 0 auto;
     margin-top: 3rem;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
   
 .flatsBtnDiv {
@@ -798,12 +853,20 @@ input:focus {
     border-right: grey;
 }
 
-#mailbox, #mailboxAgent {
+#mailbox, #mailboxAgent, #mailboxAgentOnImg {
     background-color: white;
     border: 1px solid black;
     width: 25%;
     height: 20rem;
     display: none;
+}
+
+#mailboxAgentOnImg {
+    display: block;
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    background-color:rgb(233, 230, 230);;
 }
 
 .mailContainer, .mailContainerAgent {
@@ -826,7 +889,7 @@ input:focus {
     to { opacity: 1; }
 }
 
-#mailbox h3, #mailboxAgent h3 {
+#mailbox h3, #mailboxAgent h3, #mailboxAgentOnImg h3 {
     font-weight: 600;
     font-family: "Nunito", sans-serif;
     color: rgb(201, 43, 201);
@@ -835,6 +898,9 @@ input:focus {
     margin-bottom: 6%;
 }
 
+#mailboxAgentOnImg h3 {
+    color: #21c0a8;
+}
 /* #mailbox label {
     font-family: "Nunito", sans-serif;
     color: grey;
@@ -843,7 +909,7 @@ input:focus {
     top: 10%;
 } */
 
-#mailbox input, #mailboxAgent input {
+#mailbox input, #mailboxAgent input, #mailboxAgentOnImg input {
     display: block;
     width: 95%;   
     border: none;
@@ -853,7 +919,12 @@ input:focus {
     font-family: "Nunito", sans-serif;
 }
 
-#mailbox button, #mailboxAgent button {
+#mailboxAgentOnImg input {
+    border-bottom: 1.5px solid#21c0a8;
+    background-color:rgb(233, 230, 230);
+}
+
+#mailbox button, #mailboxAgent button, #mailboxAgentOnImg button {
     background-color: rgb(212, 92, 212);
     border: none;
     color: white;
@@ -862,6 +933,18 @@ input:focus {
     margin-left: 2%;
     font-family: "Nunito", sans-serif;
     font-size: 14px;
+}
+
+#mailboxAgentOnImg button {
+    background-color: #21c0a8;
+    border-radius: 20px;
+    width: 80%;
+    margin-left: 10%;
+    height: 2.5rem;
+}
+
+#mailboxAgentOnImg button:hover {
+    background-color: #079b85;
 }
 
 #closeMail, #closeMailAgent {

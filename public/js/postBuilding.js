@@ -5,6 +5,7 @@ const searchForm = document.querySelector('#search-box');
 const postWishlistForm = document.querySelector('#wishlist-container');
 const mailForm = document.querySelector('#mailbox');
 const mailAgentForm = document.querySelector('#mailboxAgent');
+const mailAgentFormOnImg = document.querySelector('#mailboxAgentOnImg');
 
 const postBuilding = async (nameAgent, emailAgent, mobileAgent, name, contactEmail, phone, experience, totalProjects, projectsCompleted, operatingIn, about, dataProperty, agentOrOwner, role, dataHouse) => {
     try {        
@@ -306,6 +307,24 @@ function sendMailAgentBtn(agentId) {
         const name = document.getElementById('nameAgentMail').value;
         const email = document.getElementById('emailAgentMail').value;
         const phone = document.getElementById('phoneAgentMail').value;
+        alert(name);
+        alert(email);
+        alert(phone);
+        await mail(agentId, buildingId, name, email, phone);
+    });
+}
+
+function sendMailKnowMoreBtn(agentId) {
+    alert("Hello Know More");
+    alert(agentId);
+    mailAgentFormOnImg.addEventListener('submit', async event => {
+        event.preventDefault();
+
+        const buildingId = document.getElementById('id').value;
+        alert(agentId);
+        const name = document.getElementById('nameAgentMailOnImg').value;
+        const email = document.getElementById('emailAgentMailOnImg').value;
+        const phone = document.getElementById('phoneAgentMailOnImg').value;
         alert(name);
         alert(email);
         alert(phone);

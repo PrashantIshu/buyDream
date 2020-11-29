@@ -32,6 +32,9 @@ const buildingsSchema = new mongoose.Schema({
         type: Number,
         //required: [true, "A building must have its price"]
     },
+    priceUnit: {
+        type: String
+    },
     description: {
         type: String,
         trim: true,
