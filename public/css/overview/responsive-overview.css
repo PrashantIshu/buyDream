@@ -68,7 +68,7 @@
         margin-left: 1.5rem;
         overflow: hidden;
         height: 15rem;
-        width: 15%;
+        width: 39rem;
         box-shadow: 0 3px 7px 0 grey;
         display: grid;
         grid-template-columns: 40% 55%;
@@ -205,7 +205,7 @@
 @media only screen and (max-width: 740px) { 
 .card {
     height: 15rem;
-    width: 14.75%;
+    width: 38rem;
     display: grid;
     grid-template-columns: 40% 55%;
     grid-gap: 5%;
@@ -215,7 +215,7 @@
 @media only screen and (max-width: 720px) { 
     .card {
         height: 14.75rem;
-        width: 14.5%;
+        width: 37rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -228,7 +228,7 @@
 @media only screen and (max-width: 700px) { 
     .card {
         height: 15rem;
-        width: 14%;
+        width: 36rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -241,7 +241,7 @@
 @media only screen and (max-width: 680px) { 
     .card {
         height: 13.5rem;
-        width: 13.5%;
+        width: 35rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -324,7 +324,7 @@
         margin-left: 1rem;
     }
        
-    .fa-bookmark {
+    .overviewBtnIcon {
         position: relative;
         left: 2.5rem;
         top: 0.05rem;
@@ -340,10 +340,17 @@
     }
 }
 
+@media only screen and (max-width: 670px) { 
+    .card {
+        height: 13.5rem;
+        width: 34.5rem;
+    }
+}
+
 @media only screen and (max-width: 660px) { 
     .card {
         height: 13.5rem;
-        width: 13.25%;
+        width: 34rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -353,7 +360,7 @@
 @media only screen and (max-width: 650px) { 
     .card {
         height: 13.5rem;
-        width: 13%;
+        width: 33.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -363,7 +370,7 @@
 @media only screen and (max-width: 640px) { 
     .card {
         height: 13rem;
-        width: 12.75%;
+        width: 33rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -380,7 +387,7 @@
 @media only screen and (max-width: 630px) { 
     .card {
         height: 13rem;
-        width: 12.5%;
+        width: 32.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -405,7 +412,7 @@
         margin-left: 1rem;
     }
        
-    .fa-bookmark {
+    .overviewBtnIcon {
         position: relative;
         left: 2.5rem;
         top: 0.05rem;
@@ -425,7 +432,7 @@
 @media only screen and (max-width: 620px) { 
     .card {
         height: 12rem;
-        width: 12.25%;
+        width: 32rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -435,7 +442,7 @@
 @media only screen and (max-width: 610px) { 
     .card {
         height: 11rem;
-        width: 12%;
+        width: 31rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -489,7 +496,7 @@
 @media only screen and (max-width: 600px) { 
     .card {
         height: 11rem;
-        width: 11.75%;
+        width: 30.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -502,7 +509,7 @@
 @media only screen and (max-width: 590px) { 
     .card {
         height: 11rem;
-        width: 11.5%;
+        width: 29rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -522,7 +529,7 @@
 
     .card {
         height: 10rem;
-        width: 11.25%;
+        width: 28.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -542,7 +549,7 @@
 @media only screen and (max-width: 570px) { 
     .card {
         height: 10rem;
-        width: 11%;
+        width: 28rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -562,7 +569,7 @@
     .card .wishlist-btn {
         margin-left: -0.5rem;
     }
-    .fa-bookmark {
+    .overviewBtnIcon {
         left: 1rem;
     }
 }
@@ -570,7 +577,7 @@
 @media only screen and (max-width: 560px) { 
     .card {
         height: 10rem;
-        width: 10.75%;
+        width: 27.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -580,7 +587,7 @@
 @media only screen and (max-width: 550px) { 
     .card {
         height: 10rem;
-        width: 10.5%;
+        width: 27rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -590,7 +597,7 @@
 @media only screen and (max-width: 540px) { 
     .card {
         height: 9rem;
-        width: 10.25%;
+        width: 26.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -614,7 +621,7 @@
         top: 0.25rem;
     }
        
-    .fa-bookmark {
+    .overviewBtnIcon {
         position: relative;
         left: 1rem;
         font-size: 0.75rem;
@@ -632,7 +639,7 @@
 
 @media only screen and (max-width: 530px) { 
     .card {
-        width: 10%;
+        width: 26rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -641,7 +648,7 @@
 
 @media only screen and (max-width: 520px) { 
     .card {
-        width: 9.75%;
+        width: 25.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -652,7 +659,7 @@
         margin-left: -1rem;
     } */
      /*  
-    .fa-bookmark {
+    .overviewBtnIcon {
         position: relative;
         left: 0.7rem;
         font-size: 0.75rem;
@@ -669,7 +676,7 @@
 
 @media only screen and (max-width: 510px) { 
     .card {
-        width: 9.5%;
+        width: 25rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -678,7 +685,7 @@
 
 @media only screen and (max-width: 500px) { 
     .card {
-        width: 9.25%;
+        width: 24.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -690,7 +697,7 @@
 
 @media only screen and (max-width: 490px) { 
     .card {
-        width: 9%;
+        width: 24rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -699,7 +706,7 @@
 
 @media only screen and (max-width: 480px) { 
     .card {
-        width: 8.75%;
+        width: 23.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -708,7 +715,7 @@
 
 @media only screen and (max-width: 470px) { 
     .card {
-        width: 8.5%;
+        width: 23rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -717,7 +724,7 @@
 
 @media only screen and (max-width: 460px) { 
     .card {
-        width: 8.25%;
+        width: 22.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
@@ -726,7 +733,7 @@
 
 @media only screen and (max-width: 450px) { 
     .card {
-        width: 8%;
+        width: 22rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;

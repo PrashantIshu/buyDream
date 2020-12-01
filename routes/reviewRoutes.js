@@ -13,7 +13,7 @@ Router
 
 Router
     .route('/:id')
-    .delete(authController.protect, authController.restrictTo('user', 'admin'), reviewController.deleteReview)
+    .delete(authController.protect, authController.restrictTo('user', 'admin', 'agent', 'builder'), reviewController.deleteReview)
     .patch(authController.protect, authController.restrictTo('user', 'admin'), reviewController.updateReview)
     .get(reviewController.getReview);
 

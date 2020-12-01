@@ -70,7 +70,7 @@ reviewSchema.statics.calAverageRatings = async function(buildingId) {
       } else {
         await Building.findByIdAndUpdate(buildingId, {
           ratingsQuantity: 0,
-          ratingsAverage: 4.5
+          ratingsAverage: 0
         });
       }
 };

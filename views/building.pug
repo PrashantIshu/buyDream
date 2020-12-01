@@ -161,8 +161,9 @@ block content
                 #map(data-locations=`${JSON.stringify(item.coordinates)}`)
         .location-advantage-container
             h3 Location Advantages
-            each advantage in building[0].locationAdvantages
-                p= `${advantage}`
+            .locationAdvantageLines
+                each advantage in building[0].locationAdvantages
+                    p= `- ${advantage}`
 
     section.section-pictures#photos
         each img, i in building[0].images
@@ -171,7 +172,7 @@ block content
 
     - let starNumber = 5
     section#review-section
-        if !admin && !agentOrOwnerExists
+        if !admin && !agentOrOwnerExists && !sameUserReview
                 .post-stats-review
                     .overall-stats
                         h3= reviewBuilding.ratingsAverage

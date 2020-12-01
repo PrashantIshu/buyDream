@@ -2,7 +2,7 @@ const postBuildingForm = document.querySelector('#post-property');
 const logoutBtn = document.querySelector('.qwerty');
 const logoutBt = document.querySelector('.qwert');
 const searchForm = document.querySelector('#search-box');
-const postWishlistForm = document.querySelector('#wishlist-container');
+const WishlistForm = document.querySelector('#wishlist-container');
 const mailForm = document.querySelector('#mailbox');
 const mailAgentForm = document.querySelector('#mailboxAgent');
 const mailAgentFormOnImg = document.querySelector('#mailboxAgentOnImg');
@@ -10,7 +10,16 @@ const mailAgentFormOnImg = document.querySelector('#mailboxAgentOnImg');
 const postBuilding = async (nameAgent, emailAgent, mobileAgent, name, contactEmail, phone, experience, totalProjects, projectsCompleted, operatingIn, about, dataProperty, agentOrOwner, role, dataHouse) => {
     try {        
 
-        
+        const ress = await axios({
+            method: 'PATCH',
+            url: `/api/v1/users/${agentOrOwner}`,
+            data: {
+                role,
+                name: nameAgent,
+                contactEmail: emailAgent,
+                phone: mobileAgent,
+            }
+        });
 
         // const builder = resBuilder.data.data._id;
         // console.log(builder);
@@ -65,16 +74,6 @@ const postBuilding = async (nameAgent, emailAgent, mobileAgent, name, contactEma
             // }
         });
         
-        const ress = await axios({
-            method: 'PATCH',
-            url: `/api/v1/users/${agentOrOwner}`,
-            data: {
-                role,
-                name: nameAgent,
-                contactEmail: emailAgent,
-                phone: mobileAgent,
-            }
-        });
         alert("success");
         if(resBuilder.data.status === "success" && resHouse.data.status === "success" && resBuilding.data.status === 'success' && ress.data.status ==='success') {
             window.setTimeout( () => {
@@ -142,9 +141,11 @@ if(postBuildingForm) {
         // const summary = document.getElementById('property-summary').value;
         const agentOrOwner = document.getElementById('userId').value;
         const role = document.querySelector("input[name=role]:checked").value;
+        alert(role);
         const nameAgent = document.getElementById('nameAgent').value;
         const mobileAgent = document.getElementById('mobileAgent').value;
         const emailAgent = document.getElementById('emailAgent').value;
+        const priceUnitPost = document.querySelector("input[name=priceUnitPost]:checked").value;
         // const address = document.getElementById("address").value;
         const formProperty = new FormData();
         formProperty.append('name', document.getElementById('property-name').value);
@@ -165,6 +166,7 @@ if(postBuildingForm) {
         const formHouse = new FormData();
         formHouse.append('flatType', document.getElementById('flat-type').value);
         formHouse.append('price', document.getElementById('price').value);
+        formHouse.append('priceUnit', priceUnitPost);
         formHouse.append('sqftArea', document.getElementById('sqft-areas').value);
         formHouse.append('agentOrOwner', document.getElementById('userId').value);
         formHouse.append('bathrooms', document.getElementById('bathrooms').value);
@@ -329,6 +331,40 @@ function sendMailKnowMoreBtn(agentId) {
         alert(email);
         alert(phone);
         await mail(agentId, buildingId, name, email, phone);
+    });
+}
+
+//////////////////////////////// WISHLISTS ////////////////////////////////////
+/////////////// Add Building To My Wishlists /////////////
+const postWish = async id => {
+    try {
+        const res = await axios({
+            method: 'POST',
+            url: `/api/v1/wishlists/my-wishlists/${id}`
+        });
+
+        if(res.data.status === 'success') {
+            window.setTimeout( () => {
+                //location.assign('/');
+                location.reload();
+            }, 1200);
+            alert("Success");
+        }
+    } catch(err) {
+        alert(err);
+    }
+};
+
+function addWishlist(wishlist) {
+    alert("Hello");
+    WishlistForm.addEventListener('submit', event=> {
+        event.preventDefault();
+        alert("Hello from Prashant");
+        const elements = document.getElementsByClassName(`${wishlist}`);
+        // console.log(elements[0].value);
+        id = elements[0].value;
+        // alert(id);
+        postWish(id);
     });
 }
 

@@ -34,6 +34,28 @@ const agentOrOwnerExistsOrNot = (user, building) => {
     return agentOrOwnerExists;
 };
 
+// const calAvgPrice = buildings => {
+//     let sum, unit;
+//     // let avgPrice = [];
+//     // let units = [];
+//     buildings.forEach( async element => {
+//         sum = 0;
+//         element.allPrices.forEach( el => {
+//             sum = sum + el
+//         });
+//         sum = sum / element.allPrices.length;
+//         sum = sum.toFixed(2);
+//         unit = "Cr";
+//         if(sum < 1) {
+//             sum = sum * 100;
+//             unit = "Lakh";
+//         }
+//         // avgPrice.push(sum);
+//         // units.push(unit);
+//         await Building.findByIdAndUpdate(element._id, { price: sum, priceUnit: unit }, {new: true, runValidators: true});
+//     });
+// };
+
 exports.getOverview = catchAsync( async(req, res) => {
     // 1) Get Building data from thecollection
     const buildings = await Building.find();
@@ -42,6 +64,7 @@ exports.getOverview = catchAsync( async(req, res) => {
     let sum;
     let avgPrice = [];
     let units = [];
+    // const calculateAvgPrice = calAvgPrice(buildings);
     buildings.forEach( async element => {
         sum = 0;
         element.allPrices.forEach( el => {
@@ -50,13 +73,14 @@ exports.getOverview = catchAsync( async(req, res) => {
         sum = sum / element.allPrices.length;
         sum = sum.toFixed(2);
         unit = "Cr";
+        let sameUnitSum = sum;
         if(sum < 1) {
             sum = sum * 100;
             unit = "Lakh";
         }
         avgPrice.push(sum);
         units.push(unit);
-        await Building.findByIdAndUpdate(element._id, { price: sum, priceUnit: unit }, {new: true, runValidators: true});
+        await Building.findByIdAndUpdate(element._id, { price: sum, priceUnit: unit, priceSameUnitSum: sameUnitSum }, {new: true, runValidators: true});
     });
 
     
@@ -89,7 +113,7 @@ exports.getOverview = catchAsync( async(req, res) => {
 
     res.render('overview', {
         title: 'All Buildings',
-        buildings, avgPrice, units,
+        buildings,
         admin,
         myProperties,
         myWishlists,
@@ -138,32 +162,58 @@ exports.getMyProperties = catchAsync(async (req, res) => {
 exports.getMinToMaxPrice = catchAsync( async(req, res) => {
     const buildings = await Building.aggregate([
         {
-            $match: { price: { $gte: 0 } }
+            $match: { priceSameUnitSum: { $gte: 0 } }
         },
         {
-            $sort: { price: 1 }
+            $sort: { priceSameUnitSum: 1 }
         }
     ]);
 
+    const building = await Building.find({slug: req.params.slug});
+    let admin = false;
+    if(res.locals.user) {
+        admin = adminExistsOrNot(res.locals.user);
+    }
+    let myProperties = false;
+    const myWishlists = false;
+    const overview = true;
+
     res.render('overview', {
         title: 'All Buildings',
-        buildings
+        buildings,
+        admin,
+        myProperties,
+        myWishlists,
+        overview
     });
 });
 
 exports.getMaxToMinPrice = catchAsync( async(req, res) => {
     const buildings = await Building.aggregate([
         {
-            $match: { price: { $gte: 0 } }
+            $match: { priceSameUnitSum: { $gte: 0 } }
         },
         {
-            $sort: { price: -1 }
+            $sort: { priceSameUnitSum: -1 }
         }
     ]);
 
+    const building = await Building.find({slug: req.params.slug});
+    let admin = false;
+    if(res.locals.user) {
+        admin = adminExistsOrNot(res.locals.user);
+    }
+    let myProperties = false;
+    const myWishlists = false;
+    const overview = true;
+
     res.render('overview', {
         title: 'All Buildings',
-        buildings
+        buildings,
+        admin,
+        myProperties,
+        myWishlists,
+        overview
     });
 });
 
@@ -177,9 +227,22 @@ exports.getMinToMaxRating = catchAsync( async(req, res) => {
         }
     ]);
 
+    const building = await Building.find({slug: req.params.slug});
+    let admin = false;
+    if(res.locals.user) {
+        admin = adminExistsOrNot(res.locals.user);
+    }
+    let myProperties = false;
+    const myWishlists = false;
+    const overview = true;
+    
     res.render('overview', {
         title: 'All Buildings',
-        buildings
+        buildings,
+        admin,
+        myProperties,
+        myWishlists,
+        overview
     });
 });
 
@@ -193,9 +256,22 @@ exports.getMaxToMinRating = catchAsync( async(req, res) => {
         }
     ]);
 
+    const building = await Building.find({slug: req.params.slug});
+    let admin = false;
+    if(res.locals.user) {
+        admin = adminExistsOrNot(res.locals.user);
+    }
+    let myProperties = false;
+    const myWishlists = false;
+    const overview = true;
+
     res.render('overview', {
         title: 'All Buildings',
-        buildings
+        buildings,
+        admin,
+        myProperties,
+        myWishlists,
+        overview
     });
 });
 
@@ -311,7 +387,16 @@ exports.getHouses = catchAsync( async(req, res) => {
     ratingStars.forEach( (el, index) => {
         ratingStars[index] = Math.floor( (el / reviewBuilding.ratingsQuantity ) * 100);
     });
-    // console.log(building[0].imageCover);
+
+    let sameUserReview;
+    if(res.locals.user) {
+        reviews.forEach( el => {
+            if(JSON.stringify(el.user._id) === JSON.stringify(res.locals.user._id)) {
+                sameUserReview = el.user._id;
+            }
+        });
+    }
+    
 
 
     /////// For Builders //////
@@ -349,7 +434,7 @@ exports.getHouses = catchAsync( async(req, res) => {
         agentOrOwnerExists,
         ghar,
         reviews,
-        reviewBuilding, ratingStars,
+        reviewBuilding, ratingStars, sameUserReview,
         builder, builderAbout
     });
 });
@@ -363,6 +448,21 @@ exports.login = catchAsync(async(req, res, next) => {
 exports.signup = catchAsync(async(req, res, next) => {
     res.render('signup', {
         title: 'SignUp'
+    });
+});
+
+exports.forgotPassword = catchAsync(async(req, res, next) => {
+    res.render('forgotPassword', {
+        title: 'Forgot Password'
+    });
+});
+
+exports.resetPassword = catchAsync(async(req, res, next) => {
+    const token = req.params.token;
+    // console.log(token);
+    res.render('resetPassword', {
+        title: 'Reset Password',
+        token
     });
 });
 
@@ -404,7 +504,7 @@ exports.getMyWishlists = catchAsync(async (req, res, next) => {
     if(!wishlists) {
         return next(new AppError('You have no Wishlists', 404));
     }
-    console.log(wishlists);
+    // console.log(wishlists);
 
     let houses = [];
     let buildings = [];
@@ -416,16 +516,16 @@ exports.getMyWishlists = catchAsync(async (req, res, next) => {
         buildings.push(building);    
     }
     // console.log(buildings);
+    let myProperties = false;
+    const myWishlists = true;
+    const overview = false;
 
-    // const myProperties = false;
-    // const overview = false;
-    // const myWishlists = true;
-    res.render("myWishlists", {
+    res.render("overview", {
         title: "My Wishlists",
-        buildings
-        // myProperties,
-        // myWishlists,
-        // overview
+        buildings,
+        myProperties,
+        myWishlists,
+        overview
     });
 });
 
@@ -458,9 +558,22 @@ exports.getBuildingsNearMe = catchAsync( async(req, res, next) => {
     ]);
 
     // console.log(buildings);
+    const building = await Building.find({slug: req.params.slug});
+    let admin = false;
+    if(res.locals.user) {
+        admin = adminExistsOrNot(res.locals.user);
+    }
+    let myProperties = false;
+    const myWishlists = false;
+    const overview = true;
+
     res.render('overview', {
         title: 'All Buildings',
-        buildings
+        buildings,
+        admin,
+        myProperties,
+        myWishlists,
+        overview
     });
 });
 
@@ -483,15 +596,31 @@ exports.getBuildingsWithinDistance = catchAsync(async (req, res, next) => {
         coordinates: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
     });
 
+    const building = await Building.find({slug: req.params.slug});
+    let admin = false;
+    if(res.locals.user) {
+        admin = adminExistsOrNot(res.locals.user);
+    }
+    let myProperties = false;
+    const myWishlists = false;
+    const overview = true;
+
     res.render('overview', {
         title: 'All Buildings',
-        buildings
+        buildings,
+        admin,
+        myProperties,
+        myWishlists,
+        overview
     });
 });
 
 exports.getMyReviews = catchAsync( async(req, res, next) => {
     const reviews = await Review.find({user: res.locals.user._id});
-    // console.log(reviews);
+    // reviews.forEach( el => {
+    //     console.log(el.building.slug);
+    // });
+    
 
     res.render('myReviews', {
         title: 'My Reviews',
@@ -505,9 +634,22 @@ exports.searchedDocs = catchAsync(async (req, res, next) => {
                                 .sort( { score: { $meta: "textScore" } } );
     
     // console.log(buildings);
+    const building = await Building.find({slug: req.params.slug});
+    let admin = false;
+    if(res.locals.user) {
+        admin = adminExistsOrNot(res.locals.user);
+    }
+    let myProperties = false;
+    const myWishlists = false;
+    const overview = true;
+    
     res.render('overview', {
         title: 'All Buildings',
-        buildings
+        buildings,
+        admin,
+        myProperties,
+        myWishlists,
+        overview
     });
 });
 

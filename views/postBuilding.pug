@@ -8,7 +8,7 @@ block content
                 h2 Personel Details
 
                 label#i-am I am
-                input#userId(type='text', value=`${currentUserId}`)
+                input#userId(type='text', value=`${currentUserId}`, style="display: none")
                 //- input#owner(type="radio" value="owner" name="role")
                 //- label#owner-label(for="owner") Owner
                 input#agent(type="radio" value="agent" name="role" checked="checked")
@@ -35,6 +35,14 @@ block content
         
                 label#label-price(for="price") Price
                 input#price(type="number", required)
+
+                #unitPost
+                    #firstUnitPost
+                        input#crPost(type="radio" value="Cr" name="priceUnitPost")
+                        label#cr-label-post(for="cr") Crore
+                    #secondUnitPost
+                        input#lakhPost(type="radio" value="Lakh" name="priceUnitPost")
+                        label#lakh-label-post(for="lakh") Lakh
 
                 label#label-flat-type(for="flat-type") Flat Type
                 input#flat-type(type="text", required)

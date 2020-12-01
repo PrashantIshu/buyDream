@@ -1,20 +1,21 @@
 extends base
 
 block content
-    h1 My Reviews
-    section#review-section
-         form#reviewHatao.reviews
-            each review in reviews
-                .review-container
-                    .user-review
-                        img.user-avatar(src=`/img/users/${review.user.photo}`)
-                        h6.user-name-review= review.user.name
-                    p= review.review
-                    .reviews__rating
-                        each star in [1, 2, 3, 4, 5]
-                            svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
-                                use(xlink:href='/img/icons.svg#icon-star')
-                    a.goto(href=`/houses/${review.building.slug}`) Go to the Building
-                    button.delete-review(onClick=`deleteReview('${review._id}')` class=`${review._id}`) Delete Review
+    #reviewPage
+        h1 My Reviews
+        section#review-section
+            form#reviewHatao.reviews
+                each review in reviews
+                    .review-container
+                        .user-review
+                            img.user-avatar(src=`/img/users/${review.user.photo}`)
+                            h6.user-name-review.reviewPageUserName= review.user.name
+                        p= review.review
+                        .reviews__rating
+                            each star in [1, 2, 3, 4, 5]
+                                svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
+                                    use(xlink:href='/img/icons.svg#icon-star')
+                        a.goto(href=`/houses/${review.building.slug}`) Go to the Building
+                        button.delete-review(onClick=`deleteReview('${review._id}')` class=`${review._id}`) Delete Review
 
-                    //- (onClick=`deleteReview('${review._id}')` class=`${review._id}`)
+                        //- (onClick=`deleteReview('${review._id}')` class=`${review._id}`)

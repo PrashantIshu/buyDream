@@ -18,8 +18,10 @@ Router.get('/max-to-min-rating', authController.isLoggedIn, viewsController.getM
 Router.get('/houses/:slug',authController.isLoggedIn, viewsController.getHouses);
 
 Router.get('/login', viewsController.login);
-
 Router.get('/signup', viewsController.signup);
+Router.get('/forgotPassword', viewsController.forgotPassword);
+Router.get('/api/v1/users/resetPassword/:token', viewsController.resetPassword);
+
 
 Router
     .route('/sellBuilding')

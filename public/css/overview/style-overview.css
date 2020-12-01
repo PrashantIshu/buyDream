@@ -126,6 +126,7 @@ body {
     margin: 0 auto;
     margin-bottom: 0.5rem;
     margin-top: 18rem;
+    font-family: 'Nunito', sans-serif;
 }
 
 .card-img {
@@ -141,6 +142,7 @@ body {
     height: 34.5rem;
     width: 314px;
     box-shadow: 0 3px 7px 0 grey;
+    color: rgb(48, 45, 45);
     /* border-radius: 7px; */
 }
 
@@ -206,8 +208,13 @@ body {
     /* display: inline-block; */
 }
 
+.card .areaIcon {
+    position: relative;
+    top: 0.75rem;
+}
+
 .card .text-muted {
-    margin-top: 5%;
+    margin-top: 8.5%;
     margin-left: 0.625rem;
     margin-bottom: 0;
     font-weight: 500;
@@ -245,51 +252,45 @@ body {
     margin-top: 0;
 }
 .card .wishlist-btn {
-    /* margin-top: 0.7rem; */
-    background-color: #d8232a;
-    color: whitesmoke;
+    color: black;
     width: 6rem;
     text-align: center;
     height: 2.75rem;
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
     margin-right: 1rem;
     padding-left: 1.25rem;
-    margin-left: 1.7rem;
+    margin-left: 1.85rem;
+    font-size: 14px;
     transition: all 0.2s;
-    /* margin-bottom: 2rem; */
 }
 
 .card .wishlist-btn:hover {
-    /* background-color: #F2F1EF; */
-    color: whitesmoke;
+    color: white;
+    background-color: rgb(247, 41, 41);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
     /* transform: translateY(-1px); */
 }
 
-.fa-bookmark {
+.overviewBtnIcon {
     position: relative;
     left: 3.5rem;
     top: 0.05rem;
-    /* padding-right: 10px; */
-    color:whitesmoke;
+    /* padding-right: 10rem; */
+    color:black;
 }
-
 
 .card .detail-btn {
     text-decoration: none;
     color: white;
-    background-color: #7dd56f;
-    /* width: 5rem; */
+    background-color:rgb(201, 43, 201);
     text-align: center;
-    /* height: 7rem; */
     padding: 0.8rem 1.5rem;
     border: none;
-    border-radius: 20px;
+    border-radius: 5px;
     cursor: pointer;
     position: relative;
-    /* top: 0.1rem; */
     margin-left: 1rem;
     transition: all 0.2s;
 }

@@ -36,7 +36,7 @@
 
 #nav-container .user-name {
     /* margin-left: 27%; */
-    width: 25%;
+    width: 23%;
     text-align: right;
     margin-right: 0.7%;
     font-size: 16px;
@@ -58,10 +58,12 @@
     border: none;
     font-size: 16px;
     font-family: 'Nunito', sans-serif;
+    width: fit-content;
+    margin-left: 1rem;
 }
   
 #nav-container .one-word-signup {
-    margin-left: 25%;
+    margin-left: 23%;
 }
 
 /* ////////////////// Sticky Nav ///////////////// */
@@ -78,7 +80,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    /* background-color: white; */
+    box-shadow: 10px 5px 40px rgb(192, 189, 189);
     animation-name: nav-animate;
     animation-duration: 0.6s;
 }
@@ -413,7 +415,8 @@ input:focus {
     overflow: hidden;
     color: whitesmoke;
     margin-bottom: 1rem;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    padding-top: 1rem;
   }
   
   #ameneties  {
@@ -587,12 +590,35 @@ input:focus {
 }
 
 .location-advantage-container {
+    /* border: 3px solid red; */
     text-align: left;
     padding-left: 3.5%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #7f5a83;
+    background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+    color: white;
+    overflow-y: auto;
 }
- 
+
+.location-advantage-container h3 { 
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
+.locationAdvantageLines {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
 .location-advantage-container p {
     width: fit-content;
+    line-height: 2rem;
 }
 
 #map {
@@ -612,23 +638,19 @@ input:focus {
     cursor: pointer;
 }
   
-.location-advantage-container {
-    /* border: 3px solid red; */
-    width: 50%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-}
+
 
 /* ///////////////// Reviews Section //////////////////// */
 #review-section {
     /* position: relative;
     z-index: 1000; */
-    background: linear-gradient(to right bottom, #7dd56f, #28b487);
+    /* background: linear-gradient(to right bottom, #7dd56f, #28b487); */
+    background-color: #7f5a83;
+    background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
     height: 30rem;
     /* margin-bottom: 10rem; */
     overflow: auto;
+    color: white;
 }
   
 .reviews {
@@ -655,6 +677,7 @@ input:focus {
     align-items: center;
     margin-top: 2rem;
     margin-bottom: 1.5rem;
+    color: grey;
 }
   .reviews:before,
   .reviews:after {
@@ -679,7 +702,9 @@ input:focus {
     font-weight: 700;
     text-transform: uppercase;
     position: relative;
-    bottom: 1rem;
+    /* bottom: 1rem; */
+    top: 0.25rem;
+    right: 0.5rem;
     color: gray;
 }
   
@@ -702,7 +727,7 @@ input:focus {
     fill: #55c57a;
 }
 .reviews__star--inactive, .reviews_star {
-    fill: #bbb;
+    fill: rgb(192, 190, 190);
 }
   
   
@@ -721,7 +746,7 @@ input:focus {
 .container {
     width: 60%;
     height: 1rem;
-    background-color: #ddd;
+    background-color: rgb(177, 171, 171);
     font-size: 0.75rem;
     position: relative;
     top: 1.2rem;
@@ -741,7 +766,7 @@ input:focus {
     bottom: 1.3rem;
     right: 9.3rem;
     top: 1.25rem;
-    fill: grey;
+    fill: white;
 }
   
 .review_stats {
@@ -751,6 +776,10 @@ input:focus {
     grid-template-rows: 7% 7% 7% 7% 7%;
 }
   
+.starNumber {
+    text-align: right;
+}
+
 .review-container {
     border: 1px solid black;
 }
@@ -765,8 +794,17 @@ input:focus {
     color: white;
     font-size: 0.7rem;
     height: 2rem;
+    font-size: 12px;
+    transition: all;
 }
-  
+
+#reviewBtn:hover {
+    transform: translateY(-5px);
+    border-bottom: 2px solid #7dd56f;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
 .overall-stats {
     display: flex;
     flex-direction: row;
@@ -784,19 +822,24 @@ input:focus {
     /* position: relative; */
     /* right: 6.15rem; */
     /* bottom: 1.3rem; */
-    fill: grey;
+    fill: #eee;
 }
   
 #reviewContainer {
     margin-left: -2.5rem;
     margin-top: 1rem;
 }
+
+#review {
+    background-color: #eee;
+    color: grey;
+}
   
 .your-rate {
     position: relative;
     right: 1.1rem;
 }
-  
+
 .delete-review, .goto {
     border: none;
     background-color: inherit;
@@ -1305,3 +1348,44 @@ input:focus {
     }
     to { opacity: 1; }
 }
+
+
+/* ////////////// review page body /////////////// */
+#reviewPage {
+    margin: 0;
+    height: 39rem;
+    overflow: hidden;
+    background-color: #7f5a83;
+    background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+}
+
+#reviewPage h1 {
+    margin: 0 auto;
+    width: fit-content;
+    /* margin: 0 auto; */
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+#reviewPage .reviewPageUserName {
+    overflow: hidden;
+    height: 1.05rem;
+    /* position: relative;
+    bottom: 3rem; */
+    margin-top: 1rem;
+}
+
+#reviewPage .goto, .delete-review {
+    font-size: 16px;
+    line-height: 2;
+}
+
+/* #reviewPage #reviewHatao {
+    background-color: yellow;
+    height: 35rem;
+    overflow-y: hidden;
+    overflow-x: auto;
+} */

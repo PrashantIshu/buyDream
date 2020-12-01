@@ -1,6 +1,5 @@
 const postWishlistForm = document.querySelector('#wishlist-container');
 
-
 const postWish = async id => {
     try {
         const res = await axios({

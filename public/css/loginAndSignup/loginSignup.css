@@ -1,4 +1,11 @@
-.form-login h2, .form-signup h2, #post-property h2, #post-house-ameneties h2, #update-property h2, #update-house h2 {
+.form-login h2,
+.form-signup h2,
+#post-property h2,
+#post-house-ameneties h2,
+#update-property h2,
+#update-house h2,
+.form-forgot-pass h2,
+.form-reset-pass h2 {
     width: fit-content;
     display: block;
     /* overflow: hidden; */
@@ -7,11 +14,16 @@
     color: #7dd56f;
 }
 
-.form-login, .form-signup, #post-property, #post-house-ameneties {
+.form-login,
+.form-signup,
+#post-property,
+#post-house-ameneties,
+.form-forgot-pass,
+.form-reset-pass {
     /* #f1f2f6 */
     background-color: #ffff;
     /* border: 1px solid black; */
-    height: 19rem;
+    height: 22rem;
     width: 40%;
     margin: 0 auto;
     margin-top: 10%;
@@ -19,11 +31,30 @@
     box-shadow: 5px 5px 25px grey;
 }
   
-.form-login {
+.form-login, .form-forgot-pass, .form-reset-pass {
     width: 30rem;
 }
 
-.form-login label, .form-signup label, #post-property label, #post-house-ameneties label, #update-property label, #update-house label {
+.form-forgot-pass {
+    height: 15rem;
+}
+
+.form-reset-pass {
+    height: 20rem;
+}
+
+#formLogin, #formForgotPass, #formResetPass {
+    height: 25rem;
+}
+
+.form-login label,
+.form-signup label,
+#post-property label,
+#post-house-ameneties label,
+#update-property label,
+#update-house label,
+.form-forgot-pass label,
+.form-reset-pass label {
     width: fit-content;
     display: block;
     font-size: 1rem;
@@ -32,7 +63,14 @@
     margin-left: 3.3%;
 }
   
-.form-login input, .form-signup input, #post-property input, #post-house-ameneties input, #update-property input, #update-house input {
+.form-login input,
+.form-signup input,
+#post-property input,
+#post-house-ameneties input,
+#update-property input,
+#update-house input,
+.form-forgot-pass input,
+.form-reset-pass input {
     display: block;
     margin-left: 3.3%;
     width: 85%;
@@ -44,17 +82,27 @@
     color: grey;
 }
   
-.form-login button, .form-signup button, #post-property button, #post-house-ameneties button, #update-property button, #update-house button {
+.form-login button,
+.form-signup button,
+#post-property button,
+#post-house-ameneties button,
+#update-property button,
+#update-house button,
+.form-forgot-pass button,
+.form-reset-pass button {
     display: block;
     width: 85px;
-    height: 2.1875em;
+    height: 2.75em;
     margin-top: 1.5em;
+    font-size: 15px;
+    font-weight: bold;
     margin-left: 3.3%;
     border: 1px solid lightgreen;
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: #7dd56f;
     color: white;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 #post-house-ameneties button {
@@ -63,26 +111,68 @@
     font-size: 13px;
 }
 
-.form-login button button:hover, .form-signup button:hover, #post-property button:hover, #post-house-ameneties button:hover, #update-property button:hover, #update-house button:hover {
+.form-login button:hover,
+.form-signup button:hover,
+#post-property button:hover,
+#post-house-ameneties button:hover,
+#update-property button:hover,
+#update-house button:hover,
+.form-forgot-pass button:hover,
+.form-reset-pass button:hover {
     background-color: #55c57a;
 }
-  
-/* .form-login button p, .form-signup p {
-    display: block;
-    position: relative;
-    top: 7.5rem;
-    left: 45%;
-    width: 10rem;
-    font-size: 15px;
-} */
-    
- /* button:focus {
-    outline: none;
-  }
-   */
+
+.form-login button:hover,
+.form-signup button:hover,
+.form-forgot-pass button:hover,
+.form-reset-pass button:hover {
+    transform: translateY(-4px);
+    border-bottom: 2px solid #7dd56f;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.form-login button, .form-forgot-pass button {
+    display: inline-block;
+}
+
+.form-forgot-pass button, .form-reset-pass button {
+    width: 150px;
+}
+
+.or {
+    display: inline-block;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    font-size: 18px;
+}
+
+.form-login .forgotPass {
+    display: inline-block;
+    font-size: 16px;
+    text-decoration: none;
+    margin-right: 10rem;
+    color: rgb(93, 93, 243);
+}
+
+.notAccount {
+    width: fit-content;
+    margin-left: 3.3%;
+    display: inline-block;
+}
+
+.transfer {
+    display: inline-block;
+    margin-left: 1%;
+    text-decoration: none;
+    color: rgb(93, 93, 243);
+}
+.transfer:hover, .form-login .forgotPass:hover {
+    color: purple;
+    text-decoration: underline;
+}
 .form-signup {
-    margin-top: 2.5rem;
-    height: 32rem;
+    margin-top: 1rem;
+    height: 34rem;
 }
   
 .form-signup h2, #post-property h2 {
@@ -143,12 +233,14 @@
 #post-house-ameneties #cr,
 #post-house-ameneties #lakh,
 #house-details #crUpdate,
-#house-details #lakhUpdate {
+#house-details #lakhUpdate,
+#house #crPost,
+#house #lakhPost {
     display: inline-block;
     width: fit-content;
 }
 
-#post-house-ameneties #unit, #house-details #unitUpdate {
+#post-house-ameneties #unit, #house-details #unitUpdate, #house #unitPost {
     display: inline-block;
     width: 40%;
     margin-left: 5%;
@@ -156,11 +248,21 @@
     top: 1.15rem;
 }
 
+/* #house #unitPost {
+    height: 2rem;
+} */
+
 #post-house-ameneties #firstUnit,
 #post-house-ameneties #secondUnit,
 #house-details #firstUnitUpdate,
-#house-details #secondUnitUpdate {
+#house-details #secondUnitUpdate,
+#house #firstUnitPost,
+#house #secondUnitPost {
     display: inline-block;
+}
+
+#house #secondUnitPost {
+    margin-left: 1rem;
 }
 
 #post-house-ameneties #cr-label,
@@ -170,8 +272,16 @@
 #house-details #crUpdate,
 #house-details #lakhUpdate,
 #house-details #cr-label-update,
-#house-details #lakh-label-update {
+#house-details #lakh-label-update,
+#house #cr-label-post,
+#house #lakh-label-post {
     font-size: 11px;
+}
+
+#house #cr-label-post,
+#house #lakh-label-post {
+    position: relative;
+    bottom: 0.5rem;
 }
 
 #post-property button {

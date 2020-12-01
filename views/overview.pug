@@ -90,7 +90,7 @@ block content
                             img(src=`/img/buildings/${building.imageCover}` class="card-img-top" alt="house_1")
                         .text
                             .fas.fa-rupee-sign.fa-sm
-                            h2.card-title= `${avgPrice[index]} ${units[index]}`
+                            h2.card-title= `${building.price} ${building.priceUnit}`
                         
                             p.onwards Avg Price
                             h3= `${building.name}`
@@ -99,7 +99,7 @@ block content
                                 p.by= `by ${building.builder.name}`
                             else 
                                 p.by Null
-                            .fas.fa-map-marker-alt.fa-sm 
+                            .areaIcon.fas.fa-map-marker-alt.fa-sm 
                             p.area= building.address
                             //- hr
                             //- each flatType in building.propertiesAvailable
@@ -110,25 +110,33 @@ block content
                             hr.line-break
                             if overview 
                                 if admin
+                                    i.fa.fa-times.overviewBtnIcon
                                     button.btn.wishlist-btn(onClick=`deleteBuilding('${building._id}')`) Delete
                                     a.detail-btn(href=`/houses/${building.slug}`) Details
                                     a.updateBtnLink(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
                                     a.updateLinkBtn(href=`/updateBuilding/${building.slug}`) Update
                                 else
-                                    i.far.fa-bookmark
+                                    i.far.fa-bookmark.overviewBtnIcon
                                     button.btn.wishlist-btn(onClick=`addWishlist('${building.name}')`) Save 
                                     a.detail-btn(href=`/houses/${building.slug}`) Details
                             if myProperties 
                                 if agentOrOwner
+                                    i.fa.fa-times.overviewBtnIcon
                                     button.btn.wishlist-btn(onClick=`deleteBuilding('${building._id}')`) Delete
                                     a.detail-btn(href=`/houses/${building.slug}`) Details
                                     a.updateBtnLink(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
                                     a.updateLinkBtn(href=`/updateBuilding/${building.slug}`) Update
                                 else
-                                    i.far.fa-bookmark
+                                    i.far.fa-bookmark.overviewBtnIcon
                                     button.btn.wishlist-btn(onClick=`addWishlist('${building.name}')`) Save
                                     a.detail-btn(href=`/houses/${building.slug}`) Details
-                            input.buildId(type="text", class=`${building.name}`, value=`${building._id}`) 
+                            if myWishlists 
+                                input#wishlistId(type="text", class=`${building.name}`, value=`${building._id}`, style="display: none;") 
+                                i.fa.fa-times.overviewBtnIcon
+                                button.delete-wishlist.btn.wishlist-btn(onClick=`deleteWishlist('${building.name}')`) Remove
+                                a.detail-btn(href=`/houses/${building.slug}`) Details 
+                            input.buildId(type="text", class=`${building.name}`, value=`${building._id}`)
+                            
                         //- if admin 
                         //-     a(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
     <div id="left-button" onClick="leftClick()"><i class="fa fa-chevron-right overview-right-btn"></i></div>                   

@@ -166,20 +166,20 @@ exports.restrictTo = (...roles) => {
 exports.forgotPassword = catchAsync( async(req, res, next) => {
     // 1) Get user on posted email
     const user = await User.findOne({email: req.body.email});
-    console.log(user);
+    // console.log(user);
     if(!user) {
         return next(new AppError("There is no user with that email address", 404));
     }
 
     // 2) Generate the random reset token
-    const resetToken = user.createPasswordResetToken();
-    
+    const resetToken = user.createPasswordResetToken(user);
+    console.log(resetToken);
     await user.save({ validateBeforeSave: false });
 
     // 3) Send it to users email
     const resetURL = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
 
-    const message = `Forgot your password? Submit a PATCH request with your new password and passwordConfirm to: ${resetURL}.\nIf you didn't forget your password, please ignore this email!`;
+    const message = `Forgot your password? Click on the link and set your new password: ${resetURL}.\nIf you didn't forget your password, please ignore this email!`;
 
     try{
         await sendEmail({
@@ -190,7 +190,7 @@ exports.forgotPassword = catchAsync( async(req, res, next) => {
 
         res.json({
             status: 'success',
-            message: 'Token sent to email!'
+            data: user
         });
 
     } catch(err) {
@@ -214,7 +214,7 @@ exports.resetPassword = catchAsync( async(req, res, next) => {
         return next(new AppError('Token is invalid or has expired', 400));
     }
     user.password = req.body.password;
-    user.passwordConfirm = req.body.passwordConfirm;
+    user.confirmPassword = req.body.confirmPassword;
     user.passwordResetToken = undefined;
     user.passwordResetExpires = undefined;
 

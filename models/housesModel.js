@@ -69,7 +69,8 @@ housesSchema.statics.calBuildingStats = async function(buildingId) {
         await stats.forEach( async el => {
             const building = await Building.findByIdAndUpdate(el._id, {
                 sqftAreasAvailable: el.propertiesSqft,
-                allPrices: el.housePrices
+                allPrices: el.housePrices,
+                priceSameUnit: el.housePrices
             }, {new: true});  
         });   
         // const checkBuilding = await Building.findById(buildingId);

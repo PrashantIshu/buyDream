@@ -2,11 +2,17 @@
 extends base
 
 block content
-    form.form-login
-        h2 LogIn to my Secrets.io
-        label(for="email-field") Email Address: 
-        input#email-field(type="email" name="email" placeholder="enter your email", required)
-        label(for="pass-field") Password: 
-        input#pass-field(type="password" name="password" placeholder="enter password", required, minlength='8')
-        button.sigin-btn Log in
+    #formLogin
+        form.form-login
+            h2 LogIn to my Secrets.io
+            label(for="email-field") Email Address: 
+            input#email-field(type="email" name="email" placeholder="enter your email", required)
+            label(for="pass-field") Password: 
+            input#pass-field(type="password" name="password" placeholder="enter password", required, minlength='8')
+            button.sigin-btn Log in
+            p.or or
+            a.forgotPass(href="/forgotPassword") Forgot Password
+            p.notAccount Don't have an account? 
+            a.transfer(href="/signup") Sign Up
+            
     //- p.mt-5.mb-3.text-muted &copy; Prashant Shekhar
