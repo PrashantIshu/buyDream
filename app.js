@@ -12,6 +12,8 @@ const housesRoutes = require('../buyDream/routes/housesRoutes');
 const viewRoutes = require('../buyDream/routes/viewRoutes');
 const wishlistsRoutes = require('../buyDream/routes/wishlistsRoutes');
 const builderRoutes = require('../buyDream/routes/builderRoutes');
+const residentialHouseRoutes = require('../buyDream/routes/residentialHouseRoutes');
+const residentialHouseReviewRoutes = require('../buyDream/routes/residentialHouseReviewRoutes');
 
 const Building = require('../buyDream/models/buildingsModel');
 const AppError = require('../buyDream/utils/app-error');
@@ -49,6 +51,8 @@ app.use('/api/v1/ameneties', amenetiesRoutes);
 app.use('/api/v1/houses', housesRoutes);
 app.use('/api/v1/wishlists', wishlistsRoutes);
 app.use('/api/v1/builders', builderRoutes);
+app.use('/api/v1/residentialHouses', residentialHouseRoutes);
+app.use('/api/v1/residentialHousesReviews', residentialHouseReviewRoutes);
 
 app.all('*', (req, res, next) => {
     // const err = new Error(`Can't find ${req.originalUrl} on this server`);

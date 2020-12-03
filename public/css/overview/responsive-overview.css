@@ -318,7 +318,6 @@
     .card .wishlist-btn {
         width: 5rem;
         height: 2rem;
-        border-radius: 20px;
         margin-right: 0.5rem;
         padding-left: 1.25rem;
         margin-left: 1rem;
@@ -406,7 +405,6 @@
     .card .wishlist-btn {
         width: 5rem;
         height: 2rem;
-        border-radius: 20px;
         /* margin-right: 0.75rem; */
         padding-left: 1.25rem;
         margin-left: 1rem;

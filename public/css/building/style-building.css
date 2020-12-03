@@ -345,27 +345,20 @@ input:focus {
 }
 
 /* //////// Building Images /////////// */
-.section-pictures {
-    /* display: -webkit-box;
-    display: -ms-flexbox; */
+.pics-left-btn, .pics-right-btn, #left-button-pics, #right-button-pics {
+    display: none;
+    color: red;
+    /* position: absolute;
+    visibility: hidden; */
+}
+
+#picsBuild {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    /* margin-bottom: 5rem; */
-    /* clip-path: polygon(
-      0 var(--section-rotate),
-      100% 0,
-      100% calc(100% - var(--section-rotate)),
-      0 100%
-    );
-    -webkit-clip-path: polygon(
-      0 var(--section-rotate),
-      100% 0,
-      100% calc(100% - var(--section-rotate)),
-      0 100%
-    );
-    margin-top: calc(0px - var(--section-rotate)); */
-    /* position: relative;
-    z-index: 1000; */
+}
+.section-pictures {
+    width: 100%;
 }
 
 .picture-box__img {

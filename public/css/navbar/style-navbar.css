@@ -4,6 +4,7 @@
 
 #one-liner {
     width: 80%;
+    color: #3C40C6;
     margin: 0 auto;
     margin-bottom: 3rem;
     /* margin-top: 1rem; */
@@ -61,19 +62,26 @@
     background-color: inherit;
     cursor: pointer;
     font-size: 16px;
-    color: #BA2F16;
+    color:#3C40C6;
     font-weight: 600;
     font-family: 'Nunito', sans-serif;
     opacity: 1;
+    transition: all 0.2s;
 }
 
 #nav .navlink {
-    color: #BA2F16;
+    color:#3C40C6;
     text-decoration: none;
     font-size: 16px;
     font-weight: 600; 
     font-family: 'Nunito', sans-serif;
     opacity: 1;
+    transition: all 0.2s;
+}
+
+#nav .navlink:hover, #nav .navBtn:hover {
+    color: red;
+    transform: translateY(-4px);
 }
 
 .signup-home, .login-home {
@@ -109,7 +117,7 @@
     /* border: 2px solid black; */
     display: none;
     text-align: center;
-    /* background-color: white; */
+    background-color: white;
     color: black;
 }
 

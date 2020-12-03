@@ -272,7 +272,7 @@ if(document.getElementById('bg-home-img')) {
         var slogan = document.getElementById("overview-slogan");
         // slogan.classList.add('cssanimation');
         // slogan.classList.add('fadeInBottom');
-        slogan.innerHTML = `<h1 id="one-liner" class="cssanimation fadeInBottom" style="color: black;">${lines[i++]}</h1>`;
+        slogan.innerHTML = `<h1 id="one-liner" class="cssanimation fadeInBottom" style="color: #3C40C6;">${lines[i++]}</h1>`;
         if(i===lines.length) {
             i=0;
         }

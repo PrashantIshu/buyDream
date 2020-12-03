@@ -165,10 +165,13 @@ block content
                 each advantage in building[0].locationAdvantages
                     p= `- ${advantage}`
 
+    <div id="right-button-pics" style="visibility: hidden;" onClick="rightClickPics()"><i class="pics-left-btn fas fa-chevron-left"></i></div>
     section.section-pictures#photos
-        each img, i in building[0].images
-            .picture-box
-                img.picture-box__img(src=`/img/buildings/${img}`, alt=`The Park Camper Tour ${i + 1}`, class=`picture-box__img--${i + 1}`)
+        #picsBuild
+            each img, i in building[0].images
+                .picture-box
+                    img.picture-box__img(src=`/img/buildings/${img}`, alt=`The Park Camper Tour ${i + 1}`, class=`picture-box__img--${i + 1}`)
+    <div id="left-button-pics" onClick="leftClickPics()"><i class="fa fa-chevron-right pics-right-btn"></i></div>   
 
     - let starNumber = 5
     section#review-section

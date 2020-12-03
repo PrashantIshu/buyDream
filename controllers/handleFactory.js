@@ -91,3 +91,85 @@ exports.getAll = Model => catchAsync(async(req, res) => {
     });
 
 });
+
+exports.getDocsWithin = Model => catchAsync( async(req, res, next) => {
+    const { distance, latlng, unit } = req.params;
+    const [lat, lng] = latlng.split(',');
+
+    const radius = unit === 'mi' ? distance / 3963.2 : distance / 6378.1;
+
+    if (!lat || !lng) {
+        next(
+          new AppError(
+            'Please provide latitutr and longitude in the format lat,lng.',
+            400
+          )
+        );
+    }
+    
+    const docs = await Model.find({
+        coordinates: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
+    });
+    
+    res.status(200).json({
+        status: 'success',
+        results: docs.length,
+        data: {
+          data: docs
+        }
+    });    
+});
+
+exports.getDistances = Model => catchAsync( async(req, res, next) => {
+    const {latlng, unit } = req.params;
+    const [lat, lng] = latlng.split(',');
+
+    const multiplier = unit === 'mi' ? 0.000621371 : 0.001;
+
+    if (!lat || !lng) {
+        next(
+          new AppError(
+            'Please provide latitutr and longitude in the format lat,lng.',
+            400
+          )
+        );
+    }
+    
+    const docs = await Model.aggregate([
+        {
+            $geoNear: {
+                near: {
+                    // type: 'Point',
+                    coordinates: [lng * 1, lat * 1]
+                    // [ lng * 1, lat * 1 ]
+                },
+                distanceField: 'distance',
+                distanceMultiplier: multiplier
+            }
+        },
+        {
+            $project: {
+                distance: 1,
+                name: 1
+            }
+        }
+    ]);
+    
+    res.status(200).json({
+        status: 'success',
+        data: {
+          data: docs
+        }
+    });    
+});
+
+exports.searchDocs = Model => catchAsync(async (req, res, next) => {
+    const docs = await Model.find( { $text: { $search: req.body.string } },
+                                    { score: { $meta: "textScore" } } )
+                                .sort( { score: { $meta: "textScore" } } );
+
+    res.status(200).json({
+        status: 'success',
+        data: docs
+    });    
+});

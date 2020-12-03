@@ -24,16 +24,12 @@ var setInvisible = function(elem) {
     elem.css('visibility', 'visible');
 };
 
-// var outer = $("#overview-container");
 
 function rightClick() {
-    // alert("Hello");
     var leftPos = $("#body").scrollLeft();
-    // alert(leftPos);
     $("#body").animate({
       scrollLeft: leftPos - 800
     }, 800, function() {
-      /* debugger */;
       if ($('#body').scrollLeft() <= 0) {
         setInvisible($('#right-button'));
       }
@@ -41,12 +37,12 @@ function rightClick() {
 };
 
 function leftClick() {
-    // alert("Hello");
-    setVisible($('#right-button'));
-    var leftPos = $("#body").scrollLeft();
-    // alert(leftPos);
-    $("#body").animate({
-      scrollLeft: leftPos + 800
-    }, 800);
+  // alert("Hello");
+  setVisible($('#right-button'));
+  var leftPos = $("#body").scrollLeft();
+  // alert(leftPos);
+  $("#body").animate({
+    scrollLeft: leftPos + 800
+  }, 800);
 };
 

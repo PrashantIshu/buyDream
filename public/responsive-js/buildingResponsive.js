@@ -217,3 +217,25 @@ if(document.getElementById('post-house')) {
     document.getElementById('post-house').innerText = "Posting . . ."
   }
 }
+
+//////////////// Building Photos Slide Show On Btn Click /////////////////
+function leftClickPics() {
+  var dist = window.innerWidth + 10;
+    setVisible($('#right-button-pics'));
+    var leftPos = $("#photos").scrollLeft();
+    $("#photos").animate({
+      scrollLeft: leftPos + dist
+    }, dist);
+};
+
+function rightClickPics() {
+  var dist = window.innerWidth + 10;
+  var leftPos = $("#photos").scrollLeft();
+  $("#photos").animate({
+    scrollLeft: leftPos - dist
+  }, dist, function() {
+    if ($('#photos').scrollLeft() <= 0) {
+      setInvisible($('#right-button-pics'));
+    }
+  });
+};
