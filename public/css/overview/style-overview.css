@@ -103,7 +103,7 @@ body {
 
 
 /* ////////////////////////////// Body //////////////////////////////// */
-#body {
+#body, #residentialHouseBody {
     /* border: 3px solid yellow; */
     width: 93%;
     height: 37.5rem;
@@ -112,7 +112,7 @@ body {
     overflow: hidden;
     background-color: #eee;
 }
-.grid-container {
+.grid-container, .residentialHouseGridContainer {
     /* border: 2px solid red; */
     width: 0;
     display: flex;
@@ -120,7 +120,7 @@ body {
     justify-content: space-around;
 }
 
-#apartments {
+#apartments, #residentialVillas {
     display: block;
     width: fit-content;
     margin: 0 auto;
@@ -129,12 +129,14 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-.card-img {
+#residentialVillas {
+    margin-top: 3rem;
+}
+
+.card-img, .residentialHouseCardImg {
     height: 40%;
 }
-.card {
-    /* border: 2px solid blue; */
-    /* width: 300px; */
+.card, .residentialHouseCard {
     background-color: white;
     margin-top: 1.5rem;
     margin-right: 1.5rem;
@@ -143,28 +145,27 @@ body {
     width: 314px;
     box-shadow: 0 3px 7px 0 grey;
     color: rgb(48, 45, 45);
-    /* border-radius: 7px; */
 }
 
-.card img {
+.card img, .residentialHouseCard img{
     width: 100%;
     height: 100%;
     object-fit: fill;
 }
 
-.card .fa-rupee-sign {
+.card .fa-rupee-sign, .residentialHouseCard .fa-rupee-sign {
     margin-left: 0.625rem;
     font-size: 1.2rem;
 }
 
-.card h2 {
+.card h2, .residentialHouseCard h2 {
     display: inline-block;
     margin: 0 5px;
     font-family: 'Nunito', sans-serif;
     /* margin-left: 5px; */
 }
 
-.card .onwards {
+.card .onwards, .residentialHouseCard .onwards {
     display: inline-block;
     margin-bottom: 0;
     font-family: 'Ubuntu', sans-serif;
@@ -172,13 +173,13 @@ body {
     font-size: 14px;
 } 
 
-.card h3 {
+.card h3, .residentialHouseCard h3 {
     margin-left: 0.625rem;
     margin-bottom: 0;
     font-family: 'Nunito', sans-serif;
 }
 
-.card .by {
+.card .by, .residentialHouseCard .by {
     margin-top: 0;
     margin-left: 0.625rem;
     /* font-size: 0.9rem; */
@@ -196,7 +197,7 @@ body {
     top: 1.75%;
 }
 
-.card .area {
+.card .area, .residentialHouseCard .area {
     /* margin-top: 6%; */
     margin-left: 1.5rem;
     margin-top: -0.5rem;
@@ -208,12 +209,12 @@ body {
     /* display: inline-block; */
 }
 
-.card .areaIcon {
+.card .areaIcon, .residentialHouseCard .areaIcon {
     position: relative;
     top: 0.75rem;
 }
 
-.card .text-muted {
+.card .text-muted, .residentialHouseCard .residentialHouseCardTextMuted {
     margin-top: 8.5%;
     margin-left: 0.625rem;
     margin-bottom: 0;
@@ -222,7 +223,7 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-.card .averageRating {
+.card .averageRating, .residentialHouseCard .residentialHouseCardAverageRating {
     /* margin-top: 10%; */
     margin-left: 0.625rem;
     display: inline-block;
@@ -237,7 +238,7 @@ body {
     bottom: 1.3px;
 }
 
-.card .ratingQuantity {
+.card .ratingQuantity, .residentialHouseCard .residentialHouseCardRatingQuantity {
     margin-top: 3%;
     margin-left: 1rem;
     display: inline-block;
@@ -251,7 +252,7 @@ body {
 .line-break {
     margin-top: 0;
 }
-.card .wishlist-btn {
+.card .wishlist-btn, .residentialHouseCard .wishlist-btn{
     color: black;
     width: 6rem;
     text-align: center;
@@ -266,7 +267,7 @@ body {
     transition: all 0.2s;
 }
 
-.card .wishlist-btn:hover {
+.card .wishlist-btn:hover, .residentialHouseCard .wishlist-btn:hover{
     color: white;
     background-color: rgb(247, 41, 41);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
@@ -281,7 +282,7 @@ body {
     color:black;
 }
 
-.card .detail-btn {
+.card .detail-btn, .residentialHouseCard .detail-btn {
     text-decoration: none;
     color: white;
     background-color:rgb(201, 43, 201);
@@ -295,7 +296,7 @@ body {
     transition: all 0.2s;
 }
 
-.card .detail-btn:hover {
+.card .detail-btn:hover, .residentialHouseCard .detail-btn:hover {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
     transform: translateY(-6rem);
 }

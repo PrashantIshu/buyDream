@@ -1,4 +1,5 @@
 const Building = require('../models/buildingsModel');
+const ResidentialHouse = require('../models/residentialHouseModel');
 const House = require('../models/housesModel');
 const Review = require('../models/reviewModel');
 const Amenety = require('../models/amenetiesModel');
@@ -34,37 +35,14 @@ const agentOrOwnerExistsOrNot = (user, building) => {
     return agentOrOwnerExists;
 };
 
-// const calAvgPrice = buildings => {
-//     let sum, unit;
-//     // let avgPrice = [];
-//     // let units = [];
-//     buildings.forEach( async element => {
-//         sum = 0;
-//         element.allPrices.forEach( el => {
-//             sum = sum + el
-//         });
-//         sum = sum / element.allPrices.length;
-//         sum = sum.toFixed(2);
-//         unit = "Cr";
-//         if(sum < 1) {
-//             sum = sum * 100;
-//             unit = "Lakh";
-//         }
-//         // avgPrice.push(sum);
-//         // units.push(unit);
-//         await Building.findByIdAndUpdate(element._id, { price: sum, priceUnit: unit }, {new: true, runValidators: true});
-//     });
-// };
-
 exports.getOverview = catchAsync( async(req, res) => {
     // 1) Get Building data from thecollection
     const buildings = await Building.find();
-    // console.log(buildings);
 
     let sum;
     let avgPrice = [];
     let units = [];
-    // const calculateAvgPrice = calAvgPrice(buildings);
+
     buildings.forEach( async element => {
         sum = 0;
         element.allPrices.forEach( el => {
@@ -83,10 +61,8 @@ exports.getOverview = catchAsync( async(req, res) => {
         await Building.findByIdAndUpdate(element._id, { price: sum, priceUnit: unit, priceSameUnitSum: sameUnitSum }, {new: true, runValidators: true});
     });
 
-    
-    // console.log(avgPrice);
-    // console.log(units);
-
+    const residentialHouses = await ResidentialHouse.find();
+    // console.log(residentialHouses);
     //////// Restrict User /////////
     const building = await Building.find({slug: req.params.slug});
 
@@ -98,22 +74,12 @@ exports.getOverview = catchAsync( async(req, res) => {
     const myWishlists = false;
     const overview = true;
 
-    //////// Get Builder ////////
-    // buildings.forEach( el => {
-    //     if(el.builder){
-    //         console.log(el.builder);
-    //     }
-    // });
-    // if(building[0].builder) {
-    //     if(building[0].builder.name) {
-    //         console.log(building[0].builder.name);
-    //     }
-    // }
-    // const builder = await Builder.findById(building[0].builder
+    
 
     res.render('overview', {
         title: 'All Buildings',
         buildings,
+        residentialHouses,
         admin,
         myProperties,
         myWishlists,
@@ -436,6 +402,24 @@ exports.getHouses = catchAsync( async(req, res) => {
         reviews,
         reviewBuilding, ratingStars, sameUserReview,
         builder, builderAbout
+    });
+});
+
+exports.getIndependentHouse = catchAsync(async(req, res, next) => {
+    // console.log(req.params.slug);
+    const residentialHouses = await ResidentialHouse.find({slug: req.params.slug});
+    const residentialHouse = residentialHouses[0];
+    console.log(residentialHouse);
+    if(residentialHouse) {
+        if(residentialHouse.description) {
+            var rhAbout = residentialHouse.description.substring(0, 200);
+        }
+    }
+
+    res.render('residentialHouse', {
+        title: 'Residential House',
+        residentialHouse,
+        rhAbout
     });
 });
 

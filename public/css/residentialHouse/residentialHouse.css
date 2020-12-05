@@ -1,0 +1,354 @@
+#fullResidentialHouseBody {
+    /* background-color: rgb(219, 214, 214); */
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Nunito', sans-serif;
+    height: 100rem;
+}
+
+#overviewSection {
+    width: 90%;
+    margin: 0 auto;
+    height: 52rem;
+    display: grid;
+    grid-template-rows: 17% 70% 15%;
+    background-color: white;
+}
+
+#overviewSection #overviewPartOne {
+    display: grid;
+    grid-template-columns: 55% 30%;
+    grid-gap: 10%;
+    overflow: hidden;
+}
+
+#overviewPartOne #insidePartOneOne h2 {
+    width: fit-content;
+    margin-top: 5%;
+}
+
+#overviewPartOne #insidePartOneOne h4 {
+    width: fit-content;
+    margin-top: -1rem;
+}
+
+#overviewPartOne #insidePartOneOne {
+    margin-left: 5%;
+}
+
+#overviewPartOne #insidePartOneTwo {
+    height: 100%;
+    text-align: right;
+
+}
+
+#overviewPartOne #insidePartOneTwo .fa-rupee-sign,
+#overviewPartOne #insidePartOneTwo h2 {
+    display: inline-block;
+}
+
+#overviewPartOne #insidePartOneTwo p {
+    margin-top: -1rem;
+}
+
+#overviewPartOne #insidePartOneTwo button {
+    float: right;
+    border: none;
+    border-radius: 5px;
+    width: 40%;
+    height: 2.5rem;
+    background-color: #1dd38f;
+    color: white;
+    cursor: pointer;
+}
+
+#overviewSection #overviewPartTwo {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* border: 2px solid blue; */
+}
+
+#overviewPartTwo img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+#overviewPartThree p, #overviewPartThree h6 {
+    width: fit-content;
+}
+#overviewSection #overviewPartThree {
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15% 15%;
+    grid-gap: 6.25%;
+    text-align: center;
+}
+
+#overviewPartThree #overviewBuildUpArea p,
+#overviewPartThree #overviewBuildUpArea h6,
+#overviewPartThree #overviewAvgPrice p,
+#overviewPartThree #overviewAvgPrice h6,
+#overviewPartThree #overviewAvgPrice .fa-rupee-sign,
+#overviewPartThree #overviewConfiguration p,
+#overviewPartThree #overviewConfiguration h6,
+#overviewPartThree #overviewPossessionStatus p,
+#overviewPartThree #overviewPossessionStatus h6,
+#overviewPartThree #overviewFurnishing p,
+#overviewPartThree #overviewFurnishing h6 {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#overviewPartThree #overviewBuildUpArea h6,
+#overviewPartThree #overviewAvgPrice h6,
+#overviewPartThree #overviewConfiguration h6,
+#overviewPartThree #overviewPossessionStatus h6,
+#overviewPartThree #overviewFurnishing h6 {
+    margin-top: 5%;
+    font-size: 14px;
+    font-weight: normal;
+    color: grey;
+}
+
+#overviewPartThree #overviewAvgPrice .fa-rupee-sign, 
+#overviewPartThree #overviewAvgPrice p {
+    display: inline-block;
+}
+
+#overviewPartThree #overviewAvgPrice .fa-rupee-sign {
+    margin-right: 5px;
+}
+
+/* ////////////////// Residential House Navbar Css ///////////////// */
+#navContainer {
+    width: 100%;
+    overflow: hidden;
+    height: 60px;
+    background-color: white;
+}
+  
+#navContainer ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+  
+#navContainer ul li{
+    margin-right: 2.5%;
+}
+  
+#navContainer ul li a {
+    text-decoration-line: none;
+    color: black;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+}
+  
+#navContainer ul li .login{
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+}
+
+#navContainer .user-name {
+    width: 23%;
+    text-align: right;
+    margin-right: 0.7%;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+}
+
+#navContainer .user-img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+}
+  
+#navContainer .building-page-img {
+    margin-right: 2px;
+    margin-top: -10px;
+}
+  
+#navContainer #logout {
+    border: none;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    width: fit-content;
+    margin-left: 1rem;
+}
+  
+#navContainer .one-word-signup {
+    margin-left: 23%;
+}
+
+.stick {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#navContainer .over a {
+    color: blue;
+    border-bottom: 1px solid blue;
+}
+
+#navContainer li a:hover {
+    color: blue;
+    border-bottom: 1px solid blue;
+}
+
+/* /////////////////// Second Half Overview Section /////////////////// */
+#secondHalfSection {
+    background-color: #f4f4f4;
+}
+
+#secondHalf {
+    width: 85%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 65% 30%;
+    grid-gap: 5%;
+    overflow: hidden;
+    /* position: relative; */
+    background-color: white;
+}
+
+#secondHalf h2 {
+    width: fit-content;
+    margin-left: 3%;
+}
+
+#overviewHouseDetails {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    /* border-bottom: 1px solid grey; */
+}
+#overviewHouseDetails p, #overviewHouseDetails h6 {
+    width: fit-content;
+    margin-left: 5%;
+}
+
+#overviewHouseDetails h6 {
+    font-size: 14px;
+    color: grey;
+}
+
+#overviewHouseDetails p {
+    margin-top: -1.5rem;
+}
+
+.contactSecondHalf {
+    position: fixed;
+    top: 15%;
+    right: 7.2%;
+    width: 25.5%;
+    background-color: white;
+}
+#contactSecondHalf #seller{
+    /* position: fixed;
+    right: 0;
+    z-index: 1; */
+    width: 70%;
+    display: grid;
+    grid-template-columns: 35% 60%;
+    grid-gap: 5%;
+    height: 4.5rem;
+    margin-bottom: 2rem;
+    /* position: relative; */
+    
+}
+
+#seller #sellerImg img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+#seller #sellerDetails h6 {
+    width: fit-content;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 5px;
+    /* margin-top: -0.25rem; */
+}
+
+#seller #sellerDetails .sellerOwner {
+    color: grey;
+}
+
+#contactSecondHalf #contactSellerForm {
+    width: 90%;
+    border: 1px solid grey;
+    box-shadow: 0 3px 7px 0 grey;
+}
+
+#contactSecondHalf #contactSellerForm input {
+    display: block;
+    border: none;
+    border-bottom: 1px solid grey;
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 2.5rem;
+}
+
+#contactSecondHalf #contactSellerForm button {
+    background-color: rgb(127, 127, 127);
+    color: white;
+    border: none;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-bottom: 1rem;
+    height: 2.75rem;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#contactSecondHalf #contactSellerForm h5 {
+    width: fit-content;
+    margin-left: 3%;
+}
+
+#secondHalf #aboutThis {
+    width: 90%;
+    margin: 0 auto;
+    margin-left: 3%;
+}
+
+#secondHalf #aboutThis h6 {
+    font-size: 15px;
+    color: grey;
+    line-height: 1.5;
+    margin-top: -0.35rem;
+    padding-bottom: 1.1rem;
+    height: 3rem;
+    overflow: hidden;
+}
+
+#secondHalf hr {
+    border: 0;
+    border-bottom: 1px solid darkgray;
+    width: 80%;
+    margin: 0 auto;
+    background-color: darkgray;
+    margin-top: -0.5rem;
+}
+
+#secondHalf #moreRead {
+    width: fit-content;
+    margin: 0 auto;
+    cursor: pointer;
+    color: #5e23dc;
+    margin-top: 1rem;
+}
+
+/* //////////// Locality Section ///////////// */
+#localitySection {
+    /* background-color: red; */
+    height: 20rem;
+}

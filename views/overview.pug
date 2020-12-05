@@ -139,4 +139,66 @@ block content
                             
                         //- if admin 
                         //-     a(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
-    <div id="left-button" onClick="leftClick()"><i class="fa fa-chevron-right overview-right-btn"></i></div>                   
+    <div id="left-button" onClick="leftClick()"><i class="fa fa-chevron-right overview-right-btn"></i></div> 
+
+    h2#residentialVillas(class="animate__animated animate__bounce an-1") Residential Villas        
+    <div id="right-button-rh" style="visibility: hidden;" onClick="residentialHouseRightClick()"><i class="overview-left-btn fas fa-chevron-left"></i></div>
+    section#residentialHouseBody                    
+        form#wishlist-residentialHouse-container
+            #residentialHouse-container.residentialHouseGridContainer
+                input#totalResidentialHouses(value=`${residentialHouses.length}`, style="display: none;")
+                each residentialHouse, index in residentialHouses
+                    //- img(src=`/img/residentialHouse/residentialHouse-5fc7c663eb4b635cb0774660-1606929444758-1.jpeg` class="card-img-top" alt="house_1")
+                    div.residentialHouseCard
+                        .residentialHouseCardImg
+                            img(src=`/img/residentialHouse/${residentialHouse.imageCover}` class="card-img-top" alt="house_1")
+                        .residentialHouseCardTtext
+                            .fas.fa-rupee-sign.fa-sm
+                            h2.residentialHouseCardTitle= `${residentialHouse.price} ${residentialHouse.priceUnit}`
+                        
+                            p.onwards Avg Price
+                            h3= `${residentialHouse.name}`
+                            //- br
+                            if(residentialHouse.builder)
+                                p.by= `by ${residentialHouse.builder.name}`
+                            else 
+                                p.by Null
+                            .areaIcon.fas.fa-map-marker-alt.fa-sm 
+                            p.area= residentialHouse.address
+                            //- hr
+                            //- each flatType in building.propertiesAvailable
+                            p.residentialHouseCardTextMuted=`Flat Type: ${residentialHouse.propertiesAvailable} BHK` 
+                            p.residentialHouseCardAverageRating= `Avg Rating: ${residentialHouse.ratingsAverage}`
+                            i.fa.fa-star-o
+                            p.residentialHouseCardRatingQuantity= `Total ratings: ${residentialHouse.ratingsQuantity}`
+                            hr.line-break
+                            if overview 
+                                if admin
+                                    i.fa.fa-times.overviewBtnIcon
+                                    button.btn.wishlist-btn(onClick=`deleteBuilding('${residentialHouses._id}')`) Delete
+                                    a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
+                                    a.updateBtnLink(href=`/updateBuilding/${residentialHouses.slug}`) To Update Building Click Here
+                                    a.updateLinkBtn(href=`/updateBuilding/${residentialHouses.slug}`) Update
+                                else
+                                    i.far.fa-bookmark.overviewBtnIcon
+                                    button.btn.wishlist-btn(onClick=`addWishlist('${residentialHouses.name}')`) Save 
+                                    a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
+                            if myProperties 
+                                if agentOrOwner
+                                    i.fa.fa-times.overviewBtnIcon
+                                    button.btn.wishlist-btn(onClick=`deleteBuilding('${residentialHouses._id}')`) Delete
+                                    a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
+                                    a.updateBtnLink(href=`/updateBuilding/${residentialHouses.slug}`) To Update Building Click Here
+                                    a.updateLinkBtn(href=`/updateBuilding/${residentialHouses.slug}`) Update
+                                else
+                                    i.far.fa-bookmark.overviewBtnIcon
+                                    button.btn.wishlist-btn(onClick=`addWishlist('${residentialHouses.name}')`) Save
+                                    a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
+                            if myWishlists 
+                                input#wishlistId(type="text", class=`${residentialHouses.name}`, value=`${residentialHouses._id}`, style="display: none;") 
+                                i.fa.fa-times.overviewBtnIcon
+                                button.delete-wishlist.btn.wishlist-btn(onClick=`deleteWishlist('${residentialHouses.name}')`) Remove
+                                a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details 
+                            input.buildId(type="text", class=`${residentialHouses.name}`, value=`${residentialHouses._id}`)
+                            
+    <div id="left-button-rh" onClick="residentialHouseLeftClick()"><i class="fa fa-chevron-right overview-right-btn"></i></div>                                     

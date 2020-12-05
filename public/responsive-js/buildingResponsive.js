@@ -1,3 +1,50 @@
+//////////////// JS for Sticky Navbar of RH /////////////////////
+if(document.getElementById('navContainer')) {
+  window.onscroll = function() {
+    const getNav = document.getElementById('navContainer');
+    const getContactSeller = document.getElementById('contactSecondHalf');
+    // const sticky = getNav.offsetTop;
+    // alert(sticky);
+    if(window.pageYOffset >= 800) {
+        getNav.classList.add('stick');
+        getContactSeller.classList.add('contactSecondHalf');
+    } else {
+        getNav.classList.remove('stick');
+        getContactSeller.classList.remove('contactSecondHalf');
+    }
+  }
+}
+
+function readAll() {
+  // alert("Hello");
+  const desc = document.getElementById('readDesc');
+  const moreRead = document.getElementById('moreRead');
+  if($("#readDesc").hasClass("hideDesc")) {
+    desc.style.height = "initial";
+    moreRead.textContent = "Collapse";
+    desc.classList.remove("hideDesc");
+  } else {
+    desc.style.height = "3rem";
+    moreRead.textContent = "Read More";
+    desc.classList.add("hideDesc");
+  }
+}
+
+// function openDescription() {
+//   $("#readDesc").slideToggle(200);
+
+//   if( $("#readDesc").hasClass("hideDesc")) {
+//       $("#readDesc").removeClass("hideDesc");
+//       $("#readDesc").addClass("showDesc");
+//       // alert("Heloo");
+//   } else {
+//     $("#readDesc").hasClass("showDesc");
+//       $("#readDesc").removeClass("showDesc");
+//       $("#readDesc").addClass("hideDesc");
+//       // alert("Hello");
+//   }  
+// }
+
 /////////////////////// JS for Sticky Navbar ////////////////////////////////
 if(document.getElementById('nav-container')) {
   window.onscroll = function() {
@@ -7,12 +54,8 @@ if(document.getElementById('nav-container')) {
     const sticky = getNav.offsetTop;
     if(window.pageYOffset > sticky) {
         getNav.classList.add('sticky');
-        // getNav.classList.remove('nav-container');
-        // getNavUL.setAttribute("style", "backgound-color: white; color: black;");
     } else {
         getNav.classList.remove('sticky');
-        // getNav.classList.add('nav-container');
-        // getNavUL.classList.remove('scrollSticky');
     }
 
     if(window.pageYOffset > 160) {

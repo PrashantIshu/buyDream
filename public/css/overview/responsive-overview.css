@@ -40,11 +40,11 @@
         margin-top: 23%;
         margin-bottom: 1.5rem;
     }
-    #body {
+    #body, #residentialHouseBody {
         max-width: 93%;
         overflow-y: scroll;
     }
-    .grid-container {
+    .grid-container, .residentialHouseGridContainer {
         /* border: 2px solid red; */
         /* width: 100px; */
         display: column;
@@ -55,12 +55,12 @@
         width: 200px;
         overflow: hidden;
     } */
-    .card-img {
+    .card-img, .residentialHouseCardImg {
         height: 100%;
         width: 100%;
         /* display: inline-block; */
     }
-    .card {
+    .card, .residentialHouseCard {
         /* border: 2px solid blue; */
         /* width: 300px; */
         background-color: white;
@@ -76,25 +76,25 @@
         /* border-radius: 7px; */
     }
 
-    .card img {
+    .card img, .residentialHouseCard img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    .card .fa-rupee-sign {
+    .card .fa-rupee-sign, .residentialHouseCard .fa-rupee-sign {
         margin-left: 0.625rem;
         font-size: 1.2rem;
     }
 
-    .card h2 {
+    .card h2, .residentialHouseCard h2 {
         display: inline-block;
         margin: 0 5px;
         font-family: 'Nunito', sans-serif;
         /* margin-left: 5px; */
     }
 
-    .card .onwards {
+    .card .onwards, .residentialHouseCard .onwards {
         display: inline-block;
         margin-bottom: 0;
         font-family: 'Ubuntu', sans-serif;
@@ -102,14 +102,14 @@
         font-size: 14px;
     } 
 
-    .card h3 {
+    .card h3, .residentialHouseCard h3 {
         margin-left: 0.625rem;
         margin-bottom: 0;
         margin-top: 3%;
         font-family: 'Nunito', sans-serif;
     }
 
-    .card .by {
+    .card .by, .residentialHouseCard .by {
         margin-top: 0;
         margin-left: 0.625rem;
         /* font-size: 0.9rem; */
@@ -127,7 +127,7 @@
         top: 1.75%;
     }
 
-    .card .area {
+    .card .area, .residentialHouseCard .area {
         /* margin-top: 6%; */
         margin-left: 1.5rem;
         margin-top: -0.935rem;
@@ -139,7 +139,7 @@
         /* display: inline-block; */
     }
 
-    .card .text-muted {
+    .card .text-muted, .residentialHouseCard .residentialHouseCardTextMuted {
         margin-top: -1.1rem;
         margin-left: 0.625rem;
         margin-bottom: 0;
@@ -149,7 +149,7 @@
         display: inline-block;
     }
 
-    .card .averageRating {
+    .card .averageRating, .residentialHouseCard .residentialHouseCardAverageRating {
         margin-top: -1.1rem;
         margin-left: 2rem;
         font-size: 14px;
@@ -157,7 +157,7 @@
         font-family: 'Nunito', sans-serif;
     }
 
-    .card hr {
+    .card hr, .residentialHouseCard hr {
         width: 100%;
         background-color: darkgrey;
     }
@@ -170,7 +170,7 @@
         bottom: 1.3px;
     }
 
-    .card .ratingQuantity {
+    .card .ratingQuantity, .residentialHouseCard .residentialHouseCardRatingQuantity {
         display: none;
     }
     .overview-right-btn, .overview-left-btn {
@@ -203,7 +203,7 @@
 }
 
 @media only screen and (max-width: 740px) { 
-.card {
+.card, .residentialHouseCard {
     height: 15rem;
     width: 38rem;
     display: grid;
@@ -213,7 +213,7 @@
 }
 
 @media only screen and (max-width: 720px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 14.75rem;
         width: 37rem;
         display: grid;
@@ -226,7 +226,7 @@
 }
 
 @media only screen and (max-width: 700px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 15rem;
         width: 36rem;
         display: grid;
@@ -239,33 +239,33 @@
 }
 
 @media only screen and (max-width: 680px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 13.5rem;
         width: 35rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
     }
-    .card .fa-rupee-sign {
+    .card .fa-rupee-sign, .residentialHouseCard .fa-rupee-sign {
         margin-left: 0.625rem;
         font-size: 1rem;
     }
 
-    .card h2 {
+    .card h2, .residentialHouseCard h2 {
         font-size: 1.25rem;
     }
 
-    .card .onwards {
+    .card .onwards, .residentialHouseCard .onwards {
         font-size: 12px;
     } 
 
-    .card h3 {
+    .card h3, .residentialHouseCard h3 {
         margin-bottom: 0;
         margin-top: 3%;
         font-size: 1.1rem;
     }
 
-    .card .by {
+    .card .by, .residentialHouseCard .by {
         margin-top: 0;
         font-size: 12px;
     }
@@ -276,7 +276,7 @@
         /* top: 50%; */
     }
 
-    .card .area {
+    .card .area, .residentialHouseCard .area {
         /* margin-top: 6%; */
         margin-left: 1.5rem;
         margin-top: -0.935rem;
@@ -287,7 +287,7 @@
         /* display: inline-block; */
     }
 
-    .card .text-muted {
+    .card .text-muted, .residentialHouseCard .residentialHouseCardTextMuted {
         /* margin-top: -5rem; */
         font-weight: 400;
         font-size: 13px;
@@ -295,7 +295,7 @@
         bottom: 0.5rem;
     }
 
-    .card .averageRating {
+    .card .averageRating, .residentialHouseCard .residentialHouseCardAverageRating {
         /* margin-top: -5rem; */
         margin-left: 1.75rem;
         font-size: 13px;
@@ -311,11 +311,11 @@
         bottom: 0.5rem;
     }
 
-    .card hr {
+    .card hr, .residentialHouseCard hr {
         margin-top: -1rem;
     }
 
-    .card .wishlist-btn {
+    .card .wishlist-btn, .residentialHouseCard .wishlist-btn {
         width: 5rem;
         height: 2rem;
         margin-right: 0.5rem;
@@ -331,7 +331,7 @@
     }
     
     
-    .card .detail-btn {
+    .card .detail-btn, .residentialHouseCard .detail-btn {
         padding: 0.5rem 1.25rem;
         position: relative;
         /* top: 0.1rem; */
@@ -340,14 +340,14 @@
 }
 
 @media only screen and (max-width: 670px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 13.5rem;
         width: 34.5rem;
     }
 }
 
 @media only screen and (max-width: 660px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 13.5rem;
         width: 34rem;
         display: grid;
@@ -357,7 +357,7 @@
 }
 
 @media only screen and (max-width: 650px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 13.5rem;
         width: 33.5rem;
         display: grid;
@@ -367,14 +367,14 @@
 }
 
 @media only screen and (max-width: 640px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 13rem;
         width: 33rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
     }
-    .card .averageRating {
+    .card .averageRating, .residentialHouseCard .residentialHouseCardAverageRating {
         /* margin-top: -5rem; */
         margin-left: 1.5rem;
         font-size: 13px;
@@ -384,17 +384,17 @@
 }
 
 @media only screen and (max-width: 630px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 13rem;
         width: 32.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
     }
-    .card .averageRating {
+    .card .averageRating, .residentialHouseCard  .residentialHouseCardAverageRating {
         display: none;
     }
-    .card .text-muted {
+    .card .text-muted, .residentialHouseCard .residentialHouseCardTextMuted {
         display: none;
     }
     .fa-star-o {
@@ -402,7 +402,7 @@
         visibility: hidden;
     }
 
-    .card .wishlist-btn {
+    .card .wishlist-btn, .residentialHouseCard .wishlist-btn {
         width: 5rem;
         height: 2rem;
         /* margin-right: 0.75rem; */
@@ -418,7 +418,7 @@
     }
     
     
-    .card .detail-btn {
+    .card .detail-btn, .residentialHouseCard .detail-btn {
         padding: 0.5rem 1.25rem;
         position: relative;
         /* top: 0.1rem; */
@@ -428,7 +428,7 @@
 }
 
 @media only screen and (max-width: 620px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 12rem;
         width: 32rem;
         display: grid;
@@ -438,33 +438,33 @@
 }
 
 @media only screen and (max-width: 610px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 11rem;
         width: 31rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
     }
-    .card .fa-rupee-sign {
+    .card .fa-rupee-sign, .residentialHouseCard .fa-rupee-sign {
         margin-left: 0.625rem;
         font-size: 0.85rem;
     }
 
-    .card h2 {
+    .card h2, .residentialHouseCard h2 {
         font-size: 1.05rem;
     }
 
-    .card .onwards {
+    .card .onwards, .residentialHouseCard .onwards {
         font-size: 10px;
     } 
 
-    .card h3 {
+    .card h3, .residentialHouseCard h3 {
         margin-bottom: 0;
         margin-top: 3%;
         font-size: 1.05rem;
     }
 
-    .card .by {
+    .card .by, .residentialHouseCard .by {
         margin-top: 0;
         font-size: 11px;
     }
@@ -475,7 +475,7 @@
         /* top: 50%; */
     }
 
-    .card .area {
+    .card .area, .residentialHouseCard .area {
         /* margin-top: 6%; */
         margin-left: 1.5rem;
         margin-top: -0.935rem;
@@ -486,13 +486,13 @@
         /* display: inline-block; */
     }
 
-    .card hr {
+    .card hr, .residentialHouseCard hr {
         margin-top: -1.65rem;
     }
 }
 
 @media only screen and (max-width: 600px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 11rem;
         width: 30.5rem;
         display: grid;
@@ -505,7 +505,7 @@
 }
 
 @media only screen and (max-width: 590px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 11rem;
         width: 29rem;
         display: grid;
@@ -525,38 +525,38 @@
         font-size: 12px;
     }
 
-    .card {
+    .card, .residentialHouseCard {
         height: 10rem;
         width: 28.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
     }
-    .card .area {
+    .card .area, .residentialHouseCard .area {
         margin-top: -0.935rem;
         font-size: 12px;
         font-weight: 500;
     }
 
-    .card hr {
+    .card hr, .residentialHouseCard hr {
         margin-top: -2rem;
         /* display: none; */
     }
 }
 
 @media only screen and (max-width: 570px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 10rem;
         width: 28rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
     }
-    .card hr {
+    .card hr, .residentialHouseCard hr {
         margin-top: -2.35rem;
         /* display: none; */
     }
-    .card .area {
+    .card .area, .residentialHouseCard .area {
         margin-top: -0.935rem;
         font-size: 11px;
         font-weight: 400;
@@ -564,7 +564,7 @@
     .updateLinkBtn {
         margin-right: 0.1rem;
     }
-    .card .wishlist-btn {
+    .card .wishlist-btn, .residentialHouseCard .wishlist-btn {
         margin-left: -0.5rem;
     }
     .overviewBtnIcon {
@@ -573,7 +573,7 @@
 }
 
 @media only screen and (max-width: 560px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 10rem;
         width: 27.5rem;
         display: grid;
@@ -583,7 +583,7 @@
 }
 
 @media only screen and (max-width: 550px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 10rem;
         width: 27rem;
         display: grid;
@@ -593,23 +593,23 @@
 }
 
 @media only screen and (max-width: 540px) { 
-    .card {
+    .card, .residentialHouseCard {
         height: 9rem;
         width: 26.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
         grid-gap: 5%;
     }
-    .card .area {
+    .card .area, .residentialHouseCard .area {
         display: none;
     }
-    .card .fa-map-marker-alt {
+    .card .fa-map-marker-alt, .residentialHouseCard .fa-map-marker-alt {
         display: none;
     }
-    .card hr {
+    .card hr, .residentialHouseCard hr {
         display: none;
     }
-    .card .wishlist-btn {
+    .card .wishlist-btn, .residentialHouseCard .wishlist-btn {
         width: 4.5rem;
         height: 2rem;
         margin-right: 0.35rem;
@@ -626,7 +626,7 @@
     }
     
     
-    .card .detail-btn {
+    .card .detail-btn, .residentialHouseCard .detail-btn {
         padding: 0.35rem 1.05rem;
         position: relative;
         top: 0.3rem;
@@ -636,7 +636,7 @@
 }
 
 @media only screen and (max-width: 530px) { 
-    .card {
+    .card, .residentialHouseCard {
         width: 26rem;
         display: grid;
         grid-template-columns: 40% 55%;
@@ -645,7 +645,7 @@
 }
 
 @media only screen and (max-width: 520px) { 
-    .card {
+    .card, .residentialHouseCard {
         width: 25.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
@@ -673,7 +673,7 @@
 }
 
 @media only screen and (max-width: 510px) { 
-    .card {
+    .card, .residentialHouseCard {
         width: 25rem;
         display: grid;
         grid-template-columns: 40% 55%;
@@ -682,7 +682,7 @@
 }
 
 @media only screen and (max-width: 500px) { 
-    .card {
+    .card, .residentialHouseCard {
         width: 24.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
@@ -694,7 +694,7 @@
 }
 
 @media only screen and (max-width: 490px) { 
-    .card {
+    .card, .residentialHouseCard {
         width: 24rem;
         display: grid;
         grid-template-columns: 40% 55%;
@@ -703,7 +703,7 @@
 }
 
 @media only screen and (max-width: 480px) { 
-    .card {
+    .card, .residentialHouseCard {
         width: 23.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
@@ -712,7 +712,7 @@
 }
 
 @media only screen and (max-width: 470px) { 
-    .card {
+    .card, .residentialHouseCard {
         width: 23rem;
         display: grid;
         grid-template-columns: 40% 55%;
@@ -721,7 +721,7 @@
 }
 
 @media only screen and (max-width: 460px) { 
-    .card {
+    .card, .residentialHouseCard {
         width: 22.5rem;
         display: grid;
         grid-template-columns: 40% 55%;
@@ -730,7 +730,7 @@
 }
 
 @media only screen and (max-width: 450px) { 
-    .card {
+    .card, .residentialHouseCard {
         width: 22rem;
         display: grid;
         grid-template-columns: 40% 55%;

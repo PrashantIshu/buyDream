@@ -36,7 +36,11 @@ Router
     .get(authController.protect,
             authController.restrictTo('admin', 'owner', 'agent'),
             viewsController.sellHouseAmen
-        );
+    );
+
+Router
+    .route('/independentHouse/:slug')
+    .get(viewsController.getIndependentHouse);
 
 Router
     .route('/me')

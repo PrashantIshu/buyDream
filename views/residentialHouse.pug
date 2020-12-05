@@ -1,0 +1,101 @@
+extends base
+
+block content
+    section#fullResidentialHouseBody
+        section#overviewSection
+            #overviewPartOne
+                #insidePartOneOne
+                    h2= `${residentialHouse.flatType} BHK Independent House`
+                    h4= `${residentialHouse.name}, ${residentialHouse.address}`
+                #insidePartOneTwo
+                    .fas.fa-rupee-sign.fa-sm
+                    h2= `${residentialHouse.price} ${residentialHouse.priceUnit}`
+                    p= `${residentialHouse.pricePerUnit} K/sq.ft`
+                    button Contact Owner
+            #overviewPartTwo
+                img(src=`/img/residentialHouse/${residentialHouse.imageCover}` alt="Independent House Pic Not Available")
+            #overviewPartThree
+                #overviewBuildUpArea
+                    p= `${residentialHouse.sqftArea} sq.ft`
+                    h6 Build Up Area
+                #overviewAvgPrice
+                    .fas.fa-rupee-sign.fa-sm
+                    p= `${residentialHouse.pricePerUnit} sq.ft`
+                    h6 Avg Price
+                #overviewConfiguration
+                    p= `${residentialHouse.flatType} sq.ft`
+                    h6 Configuration
+                #overviewPossessionStatus
+                    p= `20th June, 2020`
+                    h6 Possesion Status
+                #overviewFurnishing
+                    p= `Semi Furnished`
+                    h6 Furnishing
+        section#navContainer
+            ul#navba.qwert
+                li: a(href="/") All Buildings
+                li.over: a(href="#") Overview
+                li.one-word: a(href="#") Ameneties
+                li.one-word: a(href="#") Location
+                li.one-word: a(href="#") Photos
+                li.one-word: a(href="#") Reviews
+                li.one-word: a(href="#") Builder
+            
+                if user 
+                    li.user-name: a(class="signup", href="/me")= user.name
+                    img.user-img.building-page-img(src=`/img/users/${user.photo}`)
+                    li: button#logout(class="login") Log Out
+                else
+                    li.one-word.one-word-signup(style="float:right"): a(class="signup", href="/signup") Sign Up
+                    li.one-word(style="float:right"): a(class="login", href="/login") Log In
+        section#secondHalfSection
+            section#secondHalf
+                section#overviewSecondHalf
+                    h2 Overview
+                    #overviewHouseDetails
+                        #firstDetail
+                            h6 Project Name
+                            p= `${residentialHouse.name}`
+                        #secondDetail
+                            h6 Price
+                            p= `${residentialHouse.price}`
+                        #thirdDetail
+                            h6 Flat Type
+                            p= `${residentialHouse.flatType}`
+                        #fourDetail
+                            h6 Bedrooms
+                            p= `${residentialHouse.bedrooms}`
+                        #fifthDetail
+                            h6 Bathrooms
+                            p= `${residentialHouse.bathrooms}`
+                        #sixthDetail
+                            h6 Added
+                            p= `${residentialHouse.addedDate}`
+                    #aboutThis
+                        h3 About This Property
+                        h6#readDesc.hideDesc= `${residentialHouse.description}`
+                    hr
+                    p#moreRead(onClick='readAll()') Read More 
+
+                    section#localitySection   
+                        #locality
+                            //- .map-container
+                            #map(data-locations=`${JSON.stringify(residentialHouse.coordinates)}`)
+                section#contactSecondHalf
+                    h4 Contact Seller
+                    #seller
+                        #sellerImg
+                            img(src="https://mysnap.top/picture/original/nUE0pUZ6Yl80YzWjYzWfo_qmpT90YzAioF8gEwWUZ3ILD_kEBHxiIJM6q1OOn1W-YHxiDHSODHSODHSRLIxipaOHG3A3qTEYYKZiqmRlZQNgnQLmZP1jYJfgoz8goaHiqTSlLJgsoJIbqTRkZF03AwH5AmDhnaOaXFfbXR15HT9loyAhLKNhqT9jXI9vLJWcqTRgnzxgLJ5xYKEupzSeYJ1ynUEuYGRhnaOa/(MyPornSnap.top)_babita-ji-and-tarak-mehta-1.jpg" alt="seller_img")
+                        #sellerDetails
+                            h6 Seller Name
+                            h6.sellerOwner Owner
+                            h6 Seller Half Phone
+                    #contactSellerForm
+                        h5 Please Share Your Contact
+                        input(type="text" placeholder="Name")
+                        input(type="text" placeholder="Phone")
+                        input(type="text" placeholder="Email")
+                        button Get Contact Details
+
+                //- section#localitySection
+

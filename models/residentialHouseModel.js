@@ -32,6 +32,9 @@ const residentialHouseSchema = new mongoose.Schema({
         type: Number,
         //required: [true, "A building must have its price"]
     },
+    pricePerUnit: {
+        type: Number
+    },
     priceSameUnit: {
         type: Number
     },
@@ -41,6 +44,7 @@ const residentialHouseSchema = new mongoose.Schema({
     description: {
         type: String,
         trim: true,
+        minlength: [100, 'A description must have more or equal then 10 characters']
     },
     images: [String],
     imageCover: {
@@ -54,6 +58,15 @@ const residentialHouseSchema = new mongoose.Schema({
     sqftArea: {
         type: Number,
         //requied: [true, "The houses must have sqft Areas"]
+    },
+    bedrooms: {
+        type: Number
+    },
+    bathrooms: {
+        type: Number
+    },
+    addedDate: {
+        type: Date
     },
     locationAdvantages: [
         {

@@ -230,6 +230,32 @@ if(overviewContainer) {
     myFunction(x); 
     x.addListener(myFunction);
 }
+
+////////// Count Width of Residential House Grid Container ///////////
+const residentialHouseContainer = document.querySelector(".residentialHouseGridContainer");
+if(residentialHouseContainer) {
+    // alert("Hello");
+    const len = document.getElementById('totalResidentialHouses').value;
+    // alert(len);
+    const size = len*347;
+    // alert(size);
+    residentialHouseContainer.style.width = `${size}px`; 
+}
+
+    function myFunctions(x) {
+      if (x.matches) { // If media query matches
+        // alert(x);
+        residentialHouseContainer.classList.remove('residentialHouseGridContainer');
+      } else {
+        residentialHouseContainer.classList.add('residentialHouseGridContainer');
+        }
+    }
+    
+if(residentialHouseContainer) {
+    var x = window.matchMedia("(max-width: 760px)");
+    myFunctions(x); 
+    x.addListener(myFunction);
+}
       
 
 ////////////// Search Buildings ///////////////

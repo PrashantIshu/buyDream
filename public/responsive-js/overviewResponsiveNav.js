@@ -46,3 +46,22 @@ function leftClick() {
   }, 800);
 };
 
+function residentialHouseRightClick() {
+  var leftPos = $("#residentialHouseBody").scrollLeft();
+  $("#residentialHouseBody").animate({
+    scrollLeft: leftPos - 800
+  }, 800, function() {
+    if ($('#residentialHouseBody').scrollLeft() <= 0) {
+      setInvisible($('#right-button-rh'));
+    }
+  });
+};
+
+function residentialHouseLeftClick() {
+setVisible($('#right-button-rh'));
+var leftPos = $("#residentialHouseBody").scrollLeft();
+$("#residentialHouseBody").animate({
+  scrollLeft: leftPos + 800
+}, 800);
+};
+
