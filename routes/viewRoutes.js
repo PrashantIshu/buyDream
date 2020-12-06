@@ -32,6 +32,14 @@ Router
         );
 
 Router
+    .route('/sellIndependentHouse')
+    .get(authController.protect,
+            authController.isLoggedIn,
+            authController.restrictTo('admin', 'owner', 'agent', 'user'),
+            viewsController.sellIndependentHouse
+        );
+
+Router
     .route('/houses/:slug/postHouseAndAmen')
     .get(authController.protect,
             authController.restrictTo('admin', 'owner', 'agent'),

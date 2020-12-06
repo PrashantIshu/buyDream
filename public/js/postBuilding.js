@@ -1,4 +1,7 @@
 const postBuildingForm = document.querySelector('#post-property');
+const postIhForm = document.querySelector('#post-property-ih');
+const buildingForm = document.querySelector('#wishlist-container');
+const independentHouseForm = document.querySelector('#wishlist-residentialHouse-container');
 const logoutBtn = document.querySelector('.qwerty');
 const logoutBt = document.querySelector('.qwert');
 const searchForm = document.querySelector('#search-box');
@@ -89,11 +92,49 @@ const postBuilding = async (nameAgent, emailAgent, mobileAgent, name, contactEma
     }
 };
 
-const deleteBuild = async id => {
+const postIh = async (dataProperty, agentOrOwner, role) => {
+    try {        
+
+        const ress = await axios({
+            method: 'PATCH',
+            url: `/api/v1/users/${agentOrOwner}`,
+            data: {
+                role,
+                // name: nameAgent,
+                // contactEmail: emailAgent,
+                // phone: mobileAgent,
+            }
+        });
+
+        // const builder = resBuilder.data.data._id;
+        // console.log(builder);
+        // dataProperty.append('builder', builder);
+        const resBuilding = await axios({
+            method: 'POST',
+            url: '/api/v1/residentialHouses',
+            data: dataProperty
+        });
+
+        if(resBuilding.data.status === 'success' && ress.data.status ==='success') {
+            window.setTimeout( () => {
+                // location.assign(`/res/${builderSlug}`);
+                location.reload();
+            }, 1200);
+            alert("Success");
+            // alert(resBuilding)
+        }
+    } catch(err) {
+        alert("err");
+        alert(err);
+    }
+};
+
+
+const deleteBuild = async (type, id) => {
     try {
         const res = await axios({
             method: 'Delete',
-            url: `/api/v1/buildings/${id}`
+            url: `/api/v1/${type}/${id}`
         });
 
         if(res.data.status === 'success') {
@@ -197,11 +238,84 @@ if(postBuildingForm) {
     });
 }
 
+
+if(postIhForm) {
+    //alert("Hello");
+    postIhForm.addEventListener('submit', async event=> {
+        alert("Hello from Prashant");
+        event.preventDefault();
+        const agentOrOwner = document.getElementById('userId').value;
+        const role = document.querySelector("input[name=role]:checked").value;
+        alert(role);
+        // const nameAgent = document.getElementById('nameAgent').value;
+        // const mobileAgent = document.getElementById('mobileAgent').value;
+        // const emailAgent = document.getElementById('emailAgent').value;
+        const priceUnitPost = document.querySelector("input[name=priceUnitPost]:checked").value;
+        // const address = document.getElementById("address").value;
+        const formProperty = new FormData();
+        formProperty.append('name', document.getElementById('property-name').value);
+        formProperty.append('description', document.getElementById('property-description').value);
+        formProperty.append('agentOrOwner', document.getElementById('userId').value);
+        formProperty.append('address', document.getElementById('address').value);
+        formProperty.append('imageCover', document.getElementById('cover-photo').files[0]);
+        formProperty.append('images', document.getElementById('building-1-photo').files[0]);
+        formProperty.append('images', document.getElementById('building-2-photo').files[0]);
+        formProperty.append('images', document.getElementById('building-3-photo').files[0]);
+        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageOne').value);
+        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageTwo').value);
+        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageThree').value);
+        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageFour').value);
+        formProperty.append('locationAdvantages', document.getElementById('locationAdvantageFive').value);
+        // alert(document.getElementById('locationAdvantageOne').value);
+        
+        // const formHouse = new FormData();
+        formProperty.append('flatType', document.getElementById('flat-type').value);
+        formProperty.append('price', document.getElementById('price').value);
+        formProperty.append('priceUnit', priceUnitPost);
+        formProperty.append('sqftArea', document.getElementById('sqft-areas').value);
+        formProperty.append('agentOrOwner', document.getElementById('userId').value);
+        formProperty.append('bathrooms', document.getElementById('bathrooms').value);
+        formProperty.append('balconies', document.getElementById('balconies').value);
+        // formProperty.append('status', document.getElementById('status').value);
+        // formProperty.append('usp', document.getElementById('usp').value);
+        // formProperty.append('image', document.getElementById('house-blueprint').files[0]);
+        
+        // const building = document.getElementById('building').value;
+        // const buildingName = document.getElementById('building-name').value;
+
+        // const name = document.getElementById('nameBuilder').value;
+        // const contactEmail = document.getElementById('emailBuilder').value;
+        // const phone = document.getElementById('phoneBuilder').value;
+        // const experience = document.getElementById('experience').value;
+        // const totalProjects = document.getElementById('totalProjects').value;
+        // const projectsCompleted = document.getElementById('projectsCompleted').value;
+        // const operatingIn = document.getElementById('operatingIn').value;
+        // const about = document.getElementById('textContentBuilder').value;
+
+        await postIh(
+            // nameAgent, emailAgent, mobileAgent,
+            // name, contactEmail, phone, experience, totalProjects, projectsCompleted, operatingIn, about,
+            formProperty,
+            agentOrOwner, 
+            role,
+            // formHouse
+        );
+    });
+}
+
 /////// Delete Building ///////
 function deleteBuilding(id) {
-    postWishlistForm.addEventListener('submit', event => {
+    buildingForm.addEventListener('submit', event => {
         event.preventDefault();
-        deleteBuild(id);
+        deleteBuild('buildings', id);
+    });
+};
+
+/////// Delete Independent House ///////
+function deleteIndependentHouse(id) {
+    independentHouseForm.addEventListener('submit', event => {
+        event.preventDefault();
+        deleteBuild('residentialHouses', id);
     });
 };
 

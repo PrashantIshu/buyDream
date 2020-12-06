@@ -1,6 +1,7 @@
 // console.log("Hello from Mapbox");
 const loc = JSON.parse(document.getElementById('map').dataset.locations);
-console.log(loc[0], loc[1]);
+// alert(loc[0]);
+// alert(loc[1]);
 
 
 mapboxgl.accessToken = 'pk.eyJ1IjoicHJhc2hhbnRpc2h1IiwiYSI6ImNrZzVoZ3hyMjB1ZGkzMmt6MHF4Ymp5bHMifQ.wpPwL22xzPJhs3PQ9WIn7Q';

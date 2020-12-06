@@ -25,7 +25,12 @@ block content
                                 p.thousand 10000
                                 <p class="value">Value: <span id="demo"></span></p>
                                 button(onClick="showPosition('buildingWithin')") Show
-                    li.left-list: a.sell.navlink(href="/sellBuilding") Sell Property 
+                    li.left-list: .dropdown
+                            button.filter.navBtn(class='dropbtn') Sell Property
+                            .dropdown-content-1
+                                a(href="/sellBuilding") Flat In Apartment
+                                a(href="/sellIndependentHouse") Independent House
+                    //-  a.sell.navlink(href="/sellBuilding") Sell Property 
             
                     if user 
                         li.user-home: a.navlink(class="signup", href="/me")= user.name
@@ -56,7 +61,12 @@ block content
                             p.thousand 10000
                             <p class="value">Value: <span id="demo"></span></p>
                             button(onClick="showPosition('buildingWithin')") Show
-                li.left-list: a.sell.navlink(href="/sellBuilding") Sell Property 
+                li.left-list: .dropdown
+                        button.filter.navBtn(class='dropbtn') Sell Property
+                        .dropdown-content-1
+                            a(href="/sellBuilding") Flat In Apartment
+                            a(href="/sellIndependentHouse") Independent House
+                //-  a.sell.navlink(href="/sellBuilding") Sell Property 
             
                 if user 
                     li.user-home: a.navlink(class="signup", href="/me")= user.name
@@ -175,7 +185,7 @@ block content
                             if overview 
                                 if admin
                                     i.fa.fa-times.overviewBtnIcon
-                                    button.btn.wishlist-btn(onClick=`deleteBuilding('${residentialHouses._id}')`) Delete
+                                    button.btn.wishlist-btn(onClick=`deleteIndependentHouse('${residentialHouse._id}')`) Delete
                                     a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
                                     a.updateBtnLink(href=`/updateBuilding/${residentialHouses.slug}`) To Update Building Click Here
                                     a.updateLinkBtn(href=`/updateBuilding/${residentialHouses.slug}`) Update
@@ -186,7 +196,7 @@ block content
                             if myProperties 
                                 if agentOrOwner
                                     i.fa.fa-times.overviewBtnIcon
-                                    button.btn.wishlist-btn(onClick=`deleteBuilding('${residentialHouses._id}')`) Delete
+                                    button.btn.wishlist-btn(onClick=`deleteIndependentHouse('${residentialHouse._id}')`) Delete
                                     a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
                                     a.updateBtnLink(href=`/updateBuilding/${residentialHouses.slug}`) To Update Building Click Here
                                     a.updateLinkBtn(href=`/updateBuilding/${residentialHouses.slug}`) Update

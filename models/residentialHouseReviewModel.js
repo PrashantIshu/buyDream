@@ -36,7 +36,8 @@ residentialHouseReviewSchema.index({ residentialHouse: 1, user: 1 }, { unique: t
 
 residentialHouseReviewSchema.pre(/^find/, function(next){
     this.populate({
-        path: 'residentialHouse'
+        path: 'residentialHouse',
+        select: '_id'
     }).populate({
         path: 'user',
         // select: 'name photo'

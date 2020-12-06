@@ -1,5 +1,9 @@
 extends base
 
+block append head
+    script(src= 'https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js')
+    link(href= 'https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel= 'stylesheet')
+
 block content
     section#fullResidentialHouseBody
         section#overviewSection
@@ -77,10 +81,6 @@ block content
                     hr
                     p#moreRead(onClick='readAll()') Read More 
 
-                    section#localitySection   
-                        #locality
-                            //- .map-container
-                            #map(data-locations=`${JSON.stringify(residentialHouse.coordinates)}`)
                 section#contactSecondHalf
                     h4 Contact Seller
                     #seller
@@ -97,5 +97,35 @@ block content
                         input(type="text" placeholder="Email")
                         button Get Contact Details
 
-                //- section#localitySection
+        section#localitySection 
+            #locationHeadings
+                h2#locH(onClick="showAdv()") Location
+                h2#advH.advH(onClick="hideAdv()") Advantages  
+            #locality
+                //- .map-container
+                #mapLoc(data-locations=`${JSON.stringify(residentialHouse.coordinates)}`)
+            #lacAd.lacAd
+                each adv in residentialHouse.locationAdvantages
+                    p= `- ${adv}`
 
+        <div id="right-button-pics-ih" style="visibility: hidden;" onClick="rightClickPicsIh()"><i class="pics-left-btn-ih fas fa-chevron-left"></i></div>
+        section#photosGallery 
+            h2 Gallery
+            #gallery
+                each img, i in residentialHouse.images
+                    .picture-box-ih
+                        img.picture-box__imgIh(src=`/img/residentialHouse/${img}`, alt=`The Park Camper Tour ${i + 1}`, class=`picture-box__imgIh--${i + 1}`)
+        <div id="left-button-pics-ih" onClick="leftClickPicsIh()"><i class="fa fa-chevron-right pics-right-btn-ih"></i></div>   
+
+        //- sction#reviewrH.reviewRh
+        //-     h2 Reviews
+        //-     each review in reviews
+        //-         .review-container-rh
+        //-             .user-review-rh
+        //-                 img.user-avatar(src=`/img/users/${review.user.photo}`)
+        //-                 h6.user-name-review= review.user.name
+        //-             p= review.review
+        //-             .reviews__rating-rh
+        //-                 each star in [1, 2, 3, 4, 5]
+        //-                     svg.reviews__star-rh(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
+        //-                         use(xlink:href='/img/icons.svg#icon-star')

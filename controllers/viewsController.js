@@ -1,5 +1,6 @@
 const Building = require('../models/buildingsModel');
 const ResidentialHouse = require('../models/residentialHouseModel');
+const ResidentialHouseReview = require('../models/residentialHouseReviewModel');
 const House = require('../models/housesModel');
 const Review = require('../models/reviewModel');
 const Amenety = require('../models/amenetiesModel');
@@ -73,7 +74,7 @@ exports.getOverview = catchAsync( async(req, res) => {
     let myProperties = false;
     const myWishlists = false;
     const overview = true;
-
+    console.log(residentialHouses);
     
 
     res.render('overview', {
@@ -410,16 +411,20 @@ exports.getIndependentHouse = catchAsync(async(req, res, next) => {
     const residentialHouses = await ResidentialHouse.find({slug: req.params.slug});
     const residentialHouse = residentialHouses[0];
     console.log(residentialHouse);
-    if(residentialHouse) {
-        if(residentialHouse.description) {
-            var rhAbout = residentialHouse.description.substring(0, 200);
-        }
-    }
+    
+    // const allReviews = await ResidentialHouseReview.find();
+    // let reviews = [];
+    // allReviews.forEach( el => {
+    //     if(el.residentialHouse.id === residentialHouse.id) {
+    //         reviews.push(el);
+    //     }
+    // });
+    // console.log(reviews);
 
     res.render('residentialHouse', {
         title: 'Residential House',
         residentialHouse,
-        rhAbout
+        // reviews
     });
 });
 
@@ -458,6 +463,20 @@ exports.sellBuilding = catchAsync(async(req, res, next) => {
     }
 
     res.render('postBuilding', {
+        title: 'Sell Your Property',
+        currentUserId,
+        admin
+    });
+});
+
+exports.sellIndependentHouse = catchAsync(async(req, res, next) => {
+    const currentUserId = res.locals.user._id;
+    let admin = false;
+    if(res.locals.user) {
+        admin = adminExistsOrNot(res.locals.user);
+    }
+
+    res.render('postIndependentHouse', {
         title: 'Sell Your Property',
         currentUserId,
         admin

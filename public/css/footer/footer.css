@@ -3,9 +3,9 @@
     color: grey;
     height: 3rem;
     overflow: hidden;
-    display: flex;
-    flex-direction: row;;
-    /* grid-template-columns: 70% 20%; */
+    display: grid;
+    grid-template-columns: 70% 20%;
+    grid-gap: 10%;
     margin-top: 1.5rem;
     width: 80%;
     margin: 0 auto;

@@ -1,0 +1,124 @@
+extends base
+
+block content
+
+    form#post-property-ih
+        #post-property
+            section#left-details 
+                section#personal-details
+                    h2 Personel Details
+
+                    label#i-am I am
+                    input#userId(type='text', value=`${currentUserId}`, style="display: none")
+                    //- input#owner(type="radio" value="owner" name="role")
+                    //- label#owner-label(for="owner") Owner
+                    input#agent(type="radio" value="owner" name="role" checked="checked")
+                    label#agent-label(for="agent") Owner
+                    //- input#builder(type="radio" value="builder" name="role")
+                    //- label#builder-label(for="builder") Builder
+                    if admin 
+                        input#admin(type="radio" value="admin" name="role")
+                        label#admin-label(for="admin") Admin
+                    #details      
+                        label(for="name") Name
+                        input#nameAgent(type="text", autocomplete="off", required)
+                        label(for="mobile") Phone Number
+                        input#mobileAgent(type="tel", required)
+                        label(for="email", autoComplete="off") Email
+                        input#emailAgent(type="text", required)
+
+                    //- form#post-house-ameneties
+            
+                    //- button.post-house Post House
+                section#builder-details
+                    h2 Builder Details
+                    label#labelNameBuilder(for="nameBuilder") Name
+                    input#nameBuilder(type="text", required)
+                    label#labelEmailBuilder(for="emailBuilder") Email
+                    input#emailBuilder(type="email", required)
+                    label#labelPhoneBuilder(for="emailBuilder") Phone Number
+                    input#phoneBuilder(type="tel", required)
+                    #builderStats
+                        #statOne
+                            label#labelExperience(for="experience") Experience
+                            input#experience(type="number", required)
+                        #statTwo
+                            label#labelTotalProjects(for="totalProjects") Total Projects
+                            input#totalProjects(type="number", required)
+                        #statThree
+                            label#labelProjectsCompleted(for="projectsCompleted") Projects 
+                            input#projectsCompleted(type="number", required)
+                        #statFour
+                            label#labeloperatingIn(for="operatingIn") Operating In
+                            input#operatingIn(type="text", required)
+                    label#labelTextContentBuilder(for="textContentBuilder") About Builder
+                    textarea#textContentBuilder(cols="60", rows="10", required)
+
+            section#house
+                h2 House Details
+
+                input#building(type="text", value=`${buildingId}` style="display: none")
+                input#building-name(type="text", value=`${buildingName}` style="display: none")
+        
+                label#label-price(for="price") Price
+                input#price(type="number", required)
+
+                #unitPost
+                    #firstUnitPost
+                        input#crPost(type="radio" value="Cr" name="priceUnitPost")
+                        label#cr-label-post(for="cr") Crore
+                    #secondUnitPost
+                        input#lakhPost(type="radio" value="Lakh" name="priceUnitPost")
+                        label#lakh-label-post(for="lakh") Lakh
+
+                label#label-flat-type(for="flat-type") Flat Type
+                input#flat-type(type="text", required)
+
+                label#label-sqft-areas(for="sqft-area") sqft Area
+                input#sqft-areas(type="number", required)
+
+                label#label-bathrooms(for="bathrooms") Bathrooms
+                input#bathrooms(type="number", required)
+
+                label#label-balconies(for="belconies") Balconies
+                input#balconies(type="number", required)
+
+                //- - var date = new Date()
+                //- - date = date.toLocaleDateString()
+                //- //- -var month = date.getMonth();
+                //- //- -var year = date.getYear();
+                //- label#date-label(for="date") Balconies
+                //- input#date(type="string" value=`${date}` required)
+
+                section#property-details
+                    label(for="property-name") Name
+                    input#property-name(type="text", required)
+
+                    label Location Advantages
+                    input#locationAdvantageOne(type="text", placeholder="( 1 )", required)
+                    input#locationAdvantageTwo(type="text", placeholder="( 2 )", required)
+                    input#locationAdvantageThree(type="text", placeholder="( 3 )", required)
+                    input#locationAdvantageFour(type="text", placeholder="( 4 )", required)
+                    input#locationAdvantageFive(type="text", placeholder="( 5 )", required)
+
+                    label(for="address") Address
+                    input#address(type="text", required)
+
+                    //- input(name="buildingName", type="number", required)
+
+                    label(for="cover-photo", required) Choose cover photo
+                    input#cover-photo(type="file" accept="image/*" value="Choose cover photo")
+
+                    label(for="photo", required) Choose photo
+                    input#building-1-photo(type="file" accept="image/*" value="Choose photo")
+
+                    label(for="photo", required) Choose photo
+                    input#building-2-photo(type="file" accept="image/*" value="Choose photo")
+
+                    label(for="photo", required) Choose photo
+                    input#building-3-photo(type="file" accept="image/*" value="Choose photo")
+        
+                    label(for="description") Description
+                    input#property-description(type="text") 
+
+                    button.post Post Property
