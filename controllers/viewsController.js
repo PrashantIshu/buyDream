@@ -74,7 +74,7 @@ exports.getOverview = catchAsync( async(req, res) => {
     let myProperties = false;
     const myWishlists = false;
     const overview = true;
-    console.log(residentialHouses);
+    // console.log(residentialHouses);
     
 
     res.render('overview', {
@@ -667,6 +667,16 @@ exports.updateBuilding = catchAsync (async (req, res, next) => {
     res.render('updateBuilding', {
         title: 'Update Building',
         building
+    });
+});
+
+exports.updateIndependentHouse = catchAsync (async (req, res, next) => {
+    let residentialHouses = await ResidentialHouse.find({slug: req.params.slug});
+    residentialHouse = residentialHouses[0];
+
+    res.render('updateResidentialHouse', {
+        title: 'Update Independent lHouse',
+        residentialHouse
     });
 });
 

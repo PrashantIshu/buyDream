@@ -66,6 +66,8 @@ Router.get('/buildings/:string', viewsController.searchedDocs);
 
 Router.get('/updateBuilding/:slug', viewsController.updateBuilding);
 
+Router.get('/updateIndependentHouse/:slug', viewsController.updateIndependentHouse);
+
 Router.get('/updateHouse/:id', viewsController.updateHouse);
 
 Router.get('/about-the-developer', viewsController.aboutTheDeveloper);

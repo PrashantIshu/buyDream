@@ -1,0 +1,81 @@
+extends base
+
+block content
+    section#property-update-settings
+        section#profile
+            ul#sidebar-div
+                li 
+                    i(class="fas fa-home")
+                    a(href="/") Home
+                li 
+                    i(class="fas fa-cog")
+                    a(href="/my-properties") My Properties
+                li
+                    i.q(class="fas fa-building")
+                    a(href="#") My Bookings
+                li 
+                    i.q(class="fas fa-heart")
+                    a(href="/my-wishlists") My Wishlists
+                li
+                    i.q(class="fas fa-star")
+                    a(href="/my-reviews") My Reviews
+
+        form#update-residential-house
+            #residentialHouseDetails
+                h2 Property Details
+                #independentHouses
+                    <div>
+                        label#pricePerUnitLabel(for="pricePerUnit") Price Per Unit
+                        input#pricePerUnit(type="text", required value=`${residentialHouse.pricePerUnit}`)
+                    </div>
+                    <div>
+                        label#flatTypeLabel(for="flatType") Flat Type
+                        input#flatType(type="text", required value=`${residentialHouse.flatType}`)
+                    </div>
+                    <div>
+                        label#sqftAreaLabel(for="sqftArea") Sqft Area
+                        input#sqftArea(type="text", required value=`${residentialHouse.sqftArea}`)
+                    </div>
+                    <div>
+                        label#bathroomsLabel(for="bathrooms") Bathrooms
+                        input#bathrooms(type="text", required value=`${residentialHouse.bathrooms}`)
+                    </div>
+                    <div>
+                        label#balconiesLabel(for="balconies") Balconies
+                        input#balconies(type="text", required value=`${residentialHouse.balconies}`)
+                    </div>
+                    <div>
+                        label#bedroomsLabel(for="bedrooms") Bedrooms
+                        input#bedrooms(type="text", required value=`${residentialHouse.bedrooms}`)
+                    </div>
+                input#slug(type="text" value=`${residentialHouse.slug}` style="display: none")
+                label#propertyNameLabel(for="propertyName") Name
+                input#propertyName(type="text" value=`${residentialHouse.name}`)
+                label#addresssLabel(for="addresss") Address
+                input#addresss(type="text", required value=`${residentialHouse.address}`)
+                label#descriptionLabel(for="addresss") Address
+                input#description(type="text", required value=`${residentialHouse.description}`)
+                label Location Advantages
+                input#locationAdvantageOneUpdate(type="text", value=`${residentialHouse.locationAdvantages[0]}`)
+                input#locationAdvantageTwoUpdate(type="text", value=`${residentialHouse.locationAdvantages[1]}`)
+                input#locationAdvantageThreeUpdate(type="text", value=`${residentialHouse.locationAdvantages[2]}`)
+                input#locationAdvantageFourUpdate(type="text", value=`${residentialHouse.locationAdvantages[3]}`)
+                input#locationAdvantageFiveUpdate(type="text", value=`${residentialHouse.locationAdvantages[4]}`)
+                .cover-photo
+                    input#first-image(type="text", value=`${residentialHouse.imageCover}`, style="display: none;")
+                    input#coverPhoto(type="file" accept="image/*" value=`${residentialHouse.imageCover}`)
+                    label(for="coverPhoto") Choose cover photo
+                .building-photo
+                    input#second-image(type="text", value=`${residentialHouse.images[0]}`, style="display: none;")
+                    input#building-1Photo(type="file" accept="image/*" value=`${residentialHouse.images[0]}`)
+                    label(for="building-1Photo") Choose Building photo
+                .building-photo
+                    input#third-image(type="text", value=`${residentialHouse.images[1]}`, style="display: none;")
+                    input#building-2Photo(type="file" accept="image/*" value=`${residentialHouse.images[1]}`)
+                    label(for="building-2Photo") Choose Building photo
+                .building-photo
+                    input#fourth-image(type="text", value=`${residentialHouse.images[2]}`, style="display: none;")
+                    input#building-3Photo(type="file" accept="image/*" value=`${residentialHouse.images[2]}`)
+                    label(for="building-3Photo") Choose Building photo
+                input#slug(type="text", value=`${residentialHouse.slug}`, style="display: none;")
+                button.post(onClick = `toUpdateResidentialHouse('${residentialHouse._id}')`) Post Property

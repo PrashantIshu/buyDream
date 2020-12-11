@@ -177,7 +177,7 @@ block content
                             p.area= residentialHouse.address
                             //- hr
                             //- each flatType in building.propertiesAvailable
-                            p.residentialHouseCardTextMuted=`Flat Type: ${residentialHouse.propertiesAvailable} BHK` 
+                            p.residentialHouseCardTextMuted=`Flat Type: ${residentialHouse.flatType} BHK` 
                             p.residentialHouseCardAverageRating= `Avg Rating: ${residentialHouse.ratingsAverage}`
                             i.fa.fa-star-o
                             p.residentialHouseCardRatingQuantity= `Total ratings: ${residentialHouse.ratingsQuantity}`
@@ -187,8 +187,8 @@ block content
                                     i.fa.fa-times.overviewBtnIcon
                                     button.btn.wishlist-btn(onClick=`deleteIndependentHouse('${residentialHouse._id}')`) Delete
                                     a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
-                                    a.updateBtnLink(href=`/updateBuilding/${residentialHouses.slug}`) To Update Building Click Here
-                                    a.updateLinkBtn(href=`/updateBuilding/${residentialHouses.slug}`) Update
+                                    a.updateBtnLink(href=`/updateIndependentHouse/${residentialHouse.slug}`) To Update Building Click Here
+                                    a.updateLinkBtn(href=`/updateIndependentHouse/${residentialHouse.slug}`) Update
                                 else
                                     i.far.fa-bookmark.overviewBtnIcon
                                     button.btn.wishlist-btn(onClick=`addWishlist('${residentialHouses.name}')`) Save 
@@ -198,8 +198,8 @@ block content
                                     i.fa.fa-times.overviewBtnIcon
                                     button.btn.wishlist-btn(onClick=`deleteIndependentHouse('${residentialHouse._id}')`) Delete
                                     a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
-                                    a.updateBtnLink(href=`/updateBuilding/${residentialHouses.slug}`) To Update Building Click Here
-                                    a.updateLinkBtn(href=`/updateBuilding/${residentialHouses.slug}`) Update
+                                    a.updateBtnLink(href=`/updateIndependentHouse/${residentialHouse.slug}`) To Update Building Click Here
+                                    a.updateLinkBtn(href=`/updateIndependentHouse/${residentialHouse.slug}`) Update
                                 else
                                     i.far.fa-bookmark.overviewBtnIcon
                                     button.btn.wishlist-btn(onClick=`addWishlist('${residentialHouses.name}')`) Save

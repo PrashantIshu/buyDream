@@ -5,7 +5,8 @@
 #update-property h2,
 #update-house h2,
 .form-forgot-pass h2,
-.form-reset-pass h2 {
+.form-reset-pass h2,
+#update-residential-house h2 {
     width: fit-content;
     display: block;
     /* overflow: hidden; */
@@ -54,7 +55,8 @@
 #update-property label,
 #update-house label,
 .form-forgot-pass label,
-.form-reset-pass label {
+.form-reset-pass label,
+#update-residential-house label {
     width: fit-content;
     display: block;
     font-size: 1rem;
@@ -70,7 +72,8 @@
 #update-property input,
 #update-house input,
 .form-forgot-pass input,
-.form-reset-pass input {
+.form-reset-pass input,
+#update-residential-house input {
     display: block;
     margin-left: 3.3%;
     width: 85%;
@@ -89,7 +92,8 @@
 #update-property button,
 #update-house button,
 .form-forgot-pass button,
-.form-reset-pass button {
+.form-reset-pass button,
+#update-residential-house button {
     display: block;
     width: 85px;
     height: 2.75em;
@@ -118,7 +122,8 @@
 #update-property button:hover,
 #update-house button:hover,
 .form-forgot-pass button:hover,
-.form-reset-pass button:hover {
+.form-reset-pass button:hover,
+#update-residential-house button:hover {
     background-color: #55c57a;
 }
 
@@ -235,7 +240,8 @@
 #house-details #crUpdate,
 #house-details #lakhUpdate,
 #house #crPost,
-#house #lakhPost {
+#house #lakhPost,
+#house #bedrooms {
     display: inline-block;
     width: fit-content;
 }
@@ -351,7 +357,13 @@
 #house-details #flat-type-label,
 #house-details #sqft-area-label,
 #house-details #bathrooms-label,
-#house-details #balconies-label {
+#house-details #balconies-label,
+#residentialHouseDetails #pricePerUnitLabel,
+#residentialHouseDetails #flatTypeLabel,
+#residentialHouseDetails #sqftAreaLabel,
+#residentialHouseDetails #bedroomsLabel,
+#residentialHouseDetails #balconiesLabel,
+#residentialHouseDetails #bathroomsLabel {
     display: inline-block;
     margin-left: 7.5%;
 }
@@ -384,12 +396,14 @@ input:focus {
     border-bottom: 3px solid #7dd56f;
 }
 
-#house #price, #house #flat-type , #house #sqft-areas, #house #bathrooms, #house #balconies {
+#house #price, #house #flat-type , #house #sqft-areas, #house #bathrooms, #house #balconies, #house #bedrooms {
     width: 15%;
     display: inline-block;
 }
 
-#house #label-price, #house #label-flat-type, #house #label-sqft-areas, #house #label-bathrooms, #house #label-balconies {
+#house #label-price, #house #label-flat-type, #house #label-sqft-areas, #house #label-bathrooms,
+#house #label-balconies,
+#house #label-bedrooms {
     width: fit-content;
     display: inline-block;
 }
@@ -453,4 +467,36 @@ input:focus {
 
 #post-property #property-description {
     height: 8rem;
+}
+
+#independentHouses {
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 5%;
+    height: 8rem;
+    overflow: hidden;
+    margin-top: 7%;
+}
+
+#residentialHouseDetails #pricePerUnit,
+#residentialHouseDetails #flatType,
+#residentialHouseDetails #sqftArea,
+#residentialHouseDetails #bedrooms,
+#residentialHouseDetails #balconies,
+#residentialHouseDetails #bathrooms {
+    display: inline-block;
+    width: 31%;
+}
+
+
+#residentialHouseDetails #propertyName,
+#residentialHouseDetails #addresss,
+#residentialHouseDetails #locationAdvantageOneUpdate,
+#residentialHouseDetails #locationAdvantageTwoUpdate,
+#residentialHouseDetails #locationAdvantageThreeUpdate,
+#residentialHouseDetails #locationAdvantageFourUpdate,
+#residentialHouseDetails #locationAdvantageFiveUpdate {
+    width: 75%;
 }

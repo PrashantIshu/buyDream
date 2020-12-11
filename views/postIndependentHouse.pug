@@ -60,16 +60,8 @@ block content
                 input#building(type="text", value=`${buildingId}` style="display: none")
                 input#building-name(type="text", value=`${buildingName}` style="display: none")
         
-                label#label-price(for="price") Price
-                input#price(type="number", required)
-
-                #unitPost
-                    #firstUnitPost
-                        input#crPost(type="radio" value="Cr" name="priceUnitPost")
-                        label#cr-label-post(for="cr") Crore
-                    #secondUnitPost
-                        input#lakhPost(type="radio" value="Lakh" name="priceUnitPost")
-                        label#lakh-label-post(for="lakh") Lakh
+                label#label-price(for="price") Price Per sq.ft
+                input#price(type="text", required)
 
                 label#label-flat-type(for="flat-type") Flat Type
                 input#flat-type(type="text", required)
@@ -77,6 +69,9 @@ block content
                 label#label-sqft-areas(for="sqft-area") sqft Area
                 input#sqft-areas(type="number", required)
 
+                label#label-bedrooms(for="bedrooms") Bedrooms
+                input#bedrooms(type="number", required)
+                
                 label#label-bathrooms(for="bathrooms") Bathrooms
                 input#bathrooms(type="number", required)
 

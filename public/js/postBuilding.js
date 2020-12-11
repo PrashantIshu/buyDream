@@ -250,7 +250,7 @@ if(postIhForm) {
         // const nameAgent = document.getElementById('nameAgent').value;
         // const mobileAgent = document.getElementById('mobileAgent').value;
         // const emailAgent = document.getElementById('emailAgent').value;
-        const priceUnitPost = document.querySelector("input[name=priceUnitPost]:checked").value;
+        // const priceUnitPost = document.querySelector("input[name=priceUnitPost]:checked").value;
         // const address = document.getElementById("address").value;
         const formProperty = new FormData();
         formProperty.append('name', document.getElementById('property-name').value);
@@ -270,10 +270,11 @@ if(postIhForm) {
         
         // const formHouse = new FormData();
         formProperty.append('flatType', document.getElementById('flat-type').value);
-        formProperty.append('price', document.getElementById('price').value);
-        formProperty.append('priceUnit', priceUnitPost);
+        formProperty.append('pricePerUnit', document.getElementById('price').value);
+        // formProperty.append('priceUnit', priceUnitPost);
         formProperty.append('sqftArea', document.getElementById('sqft-areas').value);
         formProperty.append('agentOrOwner', document.getElementById('userId').value);
+        formProperty.append('bedrooms', document.getElementById('bedrooms').value);
         formProperty.append('bathrooms', document.getElementById('bathrooms').value);
         formProperty.append('balconies', document.getElementById('balconies').value);
         // formProperty.append('status', document.getElementById('status').value);
