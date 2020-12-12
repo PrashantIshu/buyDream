@@ -6,7 +6,7 @@ const reviewController = require('../controllers/reviewResidentialHouseControlle
 const reviewRouter = require('./residentialHouseReviewRoutes');
 // const amenetiesRoutes = require('./amenetiesRoutes');
 // const housesRoutes = require('./housesRoutes');
-// const builderRoutes = require('./builderRoutes');
+const builderRoutes = require('./builderRoutes');
 
 const Router = express.Router();
 
@@ -14,7 +14,7 @@ Router.use('/:residentialHouseId/residentialHouseReviews', reviewRouter);  //Nes
 
 // Router.use('/:buildingId/ameneties', amenetiesRoutes);
 
-// Router.use('/:buildingId/builders', builderRoutes);
+Router.use('/:residentialHouseId/builders', builderRoutes);
 
 // Router.use('/:buildingId/houses', housesRoutes);
 

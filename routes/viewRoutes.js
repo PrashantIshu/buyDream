@@ -48,7 +48,7 @@ Router
 
 Router
     .route('/independentHouse/:slug')
-    .get(viewsController.getIndependentHouse);
+    .get(authController.isLoggedIn, viewsController.getIndependentHouse);
 
 Router
     .route('/me')

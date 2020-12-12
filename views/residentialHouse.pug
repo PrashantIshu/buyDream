@@ -117,6 +117,93 @@ block content
                         img.picture-box__imgIh(src=`/img/residentialHouse/${img}`, alt=`The Park Camper Tour ${i + 1}`, class=`picture-box__imgIh--${i + 1}`)
         <div id="left-button-pics-ih" onClick="leftClickPicsIh()"><i class="fa fa-chevron-right pics-right-btn-ih"></i></div>   
 
+        form#builderIH 
+            if builder
+                if admin || agentOrOwnerExists
+                    h2 About Builder 
+                    #builderStatUpdate
+                        #namingUpdate
+                            #ek
+                                label(for="nameBuilderBuildingAdmin") Name
+                                input#nameBuilderBuildingAdmin(type="text" value=`${builder.name}`)
+                            #do
+                                label(for="emailBuilderBuildingAdmin") Email
+                                input#emailBuilderBuildingAdmin(value=`${builder.contactEmail}`)
+                            #tin
+                                label(for="phoneBuilderBuildingAdmin") Phone
+                                input#phoneBuilderBuildingAdmin(value=`${builder.phone}`)
+                            #chaar
+                                img#builder-photo(src=`/img/builders/${builder.logo}`, alt="builder_img")
+                                input#builder-photo-logo(value=`${builder.logo}` style="display: none")   
+                        #StatUpdate
+                            #paanch
+                                label(for="totalProjectsBuildingAdmin") Total Projects
+                                input#totalProjectsBuildingAdmin(value=`${builder.totalProjects}`)
+                            #chae
+                                label(for="projectsCompletedBuildingAdmin") Projects Completed
+                                input#projectsCompletedBuildingAdmin(value=`${builder.projectsCompleted}`)
+                            #saat
+                                label(for="operatingInBuildingAdmin") Operating In
+                                input#operatingInBuildingAdmin(value=`${builder.operatingIn}`)
+                            #aath
+                                label(for="experienceBuildingAdmin") Years of Experience
+                                input#experienceBuildingAdmin(value=`${builder.experience}`)
+                    //- #secondStat
+                        
+                    //- #thirdStat
+                        
+                    //- #fourthStat
+                        
+                    label#textContentBuilderBuildingAdminLabel(for="textContentBuilderBuildingAdmin") About Developer
+                    input#textContentBuilderBuildingAdmin.aboutBuilderPara(value=`${builder.about}`)
+                    .bottomThree
+                        .choose
+                            input#logo-builder(type="file" accept="image/*")
+                            .choose-photo-label
+                                label.photo-label(for="logo-builder") Choose new photo
+                        button.builderDeleteBtn(onClick=`removeBuilder('${builder.name}')`) Remove Builder
+                        button.builderUpdateBtn(onClick=`updateBuilder('${builder._id}')`) Update Builder
+                else
+                    h2 About Builder
+                    #head
+                        #naming
+                            h4= builder.name
+                            h6= `Years of Experience: ${builder.experience}`
+                        #builderImg
+                            img(src=`/img/builders/${builder.logo}`, alt="builder_img")    
+                    #builderStat
+                        #firstStat
+                            p= `Total Projects: ${builder.totalProjects}`
+                        #secondStat
+                            p= `Projects Completed: ${builder.projectsCompleted}`
+                        #thirdStat
+                            p= `Operating In: ${builder.operatingIn}`
+                    p.aboutBuilderParagraph= `${builderAbout} ....`
+                    p.readMore(onClick="closeAboutBuilderBox()") Read More
+                //- button(onClick=`removeBuilder('${builder.name}')`) Remove Builder
+            else
+                if admin || agentOrOwnerExists
+                    h2 About Builder
+                    #builderFields
+                        #fieldNameBuilder
+                            input#nameBuilderBuilding(type="text" placeholder="Name")
+                        #fieldEmailBuilder
+                            input#emailBuilderBuilding(type="email" placeholder="Email")
+                        #fieldPhoneBuilder
+                            input#phoneBuilderBuilding(type="tel" placeholder="Phone Number")
+                        #statOneBuilding
+                            input#experienceBuilding(type="number" placeholder="Experience")
+                        #statTwoBuilding
+                            input#totalProjectsBuilding(type="number" placeholder="Total Projects")
+                        #statThreeBuilding
+                            input#projectsCompletedBuilding(type="number" placeholder="Projects Completed")
+                        #statFourBuilding
+                            input#operatingInBuilding(type="text" placeholder="Operating In")
+                        label#labelTextContentBuilderBuilding(for="textContentBuilder") About Builder
+                        textarea#textContentBuilderBuilding(cols="60", rows="10", placeholder="About Developer")
+                        button#addBuilderBtn(onClick=`addBuilderBuilding()`) Add Builder
+                else
+                    h2 OOPS! Builder Details is Missing
         //- sction#reviewrH.reviewRh
         //-     h2 Reviews
         //-     each review in reviews

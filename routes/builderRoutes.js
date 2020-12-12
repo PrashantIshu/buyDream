@@ -17,7 +17,8 @@ Router
         builderController.resizeBuilderPhoto,
         builderController.updateBuilder
     )
-    .get(builderController.getBuilder);
+    .get(builderController.getBuilder)
+    .delete(authController.protect, authController.restrictTo('agent', 'admin', 'owner', 'builder'), builderController.removeBuilderFromABuilding, builderController.deleteBuilder);
 
 Router
     .route('/:builderName')

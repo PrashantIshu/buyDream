@@ -2,6 +2,7 @@ const multer = require('multer');
 const sharp = require('sharp');
 const Builder = require("../models/builderModel");
 const Building = require("../models/buildingsModel");
+const ResidentialHouse = require("../models/residentialHouseModel");
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/app-error');
 const factory = require('./handleFactory');
@@ -45,7 +46,13 @@ exports.getAllBuilders = factory.getAll(Builder);
 exports.getBuilder = factory.getOne(Builder);
 
 exports.getBuildingId = catchAsync(async(req, res, next) => {
-    if(!req.body.building) req.body.building = req.params.buildingId;
+    if(req.params.buildingId) {
+        if(!req.body.building) req.body.building = req.params.buildingId;
+    }
+    if(req.params.residentialHouseId) {
+        if(!req.body.building) req.body.building = req.params.residentialHouseId;
+    }
+    
     next();
 });
 
@@ -56,13 +63,19 @@ exports.addExistingBuilderToABuilding = catchAsync( async(req, res, next) => {
         return next();
     }
 
-    const newDoc = await Building.findByIdAndUpdate(req.body.building, {builder: builder._id}, {new: true, runValidators: true});
+    let newDoc;
+    if(req.params.buildingId) {
+        newDoc = await Building.findByIdAndUpdate(req.body.building, {builder: builder._id}, {new: true, runValidators: true});
+    }
+    if(req.params.residentialHouseId) {
+        newDoc = await ResidentialHouse.findByIdAndUpdate(req.body.building, {builder: builder._id}, {new: true, runValidators: true});
+    }
     if(!newDoc) {
         return next(new AppError('No documents found with that ID', 404));
     }
 
     if(builder.building.includes(req.body.building)) {
-        return next(new AppError('This amenety is already present in this building', 400));
+        return next(new AppError('This builder is already present in this building', 400));
     }
 
     await builder.building.push(req.body.building);
@@ -79,15 +92,26 @@ exports.addExistingBuilderToABuilding = catchAsync( async(req, res, next) => {
 });
 
 exports.removeBuilderFromABuilding = catchAsync( async(req, res, next) => {
-    if(!req.params.buildingId) {
+    if(!req.params.buildingId && !req.params.residentialHouseId) {
         return next();
     }
 
-    let builder = await Builder.findOne({name: req.params.builderName});
+    let builder;
+    if(req.params.builderName) {
+        builder = await Builder.findOne({name: req.params.builderName});
+    } else {
+        builder = await Builder.findById(req.params.id);
+    }
 
     // const amenety = await Amenety.findById(req.params.id);
     // console.log(builder);
-    const newDoc = await Building.findByIdAndUpdate(req.params.buildingId, {builder: null}, {new: true, runValidators: true});
+    let newDoc;
+    if(req.params.buildingId) {
+        newDoc = await Building.findByIdAndUpdate(req.params.buildingId, {builder: null}, {new: true, runValidators: true});
+    }
+    if(req.params.residentialHouseId) {
+        newDoc = await ResidentialHouse.findByIdAndUpdate(req.params.residentialHouseId, {builder: null}, {new: true, runValidators: true});
+    }
     if(!newDoc) {
         return next(new AppError('No documents found with that ID', 404));
     }
@@ -98,7 +122,12 @@ exports.removeBuilderFromABuilding = catchAsync( async(req, res, next) => {
     } 
 
     function checkBuildingId(id) {
-        return id != req.params.buildingId;
+        if(req.params.buildingId) {
+            return id != req.params.buildingId;
+        } 
+        if(req.params.residentialHouseId) {
+            return id != req.params.residentialHouseId;
+        }
     }
     const newBuildings = await builder.building.filter(checkBuildingId);
     
@@ -116,7 +145,14 @@ exports.removeBuilderFromABuilding = catchAsync( async(req, res, next) => {
 exports.createBuilder = catchAsync(async(req, res) => {
     let doc = await Builder.create(req.body);
 
-    const newDoc = await Building.findByIdAndUpdate(req.body.building, {builder: doc._id}, {new: true, runValidators: true});
+    let newDoc;
+    if(req.body.building) {
+        newDoc = await Building.findByIdAndUpdate(req.body.building, {builder: doc._id}, {new: true, runValidators: true});
+    }
+    if(req.body.residentialHouse) {
+        newDoc = await ResidentialHouse.findByIdAndUpdate(req.body.residentialHouse, {builder: doc._id}, {new: true, runValidators: true});
+    }
+    
     if(!newDoc) {
         return next(new AppError('No documents found with that ID', 404));
     }

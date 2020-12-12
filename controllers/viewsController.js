@@ -410,8 +410,39 @@ exports.getIndependentHouse = catchAsync(async(req, res, next) => {
     // console.log(req.params.slug);
     const residentialHouses = await ResidentialHouse.find({slug: req.params.slug});
     const residentialHouse = residentialHouses[0];
-    console.log(residentialHouse);
+    // console.log(residentialHouse);
     
+    /////// restrict user ///////
+    const admin = adminExistsOrNot(res.locals.user);
+    let agent = null;
+    let agentOrOwnerExists = false;
+    if(res.locals.user) {
+        agentOrOwnerExists = agentOrOwnerExistsOrNot(res.locals.user, residentialHouses[0]);
+        if(agentOrOwnerExists) {
+            agent = res.locals.user;
+            agent = agent._id;
+        }
+    }
+
+    /////// For Builders //////
+    const builders = await Builder.find();
+    let builder;
+    builders.forEach( element => {
+        let buildIds = JSON.stringify(residentialHouses[0]._id);
+        element.building.forEach( async el => {
+            el = JSON.stringify(el);
+            if(el === buildIds) {
+                builder = element;
+            }
+        });
+    });
+
+    if(builder) {
+        if(builder.about) {
+            var builderAbout = builder.about.substring(0, 100);
+        }
+    }
+    console.log(builder);
     // const allReviews = await ResidentialHouseReview.find();
     // let reviews = [];
     // allReviews.forEach( el => {
@@ -424,7 +455,8 @@ exports.getIndependentHouse = catchAsync(async(req, res, next) => {
     res.render('residentialHouse', {
         title: 'Residential House',
         residentialHouse,
-        // reviews
+        admin, agentOrOwnerExists,
+        builder, builderAbout
     });
 });
 

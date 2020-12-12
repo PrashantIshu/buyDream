@@ -1,0 +1,59 @@
+
+@media only screen and (max-width: 900px) { 
+    #overviewSection {
+        width: 100%;
+        margin-bottom: 1rem;
+        /* height: 50rem; */
+    }
+    #overviewSection #overviewPartTwo {
+        margin-top: 1rem;
+        height: 95%;
+    }
+    .stick {
+        position: unset;
+    }
+}
+
+
+@media only screen and (max-width: 800px) { 
+    #overviewPartThree p, #overviewPartThree h6 {
+        font-size: 16px;
+        /* font-weight: lighter; */
+    }
+    #overviewPartThree .fa-rupee-sign {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 700px) { 
+    #overviewSection #overviewPartTwo {
+        height: 90%;
+    }
+    #overviewPartThree p, #overviewPartThree h6 {
+        font-size: 15px;
+    }
+    #overviewPartThree .fa-rupee-sign {
+        font-size: 12px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) { 
+    #overviewPartThree p, #overviewPartThree h6 {
+        font-size: 14px;
+    }
+    #overviewPartThree .fa-rupee-sign {
+        font-size: 12px;
+    }
+}
+
+
+@media only screen and (max-width: 550px) { 
+    #overviewPartThree p, #overviewPartThree h6 {
+        font-size: 13px;
+    }
+
+    #overviewPartThree .fa-rupee-sign {
+        font-size: 11px;
+    }
+}

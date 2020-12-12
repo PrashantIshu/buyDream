@@ -128,18 +128,18 @@ residentialHouseSchema.pre(/^find/, function(next){
 
 residentialHouseSchema.pre('findOneAndUpdate', async function(next) {
     const docToUpdatePre = await this.model.findOne(this.getQuery());
-    this._update.price = docToUpdatePre.pricePerUnit * docToUpdatePre.sqftArea;
-    if(this._update.price >= 10000000) {
-            this._update.priceUnit = "Cr"
-            this._update.price = this._update.price / 10000000;
-        } else {
-            this._update.priceUnit = "Lakh";
-            this._update.price = this._update.price / 100000;
+    if(docToUpdatePre) {
+        if(docToUpdatePre.pricePerUnit && docToUpdatePre.sqftArea) {
+            this._update.price = docToUpdatePre.pricePerUnit * docToUpdatePre.sqftArea;
+            if(this._update.price >= 10000000) {
+                this._update.priceUnit = "Cr"
+                this._update.price = this._update.price / 10000000;
+            } else {
+                this._update.priceUnit = "Lakh";
+                this._update.price = this._update.price / 100000;
+            }
         }
-        // console.log(this);
-    
-    // console.log(this._update.price);
-    // console.log("UPDATED");
+    }    
     
     next();
 });

@@ -856,32 +856,44 @@ input:focus {
     /* border: 1px solid black; */
 }
 
-#builder-section h2 {
+#builderIH {
+    width: 57%;
+    margin-left: 7.5%;
+    background-color: white;
+    margin-bottom: 1rem;
+}
+
+#builder-section h2, #builderIH h2 {
     width: fit-content;
     font-family: 'Nunito', sans-serif;
 }
 
-#builder-section #head {
+#builderIH h2 {
+    padding-top: 1rem;
+    padding-left: 3%;
+}
+
+#builder-section #head, #builderIH #head {
     background-color: rgb(241, 234, 234);
     display: grid;
     grid-template-columns: 80% 20%;
     border-radius: 10px;
 }
 
-#builder-section #head #naming {
+#builder-section #head #naming, #builderIH #head #naming {
     margin-left: 5%;
     margin-top: 1%;
 }
 
-#builder-section #head #naming h4 {
+#builder-section #head #naming h4, #builderIH #head #naming h4 {
     font-family: 'Nunito', sans-serif;
 }
 
-#builder-section #head #naming h6 {
+#builder-section #head #naming h6, #builderIH #head #naming h6 {
     font-family: 'Ubuntu', sans-serif;
 }
 
-#builder-section #builderStat {
+#builder-section #builderStat, #builderIH #builderStat {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -1053,14 +1065,14 @@ input:focus {
 }
 
 /* ///////////// ADD BUILDER ///////////// */
-#builder-section #builderFields {
+#builder-section #builderFields, #builderIH #builderFields {
     width: 90%;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-gap: 5%;
 }
 
-#builder-section input {
+#builder-section input, #builderIH input {
     margin-top: 1.5rem;
     border: none;
     border-radius: 5px;
@@ -1068,7 +1080,7 @@ input:focus {
     height: 2.6rem;
 }
 
-#builder-section input:focus {
+#builder-section input:focus, #builderIH input:focus {
     border: none;
     border-bottom: 2px solid  #7dd56f;
     color: grey;
@@ -1096,7 +1108,7 @@ input:focus {
     visibility: hidden;
 }
 
-#builder-section button {
+#builder-section button, #builderIH button {
     margin-top: 1rem;
     font-size: 15px;
     display: block;
@@ -1110,17 +1122,21 @@ input:focus {
     height: 2rem;
 }
 
-#builder-section #addBuilderBtn {
+#builder-section #addBuilderBtn, #builderIH #addBuilderBtn {
     margin-left: 120%;
     margin-top: 15rem;
 }
 
-#builder-section #naming input {
+#builder-section #naming input, #builderIH #naming input {
     margin-left: 2rem;
 }
 
-#builderImg img {
+#builderImg img, #builderIH img {
     width: 60%;
+}
+#builderIH img {
+    height: 100%;
+    width: 75%;
 }
 /* #builder-section #builder-photo {
     width: 60%;
@@ -1235,7 +1251,7 @@ input:focus {
 /* #builder-section {
     border: 2px solid yellow;
 } */
-#builder-section #namingUpdate, #builder-section #StatUpdate {
+#builder-section #namingUpdate, #builder-section #StatUpdate, #builderIH #namingUpdate, #builderIH #StatUpdate {
     /* border: 1px solid red; */
     /* width: 100%; */
     display: grid;
@@ -1244,28 +1260,28 @@ input:focus {
     /* overflow: hidden; */
 }
 
-#builder-section #namingUpdate label {
+#builder-section #namingUpdate label, #builderIH #namingUpdate label {
     display: block;
     /* margin-left: 2%;  */
 }
 
-#builder-section #namingUpdate input {
+#builder-section #namingUpdate input, #builderIH #nammingUpdate input {
     display: block;
     margin-top: 1%; 
     font-size: 12px;
     padding-left: 3%;
 }
 
-#builder-section #StatUpdate input {
+#builder-section #StatUpdate input, #builderIH #StatUpdate input {
     font-size: 12px;
 }
 
-#builderStatUpdate #builder-photo {
+#builderStatUpdate #builder-photo, #builderIH #builder-photo {
     width: 50%;
     margin-left: 25%;
 }
 
-#builder-section .choose {
+#builder-section .choose, #builderIH .choose {
     /* display: grid;
     grid-template-columns: 2% 60%;
     width: 30%; */

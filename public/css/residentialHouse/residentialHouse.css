@@ -86,6 +86,11 @@
     text-align: center;
 }
 
+#overviewPartThree h6, #overviewPartThree p, #overviewPartThree .fa-rupee-sign {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 #overviewPartThree #overviewBuildUpArea p,
 #overviewPartThree #overviewBuildUpArea h6,
 #overviewPartThree #overviewAvgPrice p,
@@ -100,8 +105,6 @@
     text-align: center;
     margin: 0 auto;
     margin-top: 20%;
-    font-size: 18px;
-    font-weight: bold;
 }
 
 #overviewPartThree #overviewBuildUpArea h6,
@@ -473,3 +476,5 @@
     width: 57%;
     margin-left: 5%;
 }
+
+/* ////////// Builders //////////// */
