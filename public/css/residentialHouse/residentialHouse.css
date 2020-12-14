@@ -130,6 +130,7 @@
 /* ////////////////// Residential House Navbar Css ///////////////// */
 #navContainer {
     width: 100%;
+    margin: 0 auto;
     overflow: hidden;
     height: 60px;
     background-color: white;
@@ -160,7 +161,7 @@
 }
 
 #navContainer .user-name {
-    width: 23%;
+    width: 38%;
     text-align: right;
     margin-right: 0.7%;
     font-size: 16px;
@@ -187,7 +188,7 @@
 }
   
 #navContainer .one-word-signup {
-    margin-left: 23%;
+    margin-left: 38%;
 }
 
 .stick {
@@ -197,9 +198,7 @@
     z-index: 9999;
 }
 
-
-
-#navContainer .over a {
+.scrolledNavItem {
     color: blue;
     border-bottom: 1px solid blue;
 }
@@ -215,7 +214,7 @@
 }
 
 #secondHalf {
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 65% 30%;
@@ -256,7 +255,11 @@
     width: 25.5%;
     background-color: white;
 }
-#contactSecondHalf #seller{
+#contactSecondHalfHide {
+    width: 25rem;
+    background-color: white;
+}
+#contactSecondHalf #seller, #contactSecondHalfHide #seller{
     /* position: fixed;
     right: 0;
     z-index: 1; */
@@ -288,13 +291,13 @@
     color: grey;
 }
 
-#contactSecondHalf #contactSellerForm {
+#contactSecondHalf #contactSellerForm, #contactSecondHalfHide #contactSellerForm {
     width: 90%;
     border: 1px solid grey;
     box-shadow: 0 3px 7px 0 grey;
 }
 
-#contactSecondHalf #contactSellerForm input {
+#contactSecondHalf #contactSellerForm input, #contactSecondHalfHide #contactSellerForm input {
     display: block;
     border: none;
     border-bottom: 1px solid grey;
@@ -303,7 +306,7 @@
     margin-bottom: 2.5rem;
 }
 
-#contactSecondHalf #contactSellerForm button {
+#contactSecondHalf #contactSellerForm button, #contactSecondHalfHide #contactSellerForm button {
     background-color: rgb(127, 127, 127);
     color: white;
     border: none;
@@ -315,7 +318,7 @@
     font-size: 15px;
 }
 
-#contactSecondHalf #contactSellerForm h5 {
+#contactSecondHalf #contactSellerForm h5, #contactSecondHalfHide #contactSellerForm h5 {
     width: fit-content;
     margin-left: 3%;
 }
@@ -477,4 +480,26 @@
     margin-left: 5%;
 }
 
-/* ////////// Builders //////////// */
+#contactSecondHalfHide {
+    display: none;
+    position: fixed;
+    width: 20rem;
+    top: 12%;
+    left: 40%;
+}
+
+#contactSecondHalf h4, #contactSecondHalf #seller, #contactSecondHalf #contactSellerForm, #contactSecondHalfHide h4, #contactSecondHalfHide #seller, #contactSecondHalfHide #contactSellerForm {
+    margin-left: 5%;
+}
+#contactSecondHalf #contactSellerForm, #contactSecondHalfHide #contactSellerForm {
+    margin-bottom: 5%;
+}
+#contactSecondHalfHide #closeMailAgent {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    font-size: 20px;
+    /* color: black;
+    background-color: black; */
+}

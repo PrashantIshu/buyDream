@@ -12,6 +12,40 @@
     .stick {
         position: unset;
     }
+    #secondHalf {
+        width: 100%;
+        grid-template-columns: 99% 1%;
+    }
+    .contactSecondHalf {
+        display: none;
+    }
+    #localitySection, #photosGallery {
+        width: 100%;
+        margin-left: 0;
+    }
+    .pics-left-btn-ih {
+        left: 0;
+        top: 135rem;
+    }
+    .pics-right-btn-ih {
+        left: 91%;
+        top: 135rem;
+        right: 0;
+        /* float: right; */
+        
+    }
+    #builderIH {
+        width: 100%;
+        margin-left: 0
+    }
+    #builderIH #builderStatUpdate {
+        display: flex;
+        flex-direction: column;
+    }
+    /* #overviewHouseDetails {
+        grid-template-columns: 45% 45%;
+        grid-gap:
+    } */
 }
 
 
@@ -35,6 +69,16 @@
     #overviewPartThree .fa-rupee-sign {
         font-size: 12px;
     }
+    #localitySection, #photosGallery {
+        width: 98%;
+        margin: 0 auto;
+    }
+    .pics-left-btn-ih, .pics-right-btn-ih  {
+        top: 132rem;
+    }
+    .pics-right-btn-ih {
+        left: 88%;
+    }
 }
 
 
@@ -44,6 +88,12 @@
     }
     #overviewPartThree .fa-rupee-sign {
         font-size: 12px;
+    }
+    #builderIH #namingUpdate input{
+        width: 210%;
+    }
+    .pics-left-btn-ih, .pics-right-btn-ih  {
+        top: 132rem;
     }
 }
 
@@ -55,5 +105,8 @@
 
     #overviewPartThree .fa-rupee-sign {
         font-size: 11px;
+    }
+    .pics-left-btn-ih, .pics-right-btn-ih  {
+        top: 130rem;
     }
 }

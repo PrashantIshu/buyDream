@@ -156,7 +156,8 @@ function showBtn(x) {
 
 //////////////////// Overview Animation On Scroll //////////////////////
 var overviewApartments = document.getElementById('apartments');
-if(overviewApartments) {
+var overviewResidentialVillas = document.getElementById('residentialVillas');
+if(overviewApartments && overviewResidentialVillas) {
   // alert("Overview");
   window.onscroll = function() {
     if(window.pageYOffset > 160) {
@@ -167,6 +168,17 @@ if(overviewApartments) {
       for(var i = 0; i < cards.length; i++) {
         cards[i].classList.add('animateScrollApt');
         cards[i].classList.add('animateAptFadeInBottom');
+        // console.log(cards[i]);
+      }
+    }
+    if(window.pageYOffset > 800) {
+      // console.log(window.pageYOffset, overviewApartments.offsetTop);
+      // alert(window.pageYOffset);
+      // alert(overviewApartments.offsetTop);
+      var cardsIH = document.getElementsByClassName('residentialHouseCard');
+      for(var i = 0; i < cardsIH.length; i++) {
+        cardsIH[i].classList.add('animateScrollAptIH');
+        cardsIH[i].classList.add('animateAptFadeInBottomIH');
         // console.log(cards[i]);
       }
     }

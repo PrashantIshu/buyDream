@@ -6,6 +6,11 @@ if(document.getElementById('navContainer')) {
       const rightArrow = document.getElementsByClassName('pics-left-btn-ih');
       // const sticky = getNav.offsetTop;
       // alert(sticky);
+      // if(window.pageYOffset >= 700) {
+      //   var navItem = document.getElementById(firstLink);
+      //   navItem.classList.add(scrolledNavItem);
+      // } 
+
       if(window.pageYOffset >= 800) {
           getNav.classList.add('stick');
           getContactSeller.classList.add('contactSecondHalf');
@@ -75,3 +80,13 @@ function leftClickPicsIh() {
       scrollLeft: leftPos + 500
     }, 700);
 };
+
+function showContactOwner() {
+  $("#contactSecondHalfHide").slideToggle(200);
+  document.getElementById('closeMailAgent').style.display = "block";
+}
+
+function closeMailBoxAgentIH() {
+  $("#contactSecondHalfHide").slideToggle(200);
+  document.getElementById('closeMailAgent').style.display = "none";
+}

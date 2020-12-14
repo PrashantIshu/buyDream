@@ -875,10 +875,12 @@ input:focus {
 }
 
 #builder-section #head, #builderIH #head {
+    width: 100%;
     background-color: rgb(241, 234, 234);
     display: grid;
     grid-template-columns: 80% 20%;
     border-radius: 10px;
+    margin: 0 auto;
 }
 
 #builder-section #head #naming, #builderIH #head #naming {

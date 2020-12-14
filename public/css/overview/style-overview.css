@@ -357,3 +357,18 @@ body {
     }
     to { opacity: 1; z-index: 1 }
 }
+
+.animateScrollAptIH {
+    animation-duration: 0.5s;
+    position: relative;
+}
+
+.animateAptFadeInBottomIH { animation-name: fadeInBottomOverviewApts }
+@keyframes fadeInBottomOverviewApts {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+        z-index: 0;
+    }
+    to { opacity: 1; z-index: 1 }
+}

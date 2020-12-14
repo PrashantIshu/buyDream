@@ -15,7 +15,7 @@ block content
                     .fas.fa-rupee-sign.fa-sm
                     h2= `${residentialHouse.price} ${residentialHouse.priceUnit}`
                     p= `${residentialHouse.pricePerUnit} K/sq.ft`
-                    button Contact Owner
+                    button(onClick="showContactOwner()") Contact Owner
             #overviewPartTwo
                 img(src=`/img/residentialHouse/${residentialHouse.imageCover}` alt="Independent House Pic Not Available")
             #overviewPartThree
@@ -38,12 +38,11 @@ block content
         section#navContainer
             ul#navba.qwert
                 li: a(href="/") All Buildings
-                li.over: a(href="#") Overview
-                li.one-word: a(href="#") Ameneties
-                li.one-word: a(href="#") Location
-                li.one-word: a(href="#") Photos
+                li.over: a#firstLink(href="#secondHalfSection") Overview
+                li.one-word: a(href="#localitySection") Location
+                li.one-word: a(href="#photosGallery") Photos
+                li.one-word: a(href="#builderIH") Builder
                 li.one-word: a(href="#") Reviews
-                li.one-word: a(href="#") Builder
             
                 if user 
                     li.user-name: a(class="signup", href="/me")= user.name
@@ -222,6 +221,22 @@ block content
                 //- - var about = builder.
                 if builder
                     p.aboutBuilderParagraph= builder.about
+        ion-icon.mailContainerAgent.fadeAgent#closeMailAgent(onClick="closeMailBoxAgentIH()" name="close")
+        section#contactSecondHalfHide
+            h4 Contact Seller
+            #seller
+                #sellerImg
+                    img(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjP6YGqqvS0E3zO5_pxnk6bHpC2Edvt-cIGg&usqp=CAU" alt="seller_img")
+                #sellerDetails
+                    h6 Seller Name
+                    h6.sellerOwner Owner
+                    h6 Seller Half Phone
+            #contactSellerForm
+                h5 Please Share Your Contact
+                input(type="text" placeholder="Name")
+                input(type="text" placeholder="Phone")
+                input(type="text" placeholder="Email")
+                button Get Contact Details
         //- sction#reviewrH.reviewRh
         //-     h2 Reviews
         //-     each review in reviews
