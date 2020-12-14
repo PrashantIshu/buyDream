@@ -248,7 +248,9 @@ block content
                     //- #thirdStat
                         
                     //- #fourthStat
-                        
+
+                input#removeBuilderName(type="text" value=`${builder.name}` style="display: none")
+                input#removeBuilderId(type="text" value=`${builder._id}` style="display: none")       
                 label#textContentBuilderBuildingAdminLabel(for="textContentBuilderBuildingAdmin") About Developer
                 input#textContentBuilderBuildingAdmin.aboutBuilderPara(value=`${builder.about}`)
                 .bottomThree
@@ -256,7 +258,7 @@ block content
                         input#logo-builder(type="file" accept="image/*")
                         .choose-photo-label
                             label.photo-label(for="logo-builder") Choose new photo
-                    button.builderDeleteBtn(onClick=`removeBuilder('${builder.name}')`) Remove Builder
+                    button.builderDeleteBtn(onClick=`removeBuilder('buildingId')`) Remove Builder
                     button.builderUpdateBtn(onClick=`updateBuilder('${builder._id}')`) Update Builder
             else
                 h2 About Builder
@@ -303,7 +305,7 @@ block content
                         input#operatingInBuilding(type="text" placeholder="Operating In")
                     label#labelTextContentBuilderBuilding(for="textContentBuilder") About Builder
                     textarea#textContentBuilderBuilding(cols="60", rows="10", placeholder="About Developer")
-                    button#addBuilderBtn(onClick=`addBuilderBuilding()`) Add Builder
+                    button#addBuilderBtn(onClick=`addBuilderBuilding('buildingId')`) Add Builder
             else
                 h2 OOPS! Builder Details is Missing
 

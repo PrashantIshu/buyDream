@@ -97,6 +97,7 @@ block content
                         input(type="text" placeholder="Email")
                         button Get Contact Details
 
+        input#id(type="text" value=`${residentialHouse._id}` style="display: none")
         section#localitySection 
             #locationHeadings
                 h2#locH(onClick="showAdv()") Location
@@ -153,16 +154,22 @@ block content
                     //- #thirdStat
                         
                     //- #fourthStat
-                        
-                    label#textContentBuilderBuildingAdminLabel(for="textContentBuilderBuildingAdmin") About Developer
-                    input#textContentBuilderBuildingAdmin.aboutBuilderPara(value=`${builder.about}`)
-                    .bottomThree
-                        .choose
-                            input#logo-builder(type="file" accept="image/*")
-                            .choose-photo-label
-                                label.photo-label(for="logo-builder") Choose new photo
-                        button.builderDeleteBtn(onClick=`removeBuilder('${builder.name}')`) Remove Builder
-                        button.builderUpdateBtn(onClick=`updateBuilder('${builder._id}')`) Update Builder
+
+                    input#removeBuilderName(type="text" value=`${builder.name}` style="display: none")
+                    input#removeBuilderId(type="text" value=`${builder._id}` style="display: none") 
+                    .divOne
+                        .divTwo
+                            label#textContentBuilderBuildingAdminLabel(for="textContentBuilderBuildingAdmin") About Developer
+                            input#textContentBuilderBuildingAdmin.aboutBuilderPara(cols="30", rows="10", value=`${builder.about}`)
+                        .divThree
+                            .bottomThree
+                                .choose
+                                    input#logo-builder(type="file" accept="image/*")
+                                    .choose-photo-label
+                                        label.photo-label(for="logo-builder") Choose new photo
+                            .divFour
+                                button.builderDeleteBtn(onClick=`removeBuilder('residentialHouseId')`) Remove Builder
+                                button.builderUpdateBtn(onClick=`updateBuilder('${builder._id}')`) Update Builder
                 else
                     h2 About Builder
                     #head
@@ -199,11 +206,22 @@ block content
                             input#projectsCompletedBuilding(type="number" placeholder="Projects Completed")
                         #statFourBuilding
                             input#operatingInBuilding(type="text" placeholder="Operating In")
-                        label#labelTextContentBuilderBuilding(for="textContentBuilder") About Builder
-                        textarea#textContentBuilderBuilding(cols="60", rows="10", placeholder="About Developer")
-                        button#addBuilderBtn(onClick=`addBuilderBuilding()`) Add Builder
+                        textarea#textContentBuilderBuilding(cols="40", rows="7", placeholder="About Developer")
+                        //- label#labelTextContentBuilderBuilding(for="textContentBuilder") About Builder
+                        
+                        button#addBuilderBtn(onClick=`addBuilderBuilding('residentialHouseId')`) Add Builder
                 else
                     h2 OOPS! Builder Details is Missing
+        #rightSideAboutBuilder.fadeRight
+            #transparentContent
+                h2 transparent
+            #contentSide
+                #closeBuilder
+                    ion-icon#closeAboutBuilder(onClick="closeAboutBuilderBox()" name="close")
+                h2 About Developer
+                //- - var about = builder.
+                if builder
+                    p.aboutBuilderParagraph= builder.about
         //- sction#reviewrH.reviewRh
         //-     h2 Reviews
         //-     each review in reviews

@@ -142,7 +142,7 @@ exports.removeBuilderFromABuilding = catchAsync( async(req, res, next) => {
     });
 });
 
-exports.createBuilder = catchAsync(async(req, res) => {
+exports.createBuilder = catchAsync(async(req, res, next) => {
     let doc = await Builder.create(req.body);
 
     let newDoc;

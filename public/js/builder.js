@@ -1,13 +1,23 @@
 const BuilderForm = document.querySelector('#builder-section');
+const BuilderFormIH = document.querySelector('#builderIH');
 
 ////// Remove Builder ///////
-const deleteBuilder = async (buildingId, name) => {
+const deleteBuilder = async (type, Id, builderId) => {
     try {
+        let url;
+        if(type === 'residentialHouseId') {
+            const residentialHouseId = Id;
+            url = `/api/v1/residentialHouses/${residentialHouseId}/builders/${builderId}`;
+        } else {
+            const buildingId = Id;
+            url = `/api/v1/buildings/${buildingId}/builders/${builderId}`;
+        }
         const res = await axios({
             method: 'DELETE',
-            url: `/api/v1/buildings/${buildingId}/builders/${name}`
+            url
+            // url: `/api/v1/buildings/${buildingId}/builders/${name}`
         });
-        alert("from builder");
+        // alert("from builder");
         if(res.data.status === 'success') {
             window.setTimeout( () => {
                 location.reload();
@@ -19,28 +29,35 @@ const deleteBuilder = async (buildingId, name) => {
         }
 }
 
-function removeBuilder(builderName) {
+function removeBuilder(type) {
     alert("Hello");
-    BuilderForm.addEventListener('submit', async event => {
-        alert(builderName);
+    let formBuilder
+    if(BuilderForm) {
+        formBuilder = BuilderForm;
+    }
+    if(BuilderFormIH) {
+        formBuilder = BuilderFormIH
+    } 
+    formBuilder.addEventListener('submit', async event => {
         event.preventDefault();
 
-        const buildingId = document.getElementById('id').value;
-        alert(buildingId);
-        deleteBuilder(buildingId, builderName);
+        const builderId = document.getElementById('removeBuilderId').value;
+        const Id = document.getElementById('id').value;
+        // alert(Id);
+        deleteBuilder(type, Id, builderId);
     });
 }
 
 ///////// Update Builder //////////
 const updatingBuilder = async (
-    buildingId,
+    // buildingId,
     id,
     data
 ) => {
     try {
         const res = await axios({
             method: 'PATCH',
-            url: `/api/v1/buildings/${buildingId}/builders/${id}`,
+            url: `/api/v1/builders/${id}`,
             data
         });
 
@@ -57,11 +74,18 @@ const updatingBuilder = async (
 
 function updateBuilder(id) {
     alert("Hello");
-    BuilderForm.addEventListener('submit', async event => {
+    let formBuilders
+    if(BuilderForm) {
+        formBuilders = BuilderForm;
+    }
+    if(BuilderFormIH) {
+        formBuilders = BuilderFormIH
+    } 
+    formBuilders.addEventListener('submit', async event => {
         alert("Hello Prashant");
         event.preventDefault();
 
-        const buildingId = document.getElementById('id').value;
+        // const buildingId = document.getElementById('id').value;
 
         const formBuilder = new FormData();
         formBuilder.append('name', document.getElementById('nameBuilderBuildingAdmin').value);
@@ -82,10 +106,10 @@ function updateBuilder(id) {
         }
         formBuilder.append('logo', logoPhoto);
 
-        alert(id);
-        alert(buildingId);
+        // alert(id);
+        // alert(buildingId);
         await updatingBuilder(
-                buildingId,
+                // buildingId,
                 id,
                 formBuilder
         );
@@ -94,7 +118,8 @@ function updateBuilder(id) {
 
 //////// ADD BUILDER ////////
 const addBuilder = async (
-        buildingId,
+        type,
+        Id,
         name,
         contactEmail,
         phone,
@@ -105,9 +130,18 @@ const addBuilder = async (
         about
     ) => {
         try {
+            let url;
+            if(type === 'residentialHouseId') {
+                const residentialHouseId = Id;
+                url = `/api/v1/residentialHouses/${residentialHouseId}/builders`;
+            } else {
+                const buildingId = Id;
+                url = `/api/v1/buildings/${buildingId}/builders`;
+            }
             const res = await axios({
             method: 'POST',
-            url: `/api/v1/buildings/${buildingId}/builders`,
+            url,
+            // url: `/api/v1/buildings/${Id}/builders`,
             data: {
                     name,
                     contactEmail,
@@ -132,13 +166,20 @@ const addBuilder = async (
     };
 
 
-function addBuilderBuilding() {
+function addBuilderBuilding(type) {
     alert("Hello");
-    BuilderForm.addEventListener('submit', async event => {
-        alert("Hello Prashant");
+    let formBuilder
+    if(BuilderForm) {
+        formBuilder = BuilderForm;
+    }
+    if(BuilderFormIH) {
+        formBuilder = BuilderFormIH
+    } 
+    formBuilder.addEventListener('submit', async event => {
+        alert(type);
         event.preventDefault();
 
-        const buildingId = document.getElementById('id').value;
+        const Id = document.getElementById('id').value;
         const name = document.getElementById('nameBuilderBuilding').value;
         const contactEmail = document.getElementById('emailBuilderBuilding').value;
         const phone = document.getElementById('phoneBuilderBuilding').value;
@@ -148,9 +189,10 @@ function addBuilderBuilding() {
         const operatingIn = document.getElementById('operatingInBuilding').value;
         const about = document.getElementById('textContentBuilderBuilding').value;
 
-        alert(buildingId);
+        // alert(Id);
         await addBuilder(
-                buildingId,
+                type,
+                Id,
                 name,
                 contactEmail,
                 phone,
