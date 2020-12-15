@@ -116,7 +116,8 @@ body {
     margin: 5%;
     position: absolute;
     top: 25%;
-    color: rgb(218, 214, 214);
+    color: rgb(212, 200, 200);
+    /* color: rgb(218, 214, 214); */
 }
 
 .topHead-div .imgName {

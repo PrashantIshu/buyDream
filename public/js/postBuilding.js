@@ -413,11 +413,11 @@ if(document.getElementById('bg-home-img')) {
         var slogan = document.getElementById("overview-slogan");
         // slogan.classList.add('cssanimation');
         // slogan.classList.add('fadeInBottom');
-        slogan.innerHTML = `<h1 id="one-liner" class="cssanimation fadeInBottom" style="color: #3C40C6;">${lines[i++]}</h1>`;
+        slogan.innerHTML = `<h1 id="one-liner" class="cssanimation fadeInBottom" style="color: black;">${lines[i++]}</h1>`;
         if(i===lines.length) {
             i=0;
         }
-    }, 3000);
+    }, 5000);
 }
 
 //////// Contact Builder ///////////
@@ -499,6 +499,18 @@ const postWish = async id => {
 function addWishlist(wishlist) {
     alert("Hello");
     WishlistForm.addEventListener('submit', event=> {
+        event.preventDefault();
+        alert("Hello from Prashant");
+        const elements = document.getElementsByClassName(`${wishlist}`);
+        // console.log(elements[0].value);
+        id = elements[0].value;
+        // alert(id);
+        postWish(id);
+    });
+}
+function addWishlistIH(wishlist) {
+    alert("Hello");
+    independentHouseForm.addEventListener('submit', event=> {
         event.preventDefault();
         alert("Hello from Prashant");
         const elements = document.getElementsByClassName(`${wishlist}`);

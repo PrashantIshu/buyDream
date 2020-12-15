@@ -41,6 +41,9 @@ const residentialHouseSchema = new mongoose.Schema({
     pricePerUnitUnit: {
         type: String
     },
+    priceWhole: {
+        type: Number
+    },
     description: {
         type: String,
         trim: true,
@@ -131,8 +134,9 @@ residentialHouseSchema.pre('findOneAndUpdate', async function(next) {
     if(docToUpdatePre) {
         if(docToUpdatePre.pricePerUnit && docToUpdatePre.sqftArea) {
             this._update.price = docToUpdatePre.pricePerUnit * docToUpdatePre.sqftArea;
+            this._update.priceWhole = this._update.price;
             if(this._update.price >= 10000000) {
-                this._update.priceUnit = "Cr"
+                this._update.priceUnit = "Cr";
                 this._update.price = this._update.price / 10000000;
             } else {
                 this._update.priceUnit = "Lakh";

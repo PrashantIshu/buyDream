@@ -105,20 +105,31 @@ exports.getMyProperties = catchAsync(async (req, res) => {
             });
         });
     }
-    // console.log(item);
+
+    const residentialHouse = await ResidentialHouse.find();
+    console.log(residentialHouse);
+    let residentialHouses = [];
+    // console.log(res.locals.user._id);
+    if(res.locals.user._id) {
+        residentialHouse.forEach(el => {
+            // console.log(el.agentOrOwner[0]);
+            if(JSON.stringify(el.agentOrOwner[0]) === JSON.stringify(res.locals.user._id)) {
+                // console.log(element);
+                residentialHouses.push(el);
+            }
+        });
+    }
 
     let agentOrOwner = true;
-    // if(res.locals.user) {
-    //     agentOrOwnerExists = agentOrOwnerExistsOrNot(res.locals.user, building[0]);
-    //     console.log(agentOrOwnerExists);
-    // }
 
-    let myProperties = true;
+    // let myProperties = true;
+    let myProperties = false;
     const myWishlists = false;
-    const overview = false;
+    const overview = true;
     res.render('overview', {
         title: "My Properties",
         buildings,
+        residentialHouses,
         myProperties,
         agentOrOwner,
         myWishlists,
@@ -136,7 +147,15 @@ exports.getMinToMaxPrice = catchAsync( async(req, res) => {
         }
     ]);
 
-    const building = await Building.find({slug: req.params.slug});
+    const residentialHouses = await ResidentialHouse.aggregate([
+        {
+            $match: { priceWhole: { $gte: 0 } }
+        },
+        {
+            $sort: { priceWhole: 1 }
+        }
+    ]);
+    // const building = await Building.find({slug: req.params.slug});
     let admin = false;
     if(res.locals.user) {
         admin = adminExistsOrNot(res.locals.user);
@@ -148,6 +167,7 @@ exports.getMinToMaxPrice = catchAsync( async(req, res) => {
     res.render('overview', {
         title: 'All Buildings',
         buildings,
+        residentialHouses,
         admin,
         myProperties,
         myWishlists,
@@ -165,7 +185,16 @@ exports.getMaxToMinPrice = catchAsync( async(req, res) => {
         }
     ]);
 
-    const building = await Building.find({slug: req.params.slug});
+    const residentialHouses = await ResidentialHouse.aggregate([
+        {
+            $match: { priceWhole: { $gte: 0 } }
+        },
+        {
+            $sort: { priceWhole: -1 }
+        }
+    ]);
+
+    // const building = await Building.find({slug: req.params.slug});
     let admin = false;
     if(res.locals.user) {
         admin = adminExistsOrNot(res.locals.user);
@@ -177,6 +206,7 @@ exports.getMaxToMinPrice = catchAsync( async(req, res) => {
     res.render('overview', {
         title: 'All Buildings',
         buildings,
+        residentialHouses,
         admin,
         myProperties,
         myWishlists,
@@ -194,7 +224,16 @@ exports.getMinToMaxRating = catchAsync( async(req, res) => {
         }
     ]);
 
-    const building = await Building.find({slug: req.params.slug});
+    const residentialHouses = await ResidentialHouse.aggregate([
+        {
+            $match: { ratingsAverage: { $gte: 0 } }
+        },
+        {
+            $sort: { ratingsAverage: 1 }
+        }
+    ]);
+
+    // const building = await Building.find({slug: req.params.slug});
     let admin = false;
     if(res.locals.user) {
         admin = adminExistsOrNot(res.locals.user);
@@ -206,6 +245,7 @@ exports.getMinToMaxRating = catchAsync( async(req, res) => {
     res.render('overview', {
         title: 'All Buildings',
         buildings,
+        residentialHouses,
         admin,
         myProperties,
         myWishlists,
@@ -223,7 +263,16 @@ exports.getMaxToMinRating = catchAsync( async(req, res) => {
         }
     ]);
 
-    const building = await Building.find({slug: req.params.slug});
+    const residentialHouses = await ResidentialHouse.aggregate([
+        {
+            $match: { ratingsAverage: { $gte: 0 } }
+        },
+        {
+            $sort: { ratingsAverage: -1 }
+        }
+    ]);
+
+    // const building = await Building.find({slug: req.params.slug});
     let admin = false;
     if(res.locals.user) {
         admin = adminExistsOrNot(res.locals.user);
@@ -235,6 +284,7 @@ exports.getMaxToMinRating = catchAsync( async(req, res) => {
     res.render('overview', {
         title: 'All Buildings',
         buildings,
+        residentialHouses,
         admin,
         myProperties,
         myWishlists,
@@ -555,7 +605,7 @@ exports.getMyWishlists = catchAsync(async (req, res, next) => {
     const myWishlists = true;
     const overview = false;
 
-    res.render("overview", {
+    res.render("wishlistsApartments", {
         title: "My Wishlists",
         buildings,
         myProperties,
@@ -592,8 +642,21 @@ exports.getBuildingsNearMe = catchAsync( async(req, res, next) => {
         },
     ]);
 
+    const residentialHouses = await ResidentialHouse.aggregate([
+        {
+            $geoNear: {
+                near: {
+                    type: 'Point',
+                    coordinates: [lng * 1, lat * 1]
+                },
+                distanceField: 'distance',
+                distanceMultiplier: multiplier
+            }
+        },
+    ]);
+
     // console.log(buildings);
-    const building = await Building.find({slug: req.params.slug});
+    // const building = await Building.find({slug: req.params.slug});
     let admin = false;
     if(res.locals.user) {
         admin = adminExistsOrNot(res.locals.user);
@@ -605,6 +668,7 @@ exports.getBuildingsNearMe = catchAsync( async(req, res, next) => {
     res.render('overview', {
         title: 'All Buildings',
         buildings,
+        residentialHouses,
         admin,
         myProperties,
         myWishlists,
@@ -631,7 +695,11 @@ exports.getBuildingsWithinDistance = catchAsync(async (req, res, next) => {
         coordinates: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
     });
 
-    const building = await Building.find({slug: req.params.slug});
+    const residentialHouses = await ResidentialHouse.find({
+        coordinates: { $geoWithin: { $centerSphere: [[lng, lat], radius] } }
+    });
+
+    // const building = await Building.find({slug: req.params.slug});
     let admin = false;
     if(res.locals.user) {
         admin = adminExistsOrNot(res.locals.user);
@@ -643,6 +711,7 @@ exports.getBuildingsWithinDistance = catchAsync(async (req, res, next) => {
     res.render('overview', {
         title: 'All Buildings',
         buildings,
+        residentialHouses,
         admin,
         myProperties,
         myWishlists,
@@ -667,9 +736,13 @@ exports.searchedDocs = catchAsync(async (req, res, next) => {
     const buildings = await Building.find( { $text: { $search: req.params.string } },
                                     { score: { $meta: "textScore" } } )
                                 .sort( { score: { $meta: "textScore" } } );
+
+    const residentialHouses = await ResidentialHouse.find( { $text: { $search: req.params.string } },
+                                    { score: { $meta: "textScore" } } )
+                                .sort( { score: { $meta: "textScore" } } );
     
     // console.log(buildings);
-    const building = await Building.find({slug: req.params.slug});
+    // const building = await Building.find({slug: req.params.slug});
     let admin = false;
     if(res.locals.user) {
         admin = adminExistsOrNot(res.locals.user);
@@ -681,6 +754,7 @@ exports.searchedDocs = catchAsync(async (req, res, next) => {
     res.render('overview', {
         title: 'All Buildings',
         buildings,
+        residentialHouses,
         admin,
         myProperties,
         myWishlists,
