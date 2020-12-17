@@ -24,7 +24,6 @@ const login = async (email, password) => {
 };
 
 if(loginForm) {
-    // alert("Hellow");
     loginForm.addEventListener('submit', event => {
         event.preventDefault();
         const email = document.getElementById('email-field').value;
@@ -87,10 +86,10 @@ const resetPassword = async (password, confirmPassword, token) => {
 };
 
 function resetPass(token) {
-    // alert("Hello");
+
     resetPasswordForm.addEventListener('submit', event => {
         event.preventDefault();
-        // alert(token);
+
         const password = document.getElementById('pass-field').value;
         const confirmPassword = document.getElementById('passConfirm-field').value;
         resetPassword(password, confirmPassword, token);

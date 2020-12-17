@@ -1,7 +1,6 @@
 /////////////////////// JS for Sticky Navbar ////////////////////////////////
 if(document.getElementById('nav-container')) {
   window.onscroll = function() {
-    // alert("hello");
     const getNav = document.getElementById('nav-container');
     const getNavUL = document.getElementById('navbar');
     const sticky = getNav.offsetTop;
@@ -65,9 +64,7 @@ var setVisible = function(elem) {
 // var outer = $("#overview-container");
 
 function rightClickAmenety() {
-    // alert("Hello");
     var leftPos = $("#ameneties").scrollLeft();
-    // alert(leftPos);
     $("#ameneties").animate({
       scrollLeft: leftPos - 300
     }, 400, function() {
@@ -79,10 +76,8 @@ function rightClickAmenety() {
 };
 
 function leftClickAmenety() {
-    // alert("Hello");
     setVisible($('#right-button-amenety'));
     var leftPos = $("#ameneties").scrollLeft();
-    // alert(leftPos);
     $("#ameneties").animate({
       scrollLeft: leftPos + 300
     }, 400);
@@ -135,11 +130,8 @@ function showHouse(name) {
 }
 
 function showBtn(x) {
-  // console.log(y[0]);
-  // alert(elements[0].value);
-
   var elements = document.getElementsByClassName(`flatTypeBtn${x}`);
-  // console.log(elements);
+
 
   var totalFlatTypes = document.getElementsByClassName("flatType");
   for (var i = 0; i < totalFlatTypes.length; i++) {
@@ -158,28 +150,19 @@ function showBtn(x) {
 var overviewApartments = document.getElementById('apartments');
 var overviewResidentialVillas = document.getElementById('residentialVillas');
 if(overviewApartments && overviewResidentialVillas) {
-  // alert("Overview");
   window.onscroll = function() {
     if(window.pageYOffset > 160) {
-      // console.log(window.pageYOffset, overviewApartments.offsetTop);
-      // alert(window.pageYOffset);
-      // alert(overviewApartments.offsetTop);
       var cards = document.getElementsByClassName('card');
       for(var i = 0; i < cards.length; i++) {
         cards[i].classList.add('animateScrollApt');
         cards[i].classList.add('animateAptFadeInBottom');
-        // console.log(cards[i]);
       }
     }
     if(window.pageYOffset > 800) {
-      // console.log(window.pageYOffset, overviewApartments.offsetTop);
-      // alert(window.pageYOffset);
-      // alert(overviewApartments.offsetTop);
       var cardsIH = document.getElementsByClassName('residentialHouseCard');
       for(var i = 0; i < cardsIH.length; i++) {
         cardsIH[i].classList.add('animateScrollAptIH');
         cardsIH[i].classList.add('animateAptFadeInBottomIH');
-        // console.log(cards[i]);
       }
     }
   }

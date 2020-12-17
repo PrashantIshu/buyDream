@@ -63,9 +63,7 @@ function postAmenety(type) {
 }
 
 function removeAmenety(amenetyName) {
-    // alert("Hello");
     postAmenetyForm.addEventListener('submit', async event => {
-        alert(amenetyName);
         event.preventDefault();
 
         const buildingId = document.getElementById('id').value;
@@ -82,12 +80,9 @@ function removeAmenety(amenetyName) {
       
 ////////////// Remove House //////////////
 function removeGhar(id) {
-    alert("Hello Prashant Shekhar");
     removeHouseForm.addEventListener('submit', event => {
-        alert("Hello from House");
         event.preventDefault();
         var i=0;
-        alert(id);
         // console.log(typeof(id));
         // console.log(event.target.dataset);
         // let houseId = document.getElementsByClassName('getHouseId');
@@ -95,7 +90,7 @@ function removeGhar(id) {
         //         console.log(houseId[i].value); 
         // } 
         // houseId = houseId[].value;
-        // alert(houseId);
+
         // console.log(houseId);
     });
 }

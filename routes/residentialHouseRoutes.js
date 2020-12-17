@@ -18,7 +18,7 @@ Router.use('/:residentialHouseId/builders', builderRoutes);
 
 // Router.use('/:buildingId/houses', housesRoutes);
 
-// Router.post('/sendmail/:builderOrAgent/:building', propertyController.bookHouseMail);
+Router.post('/sendmail/:builderOrAgent/:residentialHouse', residentialHouseController.bookHouseMail);
 
 // Router
 //     .route('/top-5-buildings')

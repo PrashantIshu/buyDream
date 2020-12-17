@@ -40,7 +40,6 @@ if(updateUserForm) {
 if(updatePasswordForm) {
     updatePasswordForm.addEventListener('submit', async event => {
         event.preventDefault();
-        alert("Hello Prashant");
         const currentPassword = document.getElementById('current-password').value;
         const password = document.getElementById('new-password').value;
         const confirmPassword = document.getElementById('confirm-password').value;

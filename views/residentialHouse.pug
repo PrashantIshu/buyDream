@@ -30,8 +30,10 @@ block content
                     p= `${residentialHouse.flatType} BHK`
                     h6 Configuration
                 #overviewPossessionStatus
-                    p= `20th June, 2020`
-                    h6 Possesion Status
+                    //- p= `20th June, 2020`
+                    //- h6 Possesion Status
+                    p= `${residentialHouse.bedrooms} Rooms`
+                    h6 Bedrooms
                 #overviewFurnishing
                     p= `Semi Furnished`
                     h6 Furnishing
@@ -84,17 +86,17 @@ block content
                     h4 Contact Seller
                     #seller
                         #sellerImg
-                            img(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjP6YGqqvS0E3zO5_pxnk6bHpC2Edvt-cIGg&usqp=CAU" alt="seller_img")
+                            img(src="data:image/png;base64,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" alt="seller_img")
                         #sellerDetails
                             h6 Seller Name
                             h6.sellerOwner Owner
                             h6 Seller Half Phone
-                    #contactSellerForm
+                    form#contactSellerForm
                         h5 Please Share Your Contact
-                        input(type="text" placeholder="Name")
-                        input(type="text" placeholder="Phone")
-                        input(type="text" placeholder="Email")
-                        button Get Contact Details
+                        input#nameOwnerMail(type="text" placeholder="Name")
+                        input#emailOwnerMail(type="text" placeholder="Phone")
+                        input#phoneOwnerMail(type="text" placeholder="Email")
+                        button(onClick=`sendMailOwnerBtn('${agent}')`) Get Contact Details
 
         input#id(type="text" value=`${residentialHouse._id}` style="display: none")
         section#localitySection 

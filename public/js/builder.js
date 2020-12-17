@@ -30,7 +30,7 @@ const deleteBuilder = async (type, Id, builderId) => {
 }
 
 function removeBuilder(type) {
-    alert("Hello");
+    
     let formBuilder
     if(BuilderForm) {
         formBuilder = BuilderForm;
@@ -43,7 +43,6 @@ function removeBuilder(type) {
 
         const builderId = document.getElementById('removeBuilderId').value;
         const Id = document.getElementById('id').value;
-        // alert(Id);
         deleteBuilder(type, Id, builderId);
     });
 }
@@ -73,7 +72,6 @@ const updatingBuilder = async (
 };
 
 function updateBuilder(id) {
-    alert("Hello");
     let formBuilders
     if(BuilderForm) {
         formBuilders = BuilderForm;
@@ -82,7 +80,6 @@ function updateBuilder(id) {
         formBuilders = BuilderFormIH
     } 
     formBuilders.addEventListener('submit', async event => {
-        alert("Hello Prashant");
         event.preventDefault();
 
         // const buildingId = document.getElementById('id').value;
@@ -99,15 +96,11 @@ function updateBuilder(id) {
         var logoPhoto;
         if(document.getElementById('logo-builder').files[0]) {
             logoPhoto = document.getElementById('logo-builder').files[0];
-            alert(logoPhoto);
         } else {
             logoPhoto = document.getElementById('builder-photo-logo').value;
-            alert(logoPhoto);
         }
         formBuilder.append('logo', logoPhoto);
 
-        // alert(id);
-        // alert(buildingId);
         await updatingBuilder(
                 // buildingId,
                 id,
@@ -167,7 +160,6 @@ const addBuilder = async (
 
 
 function addBuilderBuilding(type) {
-    alert("Hello");
     let formBuilder
     if(BuilderForm) {
         formBuilder = BuilderForm;
@@ -176,7 +168,6 @@ function addBuilderBuilding(type) {
         formBuilder = BuilderFormIH
     } 
     formBuilder.addEventListener('submit', async event => {
-        alert(type);
         event.preventDefault();
 
         const Id = document.getElementById('id').value;
@@ -189,7 +180,6 @@ function addBuilderBuilding(type) {
         const operatingIn = document.getElementById('operatingInBuilding').value;
         const about = document.getElementById('textContentBuilderBuilding').value;
 
-        // alert(Id);
         await addBuilder(
                 type,
                 Id,

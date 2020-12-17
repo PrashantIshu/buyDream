@@ -27,8 +27,7 @@ function showPosition(btn) {
         navigator.geolocation.getCurrentPosition(async function(position) {
             latitude = position.coords.latitude;
             longitude =  position.coords.longitude;
-            alert(latitude);
-            alert(longitude);
+
             if(btn === 'nearMe') {
                 await buildingsNearMe(latitude, longitude);
             }

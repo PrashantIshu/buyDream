@@ -5,12 +5,10 @@ function openMenu() {
         $(".menu-icon").removeAttr("name");
         $(".menu-icon").attr("name", "close");
         $(".menu-icon").removeClass("ion-navicon-round");
-        // alert("Heloo");
     } else {
         $(".menu-icon").removeAttr("name");
         $(".menu-icon").attr("name", "menu");
         $(".menu-icon").addClass("ion-navicon-round");
-        // alert("Hello");
     }
     
 }
@@ -37,10 +35,8 @@ function rightClick() {
 };
 
 function leftClick() {
-  // alert("Hello");
   setVisible($('#right-button'));
   var leftPos = $("#body").scrollLeft();
-  // alert(leftPos);
   $("#body").animate({
     scrollLeft: leftPos + 800
   }, 800);

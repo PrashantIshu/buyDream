@@ -22,14 +22,10 @@ const postWish = async id => {
 
 
 function addWishlist(wishlist) {
-    alert("Hello");
     postWishlistForm.addEventListener('submit', event=> {
         event.preventDefault();
-        alert("Hello from Prashant");
         const elements = document.getElementsByClassName(`${wishlist}`);
-        // console.log(elements[0].value);
         id = elements[0].value;
-        // alert(id);
         postWish(id);
     });
 }

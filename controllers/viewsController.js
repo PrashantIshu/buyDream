@@ -1,5 +1,6 @@
 const Building = require('../models/buildingsModel');
 const ResidentialHouse = require('../models/residentialHouseModel');
+const User = require('../models/usersModel');
 const ResidentialHouseReview = require('../models/residentialHouseReviewModel');
 const House = require('../models/housesModel');
 const Review = require('../models/reviewModel');
@@ -473,7 +474,8 @@ exports.getIndependentHouse = catchAsync(async(req, res, next) => {
             agent = agent._id;
         }
     }
-
+    // const builderss = await User.findById(agent);
+    // console.log(builderss);
     /////// For Builders //////
     const builders = await Builder.find();
     let builder;
@@ -492,7 +494,7 @@ exports.getIndependentHouse = catchAsync(async(req, res, next) => {
             var builderAbout = builder.about.substring(0, 100);
         }
     }
-    console.log(builder);
+    // console.log(builder);
     // const allReviews = await ResidentialHouseReview.find();
     // let reviews = [];
     // allReviews.forEach( el => {
@@ -505,7 +507,7 @@ exports.getIndependentHouse = catchAsync(async(req, res, next) => {
     res.render('residentialHouse', {
         title: 'Residential House',
         residentialHouse,
-        admin, agentOrOwnerExists,
+        admin, agentOrOwnerExists, agent,
         builder, builderAbout
     });
 });

@@ -3,11 +3,11 @@ extends base
 block content
     if myProperties
         #my-properties-img
-            h2#topic-one Heading
+            h2#topic-one HouseStore
             ion-icon.menu-icon(class="ion-navicon-round", onClick="openMenu()", name="menu")
             section#nav
                 ul.qwerty
-                    h1#topic Heading
+                    h1#topic HouseStore
                     li.left-list: .dropdown
                             button.navBtn(class='dropbtn') Sort By
                             .dropdown-content-1
@@ -19,7 +19,7 @@ block content
                     li.left-list: .dropdown
                             button.filter.navBtn(class='dropbtn') Filter
                             .dropdown-content-2
-                                p Buildings Within Distance(in meters)
+                                p Buildings Within Distance
                                 p.zero 0
                                 input#distance-range(type="range", min="0", max="10000", value="0")
                                 p.thousand 10000
@@ -39,11 +39,11 @@ block content
     else
         #bg-home-img
             img(src="https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", alt="bg_img")
-        h2#topic-one Heading
+        h2#topic-one HouseStore
         ion-icon.menu-icon(class="ion-navicon-round", onClick="openMenu()", name="menu")
         section#nav
             ul.qwerty
-                h1#topic Heading
+                h1#topic HouseStore
                 li.left-list: .dropdown
                         button.navBtn(class='dropbtn') Sort By
                         .dropdown-content-1
@@ -190,8 +190,8 @@ block content
                                     a.updateBtnLink(href=`/updateIndependentHouse/${residentialHouse.slug}`) To Update Building Click Here
                                     a.updateLinkBtn(href=`/updateIndependentHouse/${residentialHouse.slug}`) Update
                                 else
-                                    i.far.fa-bookmark.overviewBtnIcon
-                                    button.btn.wishlist-btn(onClick=`addWishlistIH('${residentialHouse.name}')`) Save 
+                                    i.far.fa-bookmark.overviewBtnIcon(style="visibility: hidden")
+                                    button.btn.wishlist-btn(onClick=`addWishlistIH('${residentialHouse.name}')` style="visibility: hidden") Save 
                                     a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
                             if myProperties 
                                 if agentOrOwner
@@ -201,8 +201,8 @@ block content
                                     a.updateBtnLink(href=`/updateIndependentHouse/${residentialHouse.slug}`) To Update Building Click Here
                                     a.updateLinkBtn(href=`/updateIndependentHouse/${residentialHouse.slug}`) Update
                                 else
-                                    i.far.fa-bookmark.overviewBtnIcon
-                                    button.btn.wishlist-btn(onClick=`addWishlistIH('${residentialHouse.name}')`) Save
+                                    i.far.fa-bookmark.overviewBtnIcon(style="visibility: hidden")
+                                    button.btn.wishlist-btn(onClick=`addWishlistIH('${residentialHouse.name}')` style="visibility: hidden") Save
                                     a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
                             if myWishlists 
                                 input#wishlistId(type="text", class=`${residentialHouses.name}`, value=`${residentialHouses._id}`, style="display: none;") 

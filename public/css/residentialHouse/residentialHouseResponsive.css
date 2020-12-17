@@ -3,7 +3,6 @@
     #overviewSection {
         width: 100%;
         margin-bottom: 1rem;
-        /* height: 50rem; */
     }
     #overviewSection #overviewPartTwo {
         margin-top: 1rem;
@@ -31,7 +30,6 @@
         left: 91%;
         top: 135rem;
         right: 0;
-        /* float: right; */
         
     }
     #builderIH {
@@ -42,17 +40,12 @@
         display: flex;
         flex-direction: column;
     }
-    /* #overviewHouseDetails {
-        grid-template-columns: 45% 45%;
-        grid-gap:
-    } */
 }
 
 
 @media only screen and (max-width: 800px) { 
     #overviewPartThree p, #overviewPartThree h6 {
         font-size: 16px;
-        /* font-weight: lighter; */
     }
     #overviewPartThree .fa-rupee-sign {
         font-size: 14px;

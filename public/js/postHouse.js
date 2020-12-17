@@ -22,10 +22,8 @@ const postHouse = async (data, buildingName) => {
 };
 
 if(postHouseForm) {
-    //alert("Hello");
     postHouseForm.addEventListener('submit', async event=> {
         event.preventDefault();
-        alert("Hello from Prashant");
         const priceUnit = document.querySelector("input[name=priceUnit]:checked").value;
         const formHouse = new FormData();
         formHouse.append('flatType', document.getElementById('flat-type').value);
@@ -41,8 +39,6 @@ if(postHouseForm) {
         
         const buildingName = document.getElementById('building-name').value;
         
-        // console.log(flatType, price, sqftArea, bathrooms, balconies, status, usp, building);
-        //alert(flatType, price, sqftArea, bathrooms, balconies, status, usp, building)
         await postHouse(formHouse, buildingName);
     });
 }
@@ -68,7 +64,6 @@ const remove = async (houseId) => {
 };
 
 function deleteHouse(house) {
-    alert("Hello from remove house");
     houseForm.addEventListener('submit', event => {
         event.preventDefault();
         console.log(house);
@@ -97,7 +92,6 @@ const removeReview = async (reviewId) => {
 
 function deleteReview(review) {
     // if(removeReviewForm) {
-        alert("Hello from remove review");
         removeReviewForm.addEventListener('submit', event => {
             event.preventDefault();
             console.log(review);

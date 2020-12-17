@@ -6,8 +6,8 @@ const ResidentialHouse = require('../models/residentialHouseModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/app-error');
 const factory = require('./handleFactory');
-// const Builder = require('../models/builderModel');
-// const User = require('../models/usersModel');
+const Builder = require('../models/builderModel');
+const User = require('../models/usersModel');
 const sendEmail = require('../utils/bookingEmail');
 
 // const buildings = JSON.parse(fs.readFileSync(`./dev-data/property.json`));
@@ -113,6 +113,57 @@ exports.getResidentialHouseWithin = factory.getDocsWithin(ResidentialHouse);
 exports.getDistances = factory.getDistances(ResidentialHouse);
 
 exports.searchDocument = factory.searchDocs(ResidentialHouse);
+
+exports.bookHouseMail = catchAsync( async(req, res, next) => {
+    const residentialHouse = await ResidentialHouse.findById(req.params.residentialHouse);
+    // const builder = await Builder.findById(req.params.builderOrAgent);
+    const agent = await User.findById(req.params.builderOrAgent);
+    
+    // console.log(builder);
+    console.log(agent);
+    // console.log(residentialHouse);
+    const { name, email, phone } = req.body;
+    let mailTo;
+    const message = `${name} is interested in your ${residentialHouse.name} property. Get In touch with him/her.
+                    His/Her contact details are below:- 
+                    Email - ${email}
+                    Phone - ${phone}`;
+
+    // if (builder) {
+        // clientMessage = `You Contacted Builder of ${residentialHouse.name}, ${residentialHouse.address}.
+        //                     Average Price ${residentialHouse.price}.
+        //                     Below are his contact details:- 
+        //                     Email - ${builder.contactEmail}
+        //                     Phone - ${builder.phone}`;
+        // mailTo = builder;
+    // }
+    // if (agent) {
+        clientMessage = `You Contacted Agent of ${residentialHouse.name}, ${residentialHouse.address}.
+                            Average Price ${residentialHouse.price}.
+                            Below are his contact details:- 
+                            Email - ${agent.contactEmail}
+                            Phone - ${agent.phone}`;
+        mailTo = agent;
+    // }
+    // console.log(mailTo.contactEmail);
+    const builderOrAgentMail = await sendEmail({
+        email: mailTo.contactEmail,
+        subject: 'Congratulations! Someone liked your property',
+        message
+    });
+    const clientMail = await sendEmail({
+            email,
+            subject: `Congratulations! You Contacted ${residentialHouse.name}`,
+            message: clientMessage
+    });
+
+    res.json({
+        status: 'success',
+        message: 'Booking Contact details sent to email!'
+    });
+
+    next();
+});
 
 // exports.buildingStats = catchAsync( async(req, res, next) => {
 //     const stats = await House.aggregate([

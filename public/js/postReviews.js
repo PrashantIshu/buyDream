@@ -24,21 +24,17 @@ const postReview = async (review, rating, buildingId) => {
 };
 // console.log("Hello");
 if(reviewForm) {
-    // alert("Hello");
+
     reviewForm.addEventListener('submit', event => {
         event.preventDefault();
         const review = document.getElementById('review').value;
         const rating = document.getElementById('rating').value;
         const buildingId = document.getElementById('id').value;
-        alert(review);
-        alert(rating);
         postReview(review, rating, buildingId);
     });
 }
 
 function countStars(star) {
-    alert("Hello Prashant");
-    alert(star);
     const elements = document.getElementsByClassName('your-rate');
     for(var i=0; i<elements.length; i++) {
         elements[i].setAttribute("style", "fill: #bbb;");
@@ -49,7 +45,6 @@ function countStars(star) {
     } 
     const element = document.getElementById('rating');
     element.value = star;
-    console.log(element);
 }
 
 /////////// Remove Review /////////////////

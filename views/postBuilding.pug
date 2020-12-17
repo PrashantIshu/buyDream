@@ -20,9 +20,9 @@ block content
                     label#admin-label(for="admin") Admin
                 #details      
                     label(for="name") Name
-                    input#nameAgent(type="text", autocomplete="off", required)
+                    input#nameAgent(type="text", autocomplete="off", placeholder="Min 10 alphabets", required)
                     label(for="mobile") Phone Number
-                    input#mobileAgent(type="tel", required)
+                    input#mobileAgent(type="tel", placeholder="exactly 10 digits", required)
                     label(for="email", autoComplete="off") Email
                     input#emailAgent(type="text", required)
 
@@ -42,7 +42,7 @@ block content
                         label#cr-label-post(for="cr") Crore
                     #secondUnitPost
                         input#lakhPost(type="radio" value="Lakh" name="priceUnitPost")
-                        label#lakh-label-post(for="lakh") 
+                        label#lakh-label-post(for="lakh") Lakh
 
                 label#label-flat-type(for="flat-type") Flat Type
                 input#flat-type(type="text", required)
@@ -72,11 +72,11 @@ block content
             section#builder-details
                 h2 Builder Details
                 label#labelNameBuilder(for="nameBuilder") Name
-                input#nameBuilder(type="text", required)
+                input#nameBuilder(type="text", placeholder="Min 10 alphabets", required)
                 label#labelEmailBuilder(for="emailBuilder") Email
                 input#emailBuilder(type="email", required)
                 label#labelPhoneBuilder(for="emailBuilder") Phone Number
-                input#phoneBuilder(type="tel", required)
+                input#phoneBuilder(type="tel", placeholder="exactly 10 digits", required)
                 #builderStats
                     #statOne
                         label#labelExperience(for="experience") Experience
@@ -110,7 +110,7 @@ block content
             //-         option(value="Residential House") Residential House
 
             label(for="property-name") Name
-            input#property-name(type="text", required)
+            input#property-name(type="text", placeholder="Min 10 alphabets", required)
 
             label Location Advantages
             //- label#pointOne(for="locationAdvantageOne") 1. 

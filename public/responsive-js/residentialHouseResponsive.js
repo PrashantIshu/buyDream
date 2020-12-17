@@ -5,7 +5,6 @@ if(document.getElementById('navContainer')) {
       const getContactSeller = document.getElementById('contactSecondHalf');
       const rightArrow = document.getElementsByClassName('pics-left-btn-ih');
       // const sticky = getNav.offsetTop;
-      // alert(sticky);
       // if(window.pageYOffset >= 700) {
       //   var navItem = document.getElementById(firstLink);
       //   navItem.classList.add(scrolledNavItem);
@@ -24,7 +23,6 @@ if(document.getElementById('navContainer')) {
   }
   
   function readAll() {
-    // alert("Hello");
     const desc = document.getElementById('readDesc');
     const moreRead = document.getElementById('moreRead');
     if($("#readDesc").hasClass("hideDesc")) {
@@ -75,7 +73,6 @@ function rightClickPicsIh() {
 function leftClickPicsIh() {
     setVisible($('#right-button-pics-ih'));
     var leftPos = $("#photosGallery").scrollLeft();
-    // alert(leftPos);
     $("#photosGallery").animate({
       scrollLeft: leftPos + 500
     }, 700);

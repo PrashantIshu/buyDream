@@ -9,6 +9,7 @@ const WishlistForm = document.querySelector('#wishlist-container');
 const mailForm = document.querySelector('#mailbox');
 const mailAgentForm = document.querySelector('#mailboxAgent');
 const mailAgentFormOnImg = document.querySelector('#mailboxAgentOnImg');
+const mailOwnerForm = document.querySelector('#contactSellerForm');
 
 const postBuilding = async (nameAgent, emailAgent, mobileAgent, name, contactEmail, phone, experience, totalProjects, projectsCompleted, operatingIn, about, dataProperty, agentOrOwner, role, dataHouse) => {
     try {        
@@ -77,17 +78,14 @@ const postBuilding = async (nameAgent, emailAgent, mobileAgent, name, contactEma
             // }
         });
         
-        alert("success");
         if(resBuilder.data.status === "success" && resHouse.data.status === "success" && resBuilding.data.status === 'success' && ress.data.status ==='success') {
             window.setTimeout( () => {
                 location.assign(`/houses/${builderSlug}`);
                 // location.reload();
             }, 1200);
             alert("Success");
-            // alert(resBuilding)
         }
     } catch(err) {
-        alert("err");
         alert(err);
     }
 };
@@ -121,7 +119,6 @@ const postIh = async (dataProperty, agentOrOwner, role) => {
                 location.reload();
             }, 1200);
             alert("Success");
-            // alert(resBuilding)
         }
     } catch(err) {
         alert("err");
@@ -149,11 +146,17 @@ const deleteBuild = async (type, id) => {
     }
 };
 
-const mail = async (builderOrAgentId, buildingId, name, email, phone) => {
+const mail = async (builderOrAgentId, buildingId, name, email, phone, type) => {
     try {
+        let x;
+        if(type === 'buildings') {
+            x = type;
+        } else {
+            x = type;
+        }
         const res = await axios({
             method: 'POST',
-            url: `/api/v1/buildings/sendmail/${builderOrAgentId}/${buildingId}`,
+            url: `/api/v1/${x}/sendmail/${builderOrAgentId}/${buildingId}`,
             data: {
                 name, 
                 email,
@@ -173,16 +176,13 @@ const mail = async (builderOrAgentId, buildingId, name, email, phone) => {
 };
 
 if(postBuildingForm) {
-    //alert("Hello");
     postBuildingForm.addEventListener('submit', async event=> {
-        alert("Hello from Prashant");
         event.preventDefault();
         // const name = document.getElementById('property-name').value;
         // const description = document.getElementById('property-description').value;
         // const summary = document.getElementById('property-summary').value;
         const agentOrOwner = document.getElementById('userId').value;
         const role = document.querySelector("input[name=role]:checked").value;
-        alert(role);
         const nameAgent = document.getElementById('nameAgent').value;
         const mobileAgent = document.getElementById('mobileAgent').value;
         const emailAgent = document.getElementById('emailAgent').value;
@@ -202,7 +202,6 @@ if(postBuildingForm) {
         formProperty.append('locationAdvantages', document.getElementById('locationAdvantageThree').value);
         formProperty.append('locationAdvantages', document.getElementById('locationAdvantageFour').value);
         formProperty.append('locationAdvantages', document.getElementById('locationAdvantageFive').value);
-        // alert(document.getElementById('locationAdvantageOne').value);
         
         const formHouse = new FormData();
         formHouse.append('flatType', document.getElementById('flat-type').value);
@@ -240,13 +239,10 @@ if(postBuildingForm) {
 
 
 if(postIhForm) {
-    //alert("Hello");
     postIhForm.addEventListener('submit', async event=> {
-        alert("Hello from Prashant");
         event.preventDefault();
         const agentOrOwner = document.getElementById('userId').value;
         const role = document.querySelector("input[name=role]:checked").value;
-        alert(role);
         // const nameAgent = document.getElementById('nameAgent').value;
         // const mobileAgent = document.getElementById('mobileAgent').value;
         // const emailAgent = document.getElementById('emailAgent').value;
@@ -266,7 +262,6 @@ if(postIhForm) {
         formProperty.append('locationAdvantages', document.getElementById('locationAdvantageThree').value);
         formProperty.append('locationAdvantages', document.getElementById('locationAdvantageFour').value);
         formProperty.append('locationAdvantages', document.getElementById('locationAdvantageFive').value);
-        // alert(document.getElementById('locationAdvantageOne').value);
         
         // const formHouse = new FormData();
         formProperty.append('flatType', document.getElementById('flat-type').value);
@@ -323,17 +318,17 @@ function deleteIndependentHouse(id) {
 ////////// Count Width of Grid Container ///////////
 const overviewContainer = document.querySelector(".grid-container");
 if(overviewContainer) {
-    // alert("Hello");
+
     const len = document.getElementById('totalBuildings').value;
-    // alert(len);
+
     const size = len*347;
-    // alert(size);
+
     overviewContainer.style.width = `${size}px`; 
 }
 
     function myFunction(x) {
       if (x.matches) { // If media query matches
-        // alert(x);
+
         overviewContainer.classList.remove('grid-container');
       } else {
             overviewContainer.classList.add('grid-container');
@@ -349,17 +344,17 @@ if(overviewContainer) {
 ////////// Count Width of Residential House Grid Container ///////////
 const residentialHouseContainer = document.querySelector(".residentialHouseGridContainer");
 if(residentialHouseContainer) {
-    // alert("Hello");
+
     const len = document.getElementById('totalResidentialHouses').value;
-    // alert(len);
+
     const size = len*347;
-    // alert(size);
+
     residentialHouseContainer.style.width = `${size}px`; 
 }
 
     function myFunctions(x) {
       if (x.matches) { // If media query matches
-        // alert(x);
+
         residentialHouseContainer.classList.remove('residentialHouseGridContainer');
       } else {
         residentialHouseContainer.classList.add('residentialHouseGridContainer');
@@ -386,11 +381,9 @@ const search = async (string) => {
 };
 
 function searchBtn() {
-    alert("Hello");
     searchForm.addEventListener('submit', event => {
         event.preventDefault();
         const string = document.getElementById('search-field').value;
-        alert(string);
         search(string);
     });
 }
@@ -422,56 +415,50 @@ if(document.getElementById('bg-home-img')) {
 
 //////// Contact Builder ///////////
 function sendMailBuilderBtn(builderId) {
-    alert("Hello");
     mailForm.addEventListener('submit', async event => {
-        alert(builderId);
         event.preventDefault();
 
         const buildingId = document.getElementById('id').value;
-        alert(buildingId);
         const name = document.getElementById('nameMail').value;
         const email = document.getElementById('emailMail').value;
         const phone = document.getElementById('phoneMail').value;
-        alert(name);
-        alert(email);
-        alert(phone);
-        await mail(builderId, buildingId, name, email, phone);
+        await mail(builderId, buildingId, name, email, phone, 'buildings');
     });
 }
 
 function sendMailAgentBtn(agentId) {
-    alert("Hello");
     mailAgentForm.addEventListener('submit', async event => {
-        alert(agentId);
         event.preventDefault();
 
         const buildingId = document.getElementById('id').value;
-        alert(agentId);
         const name = document.getElementById('nameAgentMail').value;
         const email = document.getElementById('emailAgentMail').value;
         const phone = document.getElementById('phoneAgentMail').value;
-        alert(name);
-        alert(email);
-        alert(phone);
-        await mail(agentId, buildingId, name, email, phone);
+        await mail(agentId, buildingId, name, email, phone, 'buildings');
     });
 }
 
 function sendMailKnowMoreBtn(agentId) {
-    alert("Hello Know More");
-    alert(agentId);
     mailAgentFormOnImg.addEventListener('submit', async event => {
         event.preventDefault();
 
         const buildingId = document.getElementById('id').value;
-        alert(agentId);
         const name = document.getElementById('nameAgentMailOnImg').value;
         const email = document.getElementById('emailAgentMailOnImg').value;
         const phone = document.getElementById('phoneAgentMailOnImg').value;
-        alert(name);
-        alert(email);
-        alert(phone);
-        await mail(agentId, buildingId, name, email, phone);
+        await mail(agentId, buildingId, name, email, phone, 'buildings');
+    });
+}
+
+function sendMailOwnerBtn(ownerId) {
+    mailOwnerForm.addEventListener('submit', async event => {
+        event.preventDefault();
+
+        const buildingId = document.getElementById('id').value;
+        const name = document.getElementById('nameOwnerMail').value;
+        const email = document.getElementById('emailOwnerMail').value;
+        const phone = document.getElementById('phoneOwnerMail').value;
+        await mail(ownerId, buildingId, name, email, phone, 'residentialHouses');
     });
 }
 
@@ -497,26 +484,18 @@ const postWish = async id => {
 };
 
 function addWishlist(wishlist) {
-    alert("Hello");
     WishlistForm.addEventListener('submit', event=> {
         event.preventDefault();
-        alert("Hello from Prashant");
         const elements = document.getElementsByClassName(`${wishlist}`);
-        // console.log(elements[0].value);
         id = elements[0].value;
-        // alert(id);
         postWish(id);
     });
 }
 function addWishlistIH(wishlist) {
-    alert("Hello");
     independentHouseForm.addEventListener('submit', event=> {
         event.preventDefault();
-        alert("Hello from Prashant");
         const elements = document.getElementsByClassName(`${wishlist}`);
-        // console.log(elements[0].value);
         id = elements[0].value;
-        // alert(id);
         postWish(id);
     });
 }
@@ -542,13 +521,9 @@ const deleteWish = async id => {
 };
 
 function deleteWishlist(wishlist) {
-    alert("Hello");
     WishlistForm.addEventListener('submit', event=> {
         event.preventDefault();
-        alert("Hello from Prashant");
-        // alert(wishlist);
         const elements = document.getElementsByClassName(`${wishlist}`);
-        // console.log(elements[0].value);
         id = elements[0].value;
         deleteWish(id);
     });

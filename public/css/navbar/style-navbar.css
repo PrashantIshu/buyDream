@@ -1,5 +1,6 @@
 #topic-one {
     display: none;
+    font-family: 'Nunito', sans-serif;
 }
 
 #one-liner {
@@ -91,11 +92,11 @@
 }
 
 .signup-home {
-    margin-left: 26rem;
+    margin-left: 24rem;
 }
 
 .user-home {
-    width: 32%;
+    width: 30%;
     text-align:right;
     /* margin-left: 21rem; */
     margin-right: 0.3rem;

@@ -61,7 +61,6 @@ const updateResidentialHouse = async (id, data, slug) => {
 
 function updateBuilding(id) {
     updateBuildingForm.addEventListener('submit', async event => {
-        alert("heloo prashant");
         event.preventDefault();
 
         let imageOne = document.getElementById('coverPhoto').files[0];
@@ -86,7 +85,6 @@ function updateBuilding(id) {
         // console.log(imageThree);
         // console.log(imageFour);
         const slug = document.getElementById('slug').value;
-        alert(slug);
         const form = new FormData();
         form.append('name', document.getElementById('propertyName').value);
         form.append('address', document.getElementById('addresss').value);
@@ -105,9 +103,7 @@ function updateBuilding(id) {
 }
 
 function updateHouse(id) {
-    alert("Hellow");
     updateHouseForm.addEventListener('submit', async event => {
-        alert("heloo prashant");
         event.preventDefault();
 
         let image = document.getElementById('house-print').files[0];
@@ -130,15 +126,12 @@ function updateHouse(id) {
         formHouse.append('building', document.getElementById('building').value);
         
         const slug = document.getElementById('building-name').value;
-        alert(slug);
         await updateGhar(formHouse, id, slug);
     });
 }
 
 function toUpdateResidentialHouse(id) {
-    alert("Hello");
     updateResidentialHouseForm.addEventListener('submit', async event=> {
-        alert("Hello from Prashant");
         event.preventDefault();
 
         const formProperty = new FormData();
