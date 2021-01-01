@@ -1,12 +1,49 @@
 extends base
 
 block content
-    #my-properties-img
-        h2#topic-one Heading
+    if myProperties
+        #my-properties-img
+            h2#topic-one HouseStore
+            ion-icon.menu-icon(class="ion-navicon-round", onClick="openMenu()", name="menu")
+            section#nav
+                ul.qwerty
+                    h1#topic HouseStore
+                    li.left-list: .dropdown
+                            button.navBtn(class='dropbtn') Sort By
+                            .dropdown-content-1
+                                a(href="/min-to-max-price") Min-Max Price
+                                a(href="/max-to-min-price") Max-Min Price
+                                a(href="/min-to-max-rating") Min-Max Rating
+                                a(href="/max-to-min-rating") Max-Min Rating
+                    li.left-list: button.navBtn(onClick="showPosition('nearMe')") Buildings Near me
+                    li.left-list: .dropdown
+                            button.filter.navBtn(class='dropbtn') Filter
+                            .dropdown-content-2
+                                p Buildings Within Distance(in meters)
+                                p.zero 0
+                                input#distance-range(type="range", min="0", max="10000", value="0")
+                                p.thousand 10000
+                                <p class="value">Value: <span id="demo"></span></p>
+                                button(onClick="showPosition('buildingWithin')") Show
+                    li.left-list: .dropdown
+                            button.filter.navBtn(class='dropbtn') Sell Property
+                            .dropdown-content-1
+                                a(href="/sellBuilding") Flat In Apartment
+                                a(href="/sellIndependentHouse") Independent House
+                    //-  a.sell.navlink(href="/sellBuilding") Sell Property 
+            
+                    if user 
+                        li.user-home: a.navlink(class="signup", href="/me")= user.name
+                        img.img-home(src=`/img/users/${user.photo}`)
+                        li.logout-home: button.navBtn#logout(class="login") Log Out
+    else
+        #bg-home-img
+            img(src="https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", alt="bg_img")
+        h2#topic-one HouseStore
         ion-icon.menu-icon(class="ion-navicon-round", onClick="openMenu()", name="menu")
         section#nav
             ul.qwerty
-                h1#topic Heading
+                h1#topic HouseStore
                 li.left-list: .dropdown
                         button.navBtn(class='dropbtn') Sort By
                         .dropdown-content-1
@@ -24,62 +61,149 @@ block content
                             p.thousand 10000
                             <p class="value">Value: <span id="demo"></span></p>
                             button(onClick="showPosition('buildingWithin')") Show
-                li.left-list: a.sell.navlink(href="/sellBuilding") Sell Property 
+                li.left-list: .dropdown
+                        button.filter.navBtn(class='dropbtn') Sell Property
+                        .dropdown-content-1
+                            a(href="/sellBuilding") Flat In Apartment
+                            a(href="/sellIndependentHouse") Independent House
+                //-  a.sell.navlink(href="/sellBuilding") Sell Property 
             
                 if user 
                     li.user-home: a.navlink(class="signup", href="/me")= user.name
                     img.img-home(src=`/img/users/${user.photo}`)
                     li.logout-home: button.navBtn#logout(class="login") Log Out
-
-    h2#apartments Saved Apartments        
+                else
+                    li.left-list.signup-home: a.navlink(class="signup", href="/signup") Sign Up
+                    li.left-list.login-home: a.navlink(class="login", href="/login") Log In
+        #overview-slogan
+            h1#one-liner.cssanimation.sequence.fadeInBottom “Don’t wait to buy real estate. Buy real estate and wait.” -Will Rogers
+        #search-box-section
+            form#search-box
+                //- i.fas.fa-map-marker-alt
+                input#search-field(type="text", name="string", placeholder="   Enter address, locality or city", autocomplete="off")
+                button(onClick="searchBtn()") Search
+    
+    //- ion-icon#cross-icon(onClick="closeMenu()", name="close")
+                
+            
+    h2#apartments(class="animate__animated animate__bounce an-1") Apartments Flats        
     <div id="right-button" style="visibility: hidden;" onClick="rightClick()"><i class="overview-left-btn fas fa-chevron-left"></i></div>
     section#body                    
-        form#wishlist-page
+        form#wishlist-container
             #overview-container.grid-container
                 input#totalBuildings(value=`${buildings.length}`, style="display: none;")
-                each building in buildings
+                each building, index in buildings
                     div.card
-                        img(src="https://property.magicbricks.com/mb-microsite/uttamnagarfloors-aggarwalrealestates-delhi/images/gallery/g1.jpg", class="card-img-top", alt="house_1")
+                        //- img(src="https://property.magicbricks.com/mb-microsite/uttamnagarfloors-aggarwalrealestates-delhi/images/gallery/g1.jpg", class="card-img-top", alt="house_1")
                         //- .inr-icon
-                        .fas.fa-rupee-sign.fa-sm
-                        h2.card-title= `${building.price}`
-                        //- br
-                        p.onwards Onwards
-                        h3= `${building.name}`
-                        //- br
-                        p.by By Agrani Homes Real Marketing Pvt Ltd
-                        .fas.fa-map-marker-alt.fa-sm 
-                        p.area= building.address
-                        //- hr
-                        //- each flatType in building.propertiesAvailable
-                        p.text-muted=`Flats Available: ${building.propertiesAvailable} BHK` 
-                        p.averageRating= `Avg Rating: ${building.ratingsAverage}`
-                        i.fa.fa-star-o
-                        p.ratingQuantity= `Toal ratings: ${building.ratingsQuantity}`
-                        hr
-                        input#wishlistId(type="text", class=`${building.name}`, value=`${building._id}`, style="display: none;") 
-                        button.delete-wishlist.btn.wishlist-btn(onClick=`deleteWishlist('${building.name}')`) Remove
-                        a.detail-btn(href=`/houses/${building.slug}`) Details
-                        //- input.buildId(type="text", class=`${building.name}`, value=`${building._id}`) 
+                        .card-img
+                            img(src=`/img/buildings/${building.imageCover}` class="card-img-top" alt="house_1")
+                        .text
+                            .fas.fa-rupee-sign.fa-sm
+                            h2.card-title= `${building.price} ${building.priceUnit}`
                         
-    <div id="left-button" onClick="leftClick()"><i class="fa fa-chevron-right overview-right-btn"></i></div>   
-        //- form#wishlist-page.grid-container
-        //-     each building in buildings
-        //-         div.card
-        //-             img(src="https://property.magicbricks.com/mb-microsite/uttamnagarfloors-aggarwalrealestates-delhi/images/gallery/g1.jpg", class="card-img-top", alt="house_1")
-        //-             i.fas.fa-rupee-sign.fa-sm
-        //-             h2.card-title= `${building.price}`
-        //-             br
-        //-             p.onwards Onwards
-        //-             h3= `${building.name}`
-        //-             br
-        //-             p.by By Agrani Homes Real Marketing Pvt Ltd
-        //-             p.area
-        //-             i.fas.fa-map-marker-alt.fa-sm Nehru Nagar, Patna
-        //-             hr
-        //-             //- each flatType in building.propertiesAvailable
-        //-             p.text-muted=`${building.propertiesAvailable} BHK` 
-        //-             p.text-muted.text-mute= `${building.ratingsAverage}rating (${building.ratingsQuantity})`
-        //-             a.detail-btn(href=`/houses/${building.slug}`) Details
-        //-             input#wishlistId(type="text", class=`${building.name}`, value=`${building._id}`) 
-        //-             button.delete-wishlist(onClick=`deleteWishlist('${building.name}')`) Remove
+                            p.onwards Avg Price
+                            h3= `${building.name}`
+                            //- br
+                            if(building.builder)
+                                p.by= `by ${building.builder.name}`
+                            else 
+                                p.by Null
+                            .areaIcon.fas.fa-map-marker-alt.fa-sm 
+                            p.area= building.address
+                            //- hr
+                            //- each flatType in building.propertiesAvailable
+                            p.text-muted=`Flats Available: ${building.propertiesAvailable} BHK` 
+                            p.averageRating= `Avg Rating: ${building.ratingsAverage}`
+                            i.fa.fa-star-o
+                            p.ratingQuantity= `Total ratings: ${building.ratingsQuantity}`
+                            hr.line-break
+                            if overview 
+                                if admin
+                                    i.fa.fa-times.overviewBtnIcon
+                                    button.btn.wishlist-btn(onClick=`deleteBuilding('${building._id}')`) Delete
+                                    a.detail-btn(href=`/houses/${building.slug}`) Details
+                                    a.updateBtnLink(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
+                                    a.updateLinkBtn(href=`/updateBuilding/${building.slug}`) Update
+                                else
+                                    i.far.fa-bookmark.overviewBtnIcon
+                                    button.btn.wishlist-btn(onClick=`addWishlist('${building.name}')`) Save 
+                                    a.detail-btn(href=`/houses/${building.slug}`) Details
+                            if myProperties 
+                                if agentOrOwner
+                                    i.fa.fa-times.overviewBtnIcon
+                                    button.btn.wishlist-btn(onClick=`deleteBuilding('${building._id}')`) Delete
+                                    a.detail-btn(href=`/houses/${building.slug}`) Details
+                                    a.updateBtnLink(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
+                                    a.updateLinkBtn(href=`/updateBuilding/${building.slug}`) Update
+                                else
+                                    i.far.fa-bookmark.overviewBtnIcon
+                                    button.btn.wishlist-btn(onClick=`addWishlist('${building.name}')`) Save
+                                    a.detail-btn(href=`/houses/${building.slug}`) Details
+                            if myWishlists 
+                                input#wishlistId(type="text", class=`${building.name}`, value=`${building._id}`, style="display: none;") 
+                                i.fa.fa-times.overviewBtnIcon
+                                button.delete-wishlist.btn.wishlist-btn(onClick=`deleteWishlist('${building._id}')`) Remove
+                                a.detail-btn(href=`/houses/${building.slug}`) Details 
+                            input.buildId(type="text", class=`${building.name}`, value=`${building._id}`)
+                            
+                        //- if admin 
+                        //-     a(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
+    <div id="left-button" onClick="leftClick()"><i class="fa fa-chevron-right overview-right-btn"></i></div> 
+
+
+    h2#residentialVillas(class="animate__animated animate__bounce an-1") Residential Villas        
+    <div id="right-button-rh" style="visibility: hidden;" onClick="residentialHouseRightClick()"><i class="overview-left-btn fas fa-chevron-left"></i></div>
+    section#residentialHouseBody                    
+        form#wishlist-residentialHouse-container
+            #residentialHouse-container.residentialHouseGridContainer
+                input#totalResidentialHouses(value=`${residentialHouses.length}`, style="display: none;")
+                each residentialHouse, index in residentialHouses
+                    div.residentialHouseCard
+                        .residentialHouseCardImg
+                            img(src=`/img/residentialHouse/${residentialHouse.imageCover}` class="card-img-top" alt="house_1")
+                        .residentialHouseCardTtext
+                            .fas.fa-rupee-sign.fa-sm
+                            h2.residentialHouseCardTitle= `${residentialHouse.price} ${residentialHouse.priceUnit}`
+                            h3= `${residentialHouse.name}`
+                            if(residentialHouse.builder)
+                                p.by= `by ${residentialHouse.builder.name}`
+                            else 
+                                p.by Null
+                            .areaIcon.fas.fa-map-marker-alt.fa-sm 
+                            p.area= residentialHouse.address
+                            p.residentialHouseCardTextMuted=`Flat Type: ${residentialHouse.flatType} BHK` 
+                            p.residentialHouseCardAverageRating= `Avg Rating: ${residentialHouse.ratingsAverage}`
+                            i.fa.fa-star-o
+                            p.residentialHouseCardRatingQuantity= `Total ratings: ${residentialHouse.ratingsQuantity}`
+                            hr.line-break
+                            if overview 
+                                if admin
+                                    i.fa.fa-times.overviewBtnIcon
+                                    button.btn.wishlist-btn(onClick=`deleteIndependentHouse('${residentialHouse._id}')`) Delete
+                                    a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
+                                    a.updateBtnLink(href=`/updateIndependentHouse/${residentialHouse.slug}`) To Update Building Click Here
+                                    a.updateLinkBtn(href=`/updateIndependentHouse/${residentialHouse.slug}`) Update
+                                else
+                                    i.far.fa-bookmark.overviewBtnIcon(style="visibility: visible")
+                                    button.btn.wishlist-btn(onClick=`addWishlistIH('${residentialHouse._id}')` style="visibility: visible") Save 
+                                    a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
+                            if myProperties 
+                                if agentOrOwner
+                                    i.fa.fa-times.overviewBtnIcon
+                                    button.btn.wishlist-btn(onClick=`deleteIndependentHouse('${residentialHouse._id}')`) Delete
+                                    a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
+                                    a.updateBtnLink(href=`/updateIndependentHouse/${residentialHouse.slug}`) To Update Building Click Here
+                                    a.updateLinkBtn(href=`/updateIndependentHouse/${residentialHouse.slug}`) Update
+                                else
+                                    i.far.fa-bookmark.overviewBtnIcon(style="visibility: visible")
+                                    button.btn.wishlist-btn(onClick=`addWishlistIH('${residentialHouse._id}')` style="visibility: visible") Save
+                                    a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
+                            if myWishlists 
+                                input#wishlistId(type="text", class=`${residentialHouse.name}`, value=`${residentialHouse._id}`, style="display: none;") 
+                                i.fa.fa-times.overviewBtnIcon
+                                button.delete-wishlist.btn.wishlist-btn(onClick=`deleteWishlistIH('${residentialHouse._id}')`) Remove
+                                a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details 
+                            input.buildId(type="text", class=`${residentialHouse.name}`, value=`${residentialHouse._id}`)
+                            
+    <div id="left-button-rh" onClick="residentialHouseLeftClick()"><i class="fa fa-chevron-right overview-right-btn"></i></div>                                     

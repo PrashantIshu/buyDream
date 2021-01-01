@@ -30,7 +30,6 @@ block content
                             .dropdown-content-1
                                 a(href="/sellBuilding") Flat In Apartment
                                 a(href="/sellIndependentHouse") Independent House
-                    //-  a.sell.navlink(href="/sellBuilding") Sell Property 
             
                     if user 
                         li.user-home: a.navlink(class="signup", href="/me")= user.name
@@ -66,7 +65,6 @@ block content
                         .dropdown-content-1
                             a(href="/sellBuilding") Flat In Apartment
                             a(href="/sellIndependentHouse") Independent House
-                //-  a.sell.navlink(href="/sellBuilding") Sell Property 
             
                 if user 
                     li.user-home: a.navlink(class="signup", href="/me")= user.name
@@ -79,11 +77,9 @@ block content
             h1#one-liner.cssanimation.sequence.fadeInBottom “Don’t wait to buy real estate. Buy real estate and wait.” -Will Rogers
         #search-box-section
             form#search-box
-                //- i.fas.fa-map-marker-alt
                 input#search-field(type="text", name="string", placeholder="   Enter address, locality or city", autocomplete="off")
                 button(onClick="searchBtn()") Search
     
-    //- ion-icon#cross-icon(onClick="closeMenu()", name="close")
                 
             
     h2#apartments(class="animate__animated animate__bounce an-1") Apartments Flats        
@@ -94,8 +90,6 @@ block content
                 input#totalBuildings(value=`${buildings.length}`, style="display: none;")
                 each building, index in buildings
                     div.card
-                        //- img(src="https://property.magicbricks.com/mb-microsite/uttamnagarfloors-aggarwalrealestates-delhi/images/gallery/g1.jpg", class="card-img-top", alt="house_1")
-                        //- .inr-icon
                         .card-img
                             img(src=`/img/buildings/${building.imageCover}` class="card-img-top" alt="house_1")
                         .text
@@ -104,15 +98,12 @@ block content
                         
                             p.onwards Avg Price
                             h3= `${building.name}`
-                            //- br
                             if(building.builder)
                                 p.by= `by ${building.builder.name}`
                             else 
                                 p.by Null
                             .areaIcon.fas.fa-map-marker-alt.fa-sm 
                             p.area= building.address
-                            //- hr
-                            //- each flatType in building.propertiesAvailable
                             p.text-muted=`Flats Available: ${building.propertiesAvailable} BHK` 
                             p.averageRating= `Avg Rating: ${building.ratingsAverage}`
                             i.fa.fa-star-o
@@ -147,8 +138,6 @@ block content
                                 a.detail-btn(href=`/houses/${building.slug}`) Details 
                             input.buildId(type="text", class=`${building.name}`, value=`${building._id}`)
                             
-                        //- if admin 
-                        //-     a(href=`/updateBuilding/${building.slug}`) To Update Building Click Here
     <div id="left-button" onClick="leftClick()"><i class="fa fa-chevron-right overview-right-btn"></i></div> 
 
     h2#residentialVillas(class="animate__animated animate__bounce an-1") Residential Villas        
@@ -158,25 +147,19 @@ block content
             #residentialHouse-container.residentialHouseGridContainer
                 input#totalResidentialHouses(value=`${residentialHouses.length}`, style="display: none;")
                 each residentialHouse, index in residentialHouses
-                    //- img(src=`/img/residentialHouse/residentialHouse-5fc7c663eb4b635cb0774660-1606929444758-1.jpeg` class="card-img-top" alt="house_1")
                     div.residentialHouseCard
                         .residentialHouseCardImg
                             img(src=`/img/residentialHouse/${residentialHouse.imageCover}` class="card-img-top" alt="house_1")
                         .residentialHouseCardTtext
                             .fas.fa-rupee-sign.fa-sm
                             h2.residentialHouseCardTitle= `${residentialHouse.price} ${residentialHouse.priceUnit}`
-                        
-                            //- p.onwards Avg Price
                             h3= `${residentialHouse.name}`
-                            //- br
                             if(residentialHouse.builder)
                                 p.by= `by ${residentialHouse.builder.name}`
                             else 
                                 p.by Null
                             .areaIcon.fas.fa-map-marker-alt.fa-sm 
                             p.area= residentialHouse.address
-                            //- hr
-                            //- each flatType in building.propertiesAvailable
                             p.residentialHouseCardTextMuted=`Flat Type: ${residentialHouse.flatType} BHK` 
                             p.residentialHouseCardAverageRating= `Avg Rating: ${residentialHouse.ratingsAverage}`
                             i.fa.fa-star-o
@@ -190,8 +173,8 @@ block content
                                     a.updateBtnLink(href=`/updateIndependentHouse/${residentialHouse.slug}`) To Update Building Click Here
                                     a.updateLinkBtn(href=`/updateIndependentHouse/${residentialHouse.slug}`) Update
                                 else
-                                    i.far.fa-bookmark.overviewBtnIcon(style="visibility: hidden")
-                                    button.btn.wishlist-btn(onClick=`addWishlistIH('${residentialHouse.name}')` style="visibility: hidden") Save 
+                                    i.far.fa-bookmark.overviewBtnIcon(style="visibility: visible")
+                                    button.btn.wishlist-btn(onClick=`addWishlistIH('${residentialHouse._id}')` style="visibility: visible") Save 
                                     a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
                             if myProperties 
                                 if agentOrOwner
@@ -201,8 +184,8 @@ block content
                                     a.updateBtnLink(href=`/updateIndependentHouse/${residentialHouse.slug}`) To Update Building Click Here
                                     a.updateLinkBtn(href=`/updateIndependentHouse/${residentialHouse.slug}`) Update
                                 else
-                                    i.far.fa-bookmark.overviewBtnIcon(style="visibility: hidden")
-                                    button.btn.wishlist-btn(onClick=`addWishlistIH('${residentialHouse.name}')` style="visibility: hidden") Save
+                                    i.far.fa-bookmark.overviewBtnIcon(style="visibility: visible")
+                                    button.btn.wishlist-btn(onClick=`addWishlistIH('${residentialHouse._id}')` style="visibility: visible") Save
                                     a.detail-btn(href=`/independentHouse/${residentialHouse.slug}`) Details
                             if myWishlists 
                                 input#wishlistId(type="text", class=`${residentialHouses.name}`, value=`${residentialHouses._id}`, style="display: none;") 

@@ -594,22 +594,29 @@ exports.getMyWishlists = catchAsync(async (req, res, next) => {
     // console.log(wishlists);
 
     let houses = [];
-    let buildings = [];
+    let buildings = [], residentialHouses = [];
     let houseId;
     let buildingId;
     let i;
     for(i=0; i<wishlists.length; i++) {
         building = await Building.findById(wishlists[i].building);
-        buildings.push(building);    
+        residentialHouse = await ResidentialHouse.findById(wishlists[i].independentHouse);
+        if(building) {
+            buildings.push(building);  
+        }
+        else {
+            residentialHouses.push(residentialHouse);
+        }
     }
-    // console.log(buildings);
+
     let myProperties = false;
     const myWishlists = true;
     const overview = false;
 
-    res.render("wishlistsApartments", {
+    res.render("myWishlists", {
         title: "My Wishlists",
         buildings,
+        residentialHouses,
         myProperties,
         myWishlists,
         overview

@@ -488,14 +488,14 @@ function addWishlist(wishlist) {
         event.preventDefault();
         const elements = document.getElementsByClassName(`${wishlist}`);
         id = elements[0].value;
+        console.log(id);
         postWish(id);
     });
 }
-function addWishlistIH(wishlist) {
+function addWishlistIH(id) {
     independentHouseForm.addEventListener('submit', event=> {
         event.preventDefault();
-        const elements = document.getElementsByClassName(`${wishlist}`);
-        id = elements[0].value;
+        console.log(id);
         postWish(id);
     });
 }
@@ -520,11 +520,18 @@ const deleteWish = async id => {
     }
 };
 
-function deleteWishlist(wishlist) {
+function deleteWishlist(id) {
     WishlistForm.addEventListener('submit', event=> {
         event.preventDefault();
-        const elements = document.getElementsByClassName(`${wishlist}`);
-        id = elements[0].value;
+        deleteWish(id);
+    });
+}
+function deleteWishlistIH(id) {
+    independentHouseForm.addEventListener('submit', event=> {
+        event.preventDefault();
+        // const elements = document.getElementsByClassName(`${wishlist}`);
+        // id = elements[0].value;
+        // alert(id);
         deleteWish(id);
     });
 }

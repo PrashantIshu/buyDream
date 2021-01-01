@@ -8,18 +8,23 @@ const wishlistSchema = new mongoose.Schema({
     building: {
         type: mongoose.Schema.ObjectId,
         ref: 'Building'
+    },
+    independentHouse: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'ResidentialHouse'
     }
 });
 
 wishlistSchema.pre('save', function(next) {
     this.populate({
         path: 'building',
-        path: 'user',
+        path: 'independentHouse',
+        path: 'user'
     });
 
     next();
 });
-wishlistSchema.index({ user: 1, building: 1 }, { unique: true });
+wishlistSchema.index({ user: 1, building: 1, independentHouse: 1  }, { unique: true });
 
 const Wishlist = new mongoose.model('Wishlist', wishlistSchema);
 
